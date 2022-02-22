@@ -1,0 +1,100 @@
+{$ads.above_file}
+<div class="item">
+	
+	{if="Config::getArray('template_settings', 'item_title' )"}
+	<div class="file-title">
+		<a href="{$file_url}" title="{$title}">{$title}</a>
+	</div>
+	{/if}
+	
+	<div class="file-category">
+	{if="!empty($file_category)"}
+		<a href="{#ABS_URL#}category/{$file_category.id_category},{$file_category.category_link}"><span>{$file_category.category_name}</span></a>
+	{/if}
+	</div>
+	{$nav.link}
+	{$nav.box}
+	
+	
+	<div class="file-container {$file_class_css}" data-target="{$file_url}">
+	{$file_container}
+	</div>
+	{$ads.under_image}
+
+	{$upload_source}
+			
+	{$button_nk}
+	{$button_like}
+	{$button_share}
+	{$button_google}
+	{$button_twitter}
+	
+	<div class="item-footer">
+		{if=" $vote_type != 10 "}
+		<div class="info-section clear_both">	
+			<div class="vote">
+				<span class="id_{$id}">
+					<span data-id="{$id}" data-action="vote_file_up" class="ips-vote-file votes_up" title="{lang=vote_up_long}">
+						<img alt="{lang=votes_up}" class="img_vote" src="images/icons/vote/vote_up_{$vote_type}.png" />
+					</span>
+					<span data-id="{$id}" data-action="vote_file_down" class="ips-vote-file votes_down" title="{lang=vote_down_long}">
+						<img alt="{lang=votes_down}" class="img_vote" src="images/icons/vote/vote_down_{$vote_type}.png">
+					</span>
+				</span>
+				<span class="vote-container">			 
+					<span class="file_opinion_{$id}">{$votes_opinion}</span>
+					<span class="file_votes_{$id}" style="color: #777777;">( {$votes_count} )</span>		
+				</span>	
+			</div>
+		</div>
+		{/if}
+		{if="IPS_ACTION == 'file_page' && !empty($upload_tags) "}
+		<div class="info-section clear_both">
+			{if="$upload_tags"}
+			<div class="tag_list">{lang=item_tags} {$upload_tags}</div>
+			{/if}
+		</div>
+		{/if}
+		<div class="info-section clear_both">
+			<span class="item-author"><span>{$date_add}</span> {lang=added_by} <a href="profile/{$user_login}">{$user_login}</a></span>
+			
+			<span class="file-actions">
+				<a class="add-comment" href="{$file_url}#comments_wrapper" title="{lang=comments_add_comment}"> {lang=comments_add_list} ({$comments}) </a> | 
+				{if=" Config::get('favourites_add') "}
+				<span title="{lang=favourites_add}" class="ips-add-favourites add-favourites" data-id="{$id}">{lang=favourites_short}</span>
+				{/if} | 
+				{if=" Config::get('widget_smilar_url') == '1' && IPS_ACTION_LAYOUT == 'one' "}
+				<a class="add-smilar" href="/tag/{$id}/">{lang=button_smilar}</a> |
+				{/if}
+				{if=" $report_file "}
+				<a href="#" class="file-report" onclick="systemReport({$id}, 'file', '{lang=report_this}'); return false;">{lang=report_this}</a>
+				{/if}
+				
+			</span>
+		</div>
+		
+			
+		
+		
+		{if=" $widget_url_copy "}
+		<input class="widget-url-copy clear_both" title="{lang=widget_url_copy_action}" value="{$file_url}" type="text" />
+		{/if}
+		
+	</div>
+	<div class="clear_both"></div>
+</div>
+
+{$mod_links}
+{$description_box}
+{$ads.under_file}
+
+{if="isset($img_social_share)"}
+	{include="/widgets/widget_social.html"}
+{/if}
+
+<!-- 
+{if="IPS_ACTION == 'file_page' && !Config::tmp( 'widget_see_more_on' )"}
+</div>
+<div id="content_under" style="background: none;border:0">
+{/if}
+-->

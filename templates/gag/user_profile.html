@@ -1,0 +1,22 @@
+{$moderator}
+<div class="user-profile">
+	<div class="user-info-links">
+		<div>
+			<a href="messages/write/{$login}" class="button u-link" title="{lang=user_msg} {$login}">{lang=user_msg}</a>
+		</div>
+		{if="Config::get('module_history')"}
+		<div>
+			<a class="button u-link" onclick="loadHistory( {$id}, this );">{lang=user_history}</a>
+		</div>
+		{/if}
+		<div>
+			<a class="button ips-watch-user u-link" title="{lang=follow_action}" data-id="{$id}">{lang=follow_action}</a>
+		</div>
+	</div>
+	
+	<div id="user-history-panel" style="display:none;"></div>
+	
+	<div class="user-profile-files">
+		{$users_files_list}
+	</div>
+</div>

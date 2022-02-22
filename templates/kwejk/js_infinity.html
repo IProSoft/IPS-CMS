@@ -1,0 +1,15 @@
+{if="!defined('IPS_ONSCROLL')"}
+	<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function () {
+			loadInfiniteScroll( "#content", ".item" )
+		}, 100 );
+	});
+	</script>
+{/if}
+
+{if="IPS_VERSION == 'pinestic'"}
+	</div><!-- END sub-content -->
+{/if}
+
+<a id="next-scroll" class="hidden-element button-link infinitescroll_button" href="{$next_page}" data-ajax="/ajax/{$ajax}">{lang=load_more_files}</a>

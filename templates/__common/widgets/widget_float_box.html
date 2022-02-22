@@ -1,0 +1,88 @@
+<link href="/css/widgets/widget_float_box.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/widgets/widget_float_box.js"></script>
+
+<div id="float_box">
+	<div class="float_box_cnt">      
+		<span class="float_box_cnt_panel">
+			<span id="float_box_navi" class="float_box_group">
+				<button class="slide_prev" type="button" title="{lang=prev}">
+					<span></span>
+				</button>
+				<button class="slide_next" type="button" title="{lang=next}">
+					<span></span>
+				</button>
+				<span class="float_box_group_text">{lang=widget_float_1}</span>
+			</span>
+			<span id="float_box_slideshow" class="float_box_group">
+				<button onclick="clikSlide();" class="float_box_button" type="button">
+					<span>{lang=widget_float_2}</span>
+				</button>
+			</span>
+			
+		{if="USER_LOGGED"}
+			<span class="float_box_panel_user">
+				<button onclick=";window.location.href=this.getAttribute('href');return false;" type="button" href="/user/{#USER_LOGIN#}/">
+					<span>{lang=user_files}</span>
+				</button>
+			</span>
+
+			<span class="float_box_panel_user">
+				<button onclick=";window.location.href=this.getAttribute('href');return false;" type="button" href="/user/{#USER_LOGIN#}/followed">
+					<span>{lang=widget_float_3}</span>
+				</button>
+			</span>
+			
+		{else}
+			<span class="float_box_panel_user">
+				<button type="button" title="{lang=user_log_in_long}" onclick="userAuth('login');return false;">
+					<span>{lang=user_log_in}</span>
+				</button>
+			</span>
+		{/if}
+							
+		{if="Config::getArray( 'page_fast_options', 'widget' )"}	
+			<span class="float_box_panel_user">
+				<button onclick=";window.location.href=this.getAttribute('href');return false;" type="button" href="/fast/waiting/">
+					<span>{lang=widget_float_4}</span>
+				</button>
+			</span>
+		{/if}
+
+		{if="Config::get('online_stats')"}
+			<span class="float_box_panel_user">
+				<button onclick=";window.location.href=this.getAttribute('href');return false;" type="button" href="/users_online">
+					<span>{lang=widget_float_5}</span>
+				</button>
+			</span>
+		{/if}
+		
+		
+		</span>
+		<span id="float_box_proponowane_button">
+			<span class="float_box_group">
+				<button class="float_box_button_link" type="button" title="Polecane">
+					<span class="float_box_icon"></span>
+				</button>
+			</span>
+		</span>	
+	</div>
+	<div id="float_box_proposition">
+		<button id="float_box_p" class="float_box_previous">
+			<span></span>
+		</button>
+		<button id="float_box_n" class="float_box_next">
+			<span></span>
+		</button>
+		<div class="float_box_slider">
+			<div class="float_box_slider_body" style="left: 0px;">
+				<ul id="float_box_slide">
+					{loop="files"}
+						<li><a class="ips-scale" title="{$value.title}" href="{$value.url}"><img src="{$value.upload_image}"></a></li>
+					{else}
+						{lang=nothing_to_display}
+					{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

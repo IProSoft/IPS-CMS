@@ -1,0 +1,27 @@
+<div class="contest_list">
+
+	<div class="contest_header font_bolder">
+		<span class="knag">NR</span>
+		<span class="knag">{lang=contest_user}</span>
+		<span class="knag">{lang=contest_item_title}</span>
+		<span class="knag">{$sort}</span>
+	</div>
+
+	{loop="container"}
+	<div {if="$key == 1"}class="contest_first"{/if}>
+	<span>{$key}</span>
+
+	<span>
+		<a href="{#ABS_URL#}profile/{$value.user_login}" target="_blank">
+		<span>{$value.user_login}</span></a>
+	</span>
+	<span>
+		<a href="{$value.link}" target="_blank">
+			<span style="font-size: 125%; font-weight: bold;">{$value.title}</span>
+		</a>
+	</span>
+	<span class="font_bolder">{$value.sort}</span>
+	</div>
+	{/loop}
+
+</div>

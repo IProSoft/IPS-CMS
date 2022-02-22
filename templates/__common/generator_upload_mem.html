@@ -1,0 +1,62 @@
+<form id="upload_form" name="upload_form" action="/upload/mem" method="post" enctype="multipart/form-data" class="mem_generator_form up_type_mem">
+	
+	<input type="hidden" name="title" />
+	<input type="hidden" name="top_line" />
+	<input type="hidden" name="bottom_line" />
+		
+	<input type="hidden" name="top_line_layers" value="" />
+	<input type="hidden" name="bottom_line_layers" value="" />
+	
+	<div class="up_file_preview">
+		<div class="canvas_lines">
+			
+			<div class="loader display_none">
+				<img width="48" height="48" src="/images/svg/spinner.svg">
+			</div>
+			
+			<div class="canvas_wrap_line top_line absolute-100">
+				
+				{function="Canvas_Helper::toolbar('mem', 'top')"}
+				
+				<div class="canvas_wrap">
+			
+					{include="/upload/up_canvas_editor.html"}
+					
+					<div class="container-shadow"><span>{lang=add_mem_line}</span></div>
+
+				</div>
+				
+			</div>
+			
+			<div class="canvas_wrap_line bottom_line absolute-100">
+				
+				{function="Canvas_Helper::toolbar('mem', 'bottom')"}
+				
+				<div class="canvas_wrap">
+			
+					{include="/upload/up_canvas_editor.html"}
+					
+					<div class="container-shadow"><span>{lang=add_mem_line}</span></div>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<button class="generator_upload button display_none">{lang=generator_ajax_upload}</button>
+	<button class="generator_upload download button-red display_none">{lang=generator_ajax_download}</button>
+
+	{if="$category != 'all'"}
+	<div class="mem_upload_description">{$category_description}</div>
+	{/if}
+	
+	<input type="hidden" name="up_generator" />
+	<input type="hidden" name="upload_subtype" value="image" />
+	<input type="hidden" name="add_rules" value="true" />
+	<input type="hidden" name="upload_url" value="" />
+	<input type="hidden" name="author" value="{#USER_LOGIN#}" />
+	<input type="hidden" name="ajax_post" value="true" />
+	<input type="hidden" name="_token" value="{$category|csrf_token}" />	
+	
+</form>

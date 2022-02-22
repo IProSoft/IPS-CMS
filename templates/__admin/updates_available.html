@@ -1,0 +1,18 @@
+<form action="{function="admin_url( 'update', 'action=download' )"}" method="post">
+	{loop="available"}
+	<div class="tabbed_area update-messages">		
+		<div class="update-messages">{$value.up_title}</div>
+		<div class="update-messages">{lang=created} {$value.up_created_time}
+			<input type="hidden" name="updates_available[{$value.up_id}][up_hash]" value="{$value.up_hash}" />
+			<input type="hidden" name="updates_available[{$value.up_id}][up_directory]" value="{$value.up_directory}" />
+			<a class="refresh" href="admin.php?route=update&action=check&refresh={$value.up_id}">{lang=refresh}</a>
+		</div>
+		<div class="update-messages">{lang=info} {$value.up_description}</div>
+	</div>
+	{/loop}
+	<br />
+	<button class="button">{lang=updates_download_available}</button>
+</form>
+<div class="div-info-message">
+	<p>{lang=updates_info_5}</p>
+</div>

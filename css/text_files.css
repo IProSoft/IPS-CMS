@@ -1,0 +1,21 @@
+
+	.file-container .text-file-wrapper{
+		height: 100%;
+color: #dbdbdb;
+text-align: center;
+font-size: 24px;
+text-shadow: 0 0 24px #ff00ff;
+background-color: #000000;
+padding: 0px 10px 0px 10px
+	}
+	.file-container .text-file-wrapper-normal{
+		height: 100%;
+color: #dbdbdb;
+text-align: center;
+font-size: 24px;
+text-shadow: 0 0 24px #ff00ff;
+background-color: #000000;
+padding: 20px 20px 20px 20px;
+border: 1px solid #fff
+	}
+	

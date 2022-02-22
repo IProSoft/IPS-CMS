@@ -1,0 +1,174 @@
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={$api_key}&libraries=places"></script>
+
+<script type="text/javascript">
+	
+	
+	var map_locations = {$map_locations};
+	
+	var map_options = {
+		styles : {$map_customize.customized_styles},
+		disallow_multiple_markers : {$map_customize.disallow_multiple_markers},
+		default_position : '{$map_customize.default_position}'
+	}
+	
+	head.load( "/js/map.js", function(){
+		initializeMap( map_locations, map_options );
+	});
+	
+	function initializeMap( map_locations, map_options )
+	{
+		try{
+			
+			var map = new $.ips_map( 'map-canvas', map_locations );
+		
+			$.ips_map.map_options = $.extend( $.ips_map.map_options, map_options );
+		
+			map.InitEvents();
+			
+		}catch( e ){
+			console.log(e);
+		}
+	}
+	
+
+	$(document).ready(function(){
+		
+		/*
+		setTimeout( function (){
+					
+			$(window).bind( 'resize', function( event, container ){
+				initializeMap( map_locations , map_options );
+			});
+			
+		}, 1000 );
+		*/
+		
+		
+		$(window).bind( 'isotope_loaded', function( event, container ){
+			
+			container.find('.pin-info-featured').each(function(){
+				
+				var marker_id = 'map_marker_' + $(this).children('.pin-map-marker').data('id');
+				
+				$(this).hover(
+					function () {
+						$('#' + marker_id).addClass( 'activ' );
+					}, 
+					function () {
+						$('#' + marker_id).removeClass( 'activ' );
+					}
+				).on('click', function(){
+					
+					$('.pin_map').removeClass( 'centered' );
+					
+					var marker_id = 'map_marker_' + $(this).children('.pin-map-marker').data('id');
+					
+					$('#' + marker_id).addClass( 'centered' ).trigger('click');
+					
+					container.find('.pin-wrapper').removeClass('marker-active');
+					
+					$(this).parents('.pin-wrapper').addClass('marker-active');
+				} );
+				
+			})
+		});
+		
+		
+	});
+	
+
+
+	
+</script>
+
+<div id="map-canvas-wrapper" class="board-map-canvas">
+	<div id="map-canvas"></div>
+</div> 
+
+<div class="board-info-map">
+
+</div>
+
+
+<div class="board-info-left-shadow"></div>
+
+<div class="board-info-left board-info-panel">
+	
+
+
+
+
+
+	<h1 class="big-header-title">{$board_title}</h1>
+	
+	<p class="board-description">{$board_description}</p>
+	
+	{if="$board_privacy == 'private'"}
+		<p class="secret-info"><i></i>Ta tablica jest ukryta</p>
+	{/if}
+
+	<div class="board-stats">
+        <a href="/board/{$board_id}/followers/"><span class="board-followers"><span class="value">{$board_followers}</span> <span class="label">Obserwujących</span></span></a>
+		<a href="/board/{$board_id}/pins/"><span class="board-pins"><span class="value">{$board_pins}</span> <span class="label">Piny</span></span></a>
+    </div>
+	
+	{if="$user_follow_board === 'is_author'"}
+	<button type="button" class="ips-edit-cover button" data-id="{$board_id}">
+		<span class="button-text">{lang=pinit_board_change_cover}</span>
+	</button>
+	{/if}
+	
+	<div class="board-info-left-footer">
+		<div class="author-info">
+			<a href="/{$user_board_author.login}/boards/">
+				<div class="author-info-thumb"><img src="{$user_board_author.avatar}" /></div>
+				<div class="author-info-name"> {$user_board_author.full_name} </div>
+			</a>
+		</div>
+		
+		{if="$user_follow_board === 'is_author'"}
+		<button type="button" class="ips-edit-board big-button button float_right" data-id="{$board_id}">
+			<span class="button-text">{lang=pinit_board_edit}</span>
+		</button>
+		{elseif="!$user_follow_board"}
+		<button data-id="{$board_id}" data-change-text="{lang=pinit_board_unfollow}" class="ips-board-follow button float_right" type="button">
+			<span class="button-text">{lang=pinit_board_follow}</span>
+		</button>
+		{else}
+		<button data-id="{$board_id}" data-change-text="{lang=pinit_board_follow}" class="ips-board-follow button float_right" type="button">
+			<span class="button-text">{lang=pinit_board_unfollow}</span>
+		</button>
+		{/if}
+
+		
+	</div>
+</div>
+
+<div id="custom_marker" class="map-marker">
+	<img class="map-marker-icon" />
+</div>
+
+
+<div class="add-to-map">
+	<button data-map-id="{$board_id}" class="button flat ips-add-place display_none">
+		<i></i><span>Dodaj miejsce</span>
+	</button>
+</div>
+		
+
+
+
+	
+			
+<!-- 
+			
+The script is developed with newest Google Maps JavaScript API v3. Google has set a limitation of their maps free access. For-profit web sites are permitted to generate up to 25,000 map loads per day by using the Google Maps JavaScript API v3. If your sites that exceed the limits, you'll need to purchase a Google Maps API for Business license from Google Inc. and you need to do it by yourself. 
+
+
+
+
+
+ -->
+			
+	

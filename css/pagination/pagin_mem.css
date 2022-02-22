@@ -1,0 +1,145 @@
+.paginator {
+	font-size: 1em;
+	margin: 5px auto;
+	width: 600px;
+	height: 65px;
+	padding-top: 15px;
+}
+
+.paginator table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.paginator table td {
+	padding: 0;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 14px;
+}
+
+.paginator .left {
+	text-align: right;
+}
+
+.paginator .right {
+	text-align: left;
+}
+
+.paginator .left, .paginator .right {
+	width: 17%;
+}
+
+.paginator .top, .paginator .top a {
+	color: #006baf;
+}
+
+.paginator .bottom, .paginator .bottom a {
+	color: #004a79;
+	font-size: 12px;
+}
+
+.paginator .spaser {
+	width: 30px;
+}
+
+.paginator span {
+	display: block;
+	padding: 3px 0;
+	color: #fff;
+}
+
+.paginator span strong, .paginator span a {
+	display: block;
+	margin: 0px 4px;
+	padding: 4px 0px;
+	border: 1px solid lightGrey;
+	color: red;
+	background-color: white;
+	text-decoration: none;
+}
+
+.paginator span strong {
+	background: none repeat scroll 0 0 red;
+	color: white;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.paginator a:hover {
+	text-decoration: none;
+	border-color: white;
+	background: lightGrey;
+	color: white;
+}
+
+.paginator span strong {
+	background: red;
+	color: white;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.paginator .scroll_bar {
+	width: 100%;
+	height: 20px;
+	position: relative;
+	margin-top: 10px;
+}
+
+.paginator .scroll_trough {
+	width: 100%;
+	height: 3px;
+	background: lightGrey;
+	overflow: hidden;
+}
+
+.paginator .scroll_thumb {
+	position: absolute;
+	z-index: 2;
+	width: 0;
+	height: 3px;
+	top: 0;
+	left: 0;
+	font-size: 1px;
+	background: grey;
+}
+
+.paginator .scroll_knob {
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	margin-left: -10px;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	background: url(/images/slider_b.gif) no-repeat 50% 50%;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.paginator .current_page_mark {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 3px;
+	overflow: hidden;
+	background: #dadada;
+}
+
+.fullsize .scroll_thumb {
+	display: none;
+}
+
+.paginator_pages {
+	width: 600px;
+	text-align: right;
+	font-size: 0.8em;
+	color: #808080;
+	margin-top: -10px;
+}
+
+

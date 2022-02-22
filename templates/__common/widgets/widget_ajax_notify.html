@@ -1,0 +1,41 @@
+<div class="widget-notify-pw font_bolder notify-{$ajax_notify} display_none">
+	
+	<div class="close-pw-notify" onclick="$('.notify-{$ajax_notify}').fadeOut('slow');">{lang=js_close}</div>
+	
+	<div class="content-pw-notify">
+		<div style="display: block; padding: 5px;">
+			<div class="header"></div>
+			<div class="message_ajax">
+				<a href=""></a>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript">	
+$(document).ready(function(){
+	var intrval = function() {
+		var ajax_notify = $( '.widget-notify-pw' );
+		if ( ajax_notify.is(':hidden') )
+		{
+			IpsApp._ajax( '/ajax/private_messages/check/', {}, 'GET', 'json', false, function( response )
+			{ 
+				if( typeof response.content !== 'undefined' && typeof response.content == 'object' )
+				{
+					var text = IpsApp._sprintf( 
+						'{lang=pw_new_message}', 
+						'<span class="message_info">' + response.content.message_info + '</span>', 
+						'<span class="message_data">' + response.content.message_data + '</span>'
+					);
+					
+					ajax_notify.find('a').attr('href', response.content.message_url ).html( text );
+					ajax_notify.fadeIn('slow');
+				}
+			});
+		}
+	}; 
+	
+	setInterval( intrval, 15000 );
+	IpsApp._timeout( intrval, 5 );
+});
+</script>

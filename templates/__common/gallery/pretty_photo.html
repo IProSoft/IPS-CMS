@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/libs/galleries/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="/libs/galleries/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto({
+			animationSpeed: 'normal', 
+			opacity: 0.80, 
+			showTitle: true,
+			theme: 'dark_rounded', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+			social_tools: false
+		});
+	});
+</script>
+<div class="gallery_intro">
+	<p>{$intro_text}</p>
+	<div class="gallery_images_pretty">
+		<ul class="galleryPretty">
+			{loop="$gallery_images"}
+			<li>
+				<a href="{$value.src}" rel="prettyPhoto[pp_gal]"><img src="{$value.src}" width="60" height="60" /></a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<script type="text/javascript" >
+	head.load( [
+		'libs/ColorPicker/ColorPicker/js/colorpicker_merged_ips.js',
+		'libs/progressbar.js/progressbar.min.js',
+		'js/up/canvas_editor.js',
+		'js/up/canvas_init.js',
+		'js/up/canvas_type_abstract.js',
+		'js/up/drop_multiple.js', 
+		'js/up/drop_preview.js',
+		'js/up/drop.js', 
+		'css/up/dropzone.css',
+		'css/up/canvas.css',
+		'libs/ColorPicker/ColorPicker/css/colorpicker.css',
+	], function(){
+		head.load( [
+			'js/up/upload.js'
+		]);
+	});
+</script>
+
+
+<div class="up-form-simple">
+
+	<form id="upload_form" name="upload_form" action="/upload/image" method="post" enctype="multipart/form-data">
+		<span class="error-span"></span>
+		<h2 class="display_none">{lang=common_add}</h2>
+		
+		{if="$up_type == 'mem'"}
+		<div class="input-wrap">
+			<label for="top_line">{lang=add_mem_line}</label>
+			<input type="text" id="top_line" name="top_line" maxlength="255" value="" />
+		</div>
+
+		<div class="input-wrap">
+			<label for="bottom_line">{lang=add_mem_line}</label>
+			<input type="text" id="bottom_line" name="bottom_line" maxlength="255" value="" />
+		</div>
+		{/if}
+		
+		{if="$up_type == 'video'"}
+		<div class="input-wrap up_video">
+			<label>{lang=add_video}</label>
+			<input name="upload_video_url" type="text" value="" />
+		</div>
+		{/if}
+		
+		{if="$up_type == 'image' || $up_type == 'mem'"}
+		<div id="up_image_file" class="input-wrap up_image">
+			{function="Upload_Helper::dropzone('image', true)"}
+			<input type="hidden" value="{$post_upload_url}" />
+			<button class="up_file_change display_none">{lang=up_dropzone_reload}</button>
+		</div>
+		{/if}
+		<div class="input-wrap">
+			<label for="title" class="h3_bold">{lang=add_title}</label>
+			<textarea data-maxlength="255" maxlength="255" name="title" id="title"></textarea>
+		</div>	
+		{if="Config::get('add_require_rules')"}
+		<div class="input-wrap input-rules">
+			<label>{function="__s( 'add_require_rules', '/post/' . seoLink( false, 'regulamin' ) )"}</label>
+			<input type="checkbox" name="add_rules" value="true" />
+		</div>
+		{/if}
+		<input type="hidden" name="upload_subtype" value="{$up_type}" />
+		<input type="hidden" name="user_login" value="{#USER_LOGIN#}" />
+		<input type="hidden" name="ajax_post" value="true" />
+		<input type="hidden" name="_token" value="{$up_type|csrf_token}" />
+		
+	</form>

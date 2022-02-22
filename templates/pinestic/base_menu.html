@@ -1,0 +1,113 @@
+
+{$additional_css}
+
+{if="Config::get('rss_off') == 1"}
+	<div class="rss">
+		<img src="images/rss.png" alt="rss" width="28" height="28" />
+		<div class="rss2">
+			<a href="{#ABS_URL#}main.xml" title="{lang=menu_rss_main}">{lang=common_main}</a><br>
+			<a href="{#ABS_URL#}waiting.xml" title="{lang=menu_rss_waiting}">{lang=common_waiting}</a>
+		</div>
+	</div>
+{/if}
+
+<div id="top" class="base-header">
+	
+	<div id="top-container" class="base-top">
+	
+		<ul class="nav-top">
+			
+			<li>
+				<div class="categories-menu dropdown">
+					<button id="dLabel" class="button-link red-hover-button" type="button" data-toggle="dropdown">
+						<i></i><span class="hide-text">{lang=category_list}</span>
+					</button>
+					<div class="main_menu dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<ul id="menu-navigation" class="content-submenu-items">
+						{$menu_list}
+						</ul>
+						{if="!empty( $categories )"}
+						<ul class="categories_menu content-submenu-items">{$categories}</ul>
+						{/if}
+						<ul class="footer_menu">{$footer_menu}</ul>
+					</div>
+				</div>
+			</li>
+			{if="!empty( $widgets )"}	
+				<li>
+					<div id="search-widget">
+						{$widgets}
+					</div>
+				</li>
+			{/if}
+		</ul>
+		
+		<div class="img_logo">
+			<a href="{#ABS_URL#}">
+				<span><img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-pinestic-small.png" /></span>
+				<img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-pinestic.png" />
+			</a>
+		</div>
+		
+		<ul class="base-user float-right">
+			{if="!USER_LOGGED"}
+				{if="IPS_ACTION == 'login'"}
+				<li>
+					<a href="/register/" title="{lang=user_register}" class="box-button">{lang=user_register}</a>
+				</li>
+				{else}
+				<li>
+					<a href="/login/" title="{lang=user_log_in_long}" class="box-button">{lang=user_log_in}</a>
+				</li>
+				{/if}
+			{else}
+				<li>
+					<button href="#" class="button-link user-add-item red-hover-button ips-modal-show" data-href="/ajax/pinit/upload">
+						<i></i><span class="hide-text">{lang=common_add}</span>
+					</button> 
+				</li>
+			
+				<li>
+					<button class="button-link user-image"><img src="{$user.avatar_link}" /></button>
+				</li>
+				
+				<li class="user-menu responsive-ui">
+					<button href="#" class="box-button button-link red-hover-button responsive-icon">{#USER_LOGIN#}</button> 
+					<ul>
+						<li><a class="user-profile" href="{#ABS_URL#}profile/{#USER_LOGIN#}" id="login">{lang=user_profile_self}</a></li>
+						<li><a class="user-edit-profile" href="{#ABS_URL#}edit_profile">{lang=edit_profile}</a></li>
+						<li><a class="user-pw" href="{#ABS_URL#}messages/">{lang=user_messages}</a></li>
+						<li><a class="user-logout" href="{#ABS_URL#}login/user_logout">{lang=user_log_out}</a></li>
+						{if="USER_ADMIN"}
+						<li><a class="user-admin" href="{#IPS_ADMIN_URL#}" title="{lang=user_admin_panel}">{lang=user_admin_panel}</a></li>
+						{/if}
+						{if="USER_MOD"}
+						<li><a class="user-moderator" href="{#ABS_URL#}moderator" title="{lang=user_mod_panel}">{lang=user_mod_panel}</a></li>
+						{/if}
+						{if="$user.facebook_btn"}
+						<li>{function="SocialButtons::getConnectButtonFB()"}</li>
+						{/if}
+						{if="$user.nk_btn"}
+						<li>{function="SocialButtons::getConnectButtonNK()"}</li>
+						{/if}
+						{if="$contest_url"}
+						<li><a href="{#ABS_URL#}contest">{lang=menu_contest_menu}</a></li>
+						{/if}
+					</ul>
+				</li>
+				
+				<li>
+					<div class="user-notifications dropdown">
+						<button class="ips-load-notifications button-link" data-toggle="dropdown"><i></i></button>
+						<div class="dropdown-menu"><img class="notifications-loader" src="/images/loaders/html5_loader.gif" /></div>
+					</div>
+				</li>
+
+			{/if}
+		</ul>
+	</div>	
+</div>
+
+
+
+

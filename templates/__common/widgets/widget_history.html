@@ -1,0 +1,28 @@
+{if="$users == 'all'"}
+<div class="widget-user-history">
+<div class="widget-user-history-zoom"></div>
+{/if}
+	<ul class="user-history">
+	{loop="history"}
+		<li {if="!isset( $value.object )"}class="no-img"{/if}>
+			{if="$users == 'all' && isset( $value.user )"}
+				<span class="user-history-small">
+					<a href="/profile/{$value.user.login}">
+						<img src="{$value.user.avatar}" />
+					</a>
+					<span>{$value.user.login}</span>  : 
+				</span>		
+			{/if}
+			{if="isset( $value.object )"}
+				<a href="{$value.object.url}">
+					<img src="{$value.object.img}" />
+				</a>
+			{/if}
+		
+			{$value.content}
+		</li>
+	{/loop}
+	</ul>
+{if=" $users == 'all' "}
+</div>
+{/if}

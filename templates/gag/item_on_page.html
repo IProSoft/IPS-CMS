@@ -1,0 +1,94 @@
+{$ads.above_file}
+<article class="item">
+	<div class="item-header">
+		
+		<h1>{$title}</h1>
+		
+		<div class="stats-section info-section">
+			<span class="add-vote file_votes_{$id}"> {$votes_opinion} {lang=item_points} </span>
+			<span class="add-comment"> {$comments} {lang=common_comments_num} </span>
+			<a target="_blank" href="profile/{$user_login}">{$user_login}</a>
+			{if="!empty($file_category)"}
+			<a href="{#ABS_URL#}category/{$file_category.id_category},{$file_category.category_link}"><span>{$file_category.category_name}</span></a>
+			{/if}
+			{if=" Config::get('favourites_add') "}
+			<span title="{lang=favourites_add}" class="ips-add-favourites add-favourites" data-id="{$id}">{lang=favourites_short}</span>
+			{/if}
+		</div>
+		
+		
+
+	</div>
+
+		
+	<div class="item-buttons">
+		
+		{if=" $vote_type != 10 "}
+		<div class="actions-section actions-left vote_buttons_{$id}">	
+			<span data-id="{$id}" data-action="vote_file_up" class="ips-vote-file votes_up vote_down_{$vote_type}" title="{lang=vote_up_long}">
+				<img alt="{lang=votes_up}" class="img_vote" src="images/icons/vote/vote_up_{$vote_type}.png" /><span>UP</span>
+			</span>
+			<span data-id="{$id}" data-action="vote_file_down" class="ips-vote-file votes_down vote_down_{$vote_type}" title="{lang=vote_down_long}">
+				<img alt="{lang=votes_down}" class="img_vote" src="images/icons/vote/vote_down_{$vote_type}.png" />
+			</span>
+		</div>
+		{/if}
+		
+	
+		{$button_share}
+		{$button_twitter}
+		
+		{if="!empty($button_google) || !empty($button_nk) || !empty($button_like)"}
+		
+		<div class="action-btn more-tools responsive-ui">
+			<a class="responsive-icon" href="javascript:void(0);">More</a>
+			<ul class="fancy-menu responsive-slide" style="display: none;">
+				<li>{$button_like}</li>
+				<li>{$button_google}</li>
+				<li>{$button_nk}</li>
+			</ul>
+		</div>
+		
+
+		
+		{/if}
+		
+		<div class="item-nav">{$nav.link}</div>
+
+	</div>
+
+	{$nav.box}
+
+	<div class="file-container {$file_class_css}" data-target="{$file_url}">
+		{$file_container}
+	</div>	
+	
+	{$ads.under_image}	
+
+	{$upload_source}
+	
+	{if="$upload_tags"}
+	<div class="info-section">
+		<div class="tag_list">{lang=item_tags} {function="str_replace(',', '', $upload_tags)"}</div>
+	</div>
+	{/if}
+
+
+	{if=" $widget_url_copy "}
+	<input class="widget-url-copy" title="{lang=widget_url_copy_action}" value="{$file_url}" type="text" />
+	{/if}
+
+	<div>
+</article>
+
+{$mod_links}
+{$description_box}
+{$ads.under_file}
+
+{if="isset($img_social_share)"}
+	{include="/widgets/widget_social.html"}
+{/if}
+
+{if="isset($comments_options.header)"}
+	{include="comments.html"}
+{/if}

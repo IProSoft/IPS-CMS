@@ -1,0 +1,35 @@
+<div id="up_text_dropzone" class="input-wrap up_text {$text_on}">
+	{if="$text_options.user_bg"}
+		{function="Upload_Helper::dropzone('text')"}
+	{/if}
+	<button class="up_image_rand">{lang=up_random_background}</button>
+</div>
+	
+<div id="canvas_text">	
+	
+	{function="Canvas_Helper::toolbar('text')"}
+	
+	<div class="input-wrap canvas_element">
+		<div class="canvas_wrap">
+			
+			{include="/upload/up_canvas_editor.html"}
+			
+			<div class="container-shadow"><span>{lang=up_canvas_write}</span></div>
+			
+			<div class="img-container"><img src="" /></div>
+			
+		</div>
+	</div>
+	
+	<div class="input-wrap canvas_loader display_none">
+		<img width="48" height="48" src="/images/svg/spinner-grey.svg">
+	</div>
+	
+	<button class="up_file_change display_none canvas_element">{lang=up_dropzone_reload}</button>
+	
+	<input type="hidden" name="text_bg_link" value="{$post_upload_url}" />
+	<input type="hidden" name="upload_text_layers" value="" />
+</div>
+
+
+<textarea id="upload_text" class="display_none" name="long_text" />{$post_long_text}</textarea>

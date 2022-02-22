@@ -1,0 +1,88 @@
+<div class="user-profile">
+
+	<div class="user-profile-content">
+		
+		<div class="user-profile-img">
+			<div class="user-profile-image">
+				<img id="avatar_thumb" src="{$avatar}" alt="{$full_name}" />
+			</div>
+			<div class="edit-block-content">
+				<input type="file" size="20" id="imageUpload" name="file">
+			</div>
+			
+		</div>
+
+		<div class="user-profile-meta">
+			
+			<h2 class="user-profile-meta-name">{$full_name}</h2>
+
+			<p class="user-profile-meta-about">{$about_me}</p>
+
+			<ul class="user-profile-meta-social">
+				{if="!empty($facebook_uid)"}
+				<li>
+					<a href="https://www.facebook.com/profile.php?id={$facebook_uid}" target="_blank" class="fb"></a>
+				</li>
+				{/if}
+				
+				{if="!empty($nk_uid)"}
+				<li>
+					<a href="http://nk.pl/profile/2666622{$nk_uid}" target="_blank" class="nk"></a>
+				</li>
+				{/if}
+				
+				{if="!empty($twitter_uid)"}
+				<li>
+					<a href="https://twitter.com/intent/user?user_id={$twitter_uid}" target="_blank" class="twitter"></a>
+				</li>
+				{/if}
+			</ul>
+			{if="$user_profile"}
+				<button type="button" class="button edit-profile" data-redirect="/edit_profile">
+					<span>{lang=pinit_edit_profile}</span>
+				</button>
+			{/if}
+		</div>
+	</div>
+
+</div>
+
+<div class="full-width-info-block">
+
+	<ul class="user-info-stats sortable-block "> 
+		<li>
+			<a href="/{$login}/boards/" data-href="{$login}/boards">{$user_boards} {lang=pinit_boards}</a>
+		</li>
+		<li>
+			<a href="/{$login}/pins/" data-href="{$login}/pins">{$user_uploads} {lang=pinit_pins}</a>
+		</li>
+		<li>
+			<a href="/{$login}/likes/" data-href="{$login}/likes">{$user_likes} {lang=pinit_likes}</a>
+		</li>
+	</ul>
+	
+	{if="!$user_profile && $user_boards > 0"}
+	<div class="user-info-follow">	
+		{if="$current_user_follow"}
+			<button type="button" data-id="{$id}" data-change-text="{lang=pinit_board_follow_all}" class="button user-follow-all" data-href="/ajax/pinit/unfollow_all">
+				<span class="button-text">{lang=pinit_board_unfollow_all}</span>
+			</button>
+		{else}
+			<button type="button" data-id="{$id}" data-change-text="{lang=pinit_board_unfollow_all}" class="button button-red user-follow-all" data-href="/ajax/pinit/follow_all">
+				<span class="button-text">{lang=pinit_board_follow_all}</span>
+			</button>
+		{/if}
+	</div>	
+	{/if}
+
+	<ul class="user-followers sortable-block block-right">
+		<li>
+			<a href="/{$login}/followers/" data-href="{$login}/followers">{$user_followers} {lang=pinit_followers}</a>
+		</li>
+		<li>
+			<a href="/{$login}/follow/" data-href="{$login}/follow">{$user_is_following} {lang=pinit_following}</a>
+		</li>
+	</ul>
+
+</div>
+	

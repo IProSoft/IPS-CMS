@@ -1,0 +1,60 @@
+<form class="upload-ajax-form ips-upload-file upload-multiple" data-response="/ajax/pinit/upload_gallery_full" method="POST" enctype="multipart/form-data">
+	<div class="ips-upload-wrapper">
+
+		<div class="plupload_content">
+			
+			<div class="plupload_filelist_header">
+				<div class="plupload_file_name">Filename</div>
+				
+				<div class="plupload_file_size">Size</div>
+				
+				<div class="plupload_file_status"><span>Status</span></div>
+				
+				<div class="plupload_file_action">&nbsp;</div>
+			</div>
+			
+			<div class="plupload_filelist_scroll">
+				<ul class="plupload_filelist ">
+					<li class="plupload_droptext ips-upload-multi"></li>
+				</ul>
+			</div>
+			
+			<div class="plupload_filelist_footer">
+				<div class="plupload_file_name">
+					<span class="plupload_upload_status">Uploaded <span>0/0</span> files </span>
+				</div>
+				<div class="plupload_progress">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 0%;"></div>
+					</div>
+				</div>
+				
+				<div class="plupload_file_size">
+					<span class="plupload_total_file_size">0 b</span>
+				</div>
+				<div class="plupload_file_status">
+					<span class="plupload_total_status">0%</span>
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	<div class="plupload_footer">
+	
+		<a class="button plupload_add ips-upload-multi float_left">
+			<span>Add Files</span>
+		</a>
+		
+		<button type="button" class="plupload_start button-red" disabled="disabled">
+			<span>Start Upload</span>
+		</button>
+		
+		<button type="button" class="plupload_next button-red float_right" disabled="disabled">
+			<span>Next</span>
+		</button>
+		
+	</div>
+	<input type="hidden" name="multi_upload" value="true" />
+</form>

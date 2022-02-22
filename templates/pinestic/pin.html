@@ -1,0 +1,240 @@
+<div id="pin-page-{$id}" class="pin-page item" data-file-id="{$id}">
+  	
+						
+	<div class="pin-page-wrapper">
+    
+		<div class="pin-page-container">
+
+			
+			<div class="pin-page-bar clickover-parent">
+    
+				<div class="pin-actions-bar">
+
+					<button class="button-red left-rounded ips-pin-it" data-href="/ajax/pinit/re_pin">
+						<i></i><span>{lang=pinit_pin_it}</span>
+					</button>
+					<button type="button" class="button-counter button-red right-rounded" href="/pin/{$id}/repins/">
+						<span>{$pin_repins}</span>
+					</button>
+
+
+					<button class="button left-rounded ips-like-it ips-iuser-not-liked" data-id="{$id}" data-href="/ajax/pinit/like">
+						<i></i><span>{lang=pinit_pin_like}</span>
+					</button>
+					<button type="button" class="button-counter button right-rounded" href="/pin/{$id}/likes/">
+						<span>{$pin_likes}</span>
+					</button>
+
+					
+					<button type="button" data-href="{$pin_source_url}" class="button ips-modal-href visit-source">
+						<i></i><span>{lang=pinit_visit_source}</span>
+					</button>
+					
+				</div>
+				  
+				<div class="pin-social">
+					<div class="pin-social-send">
+						<button class="button ips-send-manual" data-container=".pin-social-send" data-send-id="{$id}">
+							<i></i><span>{lang=pinit_pin_send}</span>
+						</button>
+					</div>
+					<div class="pin-social-share">
+						<button class="button ips-share">
+							<i></i><span class="hide-text">{lang=pinit_share}</span>
+						</button>
+						<div class="popover fade bottom in"><div class="arrow"></div>
+							<div class="popover-content">
+								<div class="addthis_toolbox" addthis:url="{#ABS_URL#}pin/{$id}" addthis:title="{$pin_title}">
+									<a class="addthis_button_facebook">Facebook</a>
+									<a class="addthis_button_twitter">Twitter</a>
+									<a class="addthis_button_linkedin">LinkedIn</a>
+									<a class="addthis_button_google">Google</a>
+									<a class="addthis_button_tumblr">Tumblr</a>
+									<a class="addthis_button_blogger">Blogger</a>
+									<a class="addthis_button_delicious">Delicious</a>
+									<a class="addthis_button_email">Email</a>
+									<a class="addthis_button_gmail">Gmail</a>
+									<a class="addthis_button_more">More...</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+
+			<div class="pin-page-block">
+				
+				<div class="pin-page-block-wrapper">
+					{$ad_above_pin}
+					<div class="pin-page-main">
+						{if="!empty($upload_video)"}
+							{$pin_video}
+						{else}
+						<a href="{$upload_image}">
+							<div class="pin-image-block">
+								<img class="pin-image" data-load="{$upload_image}" alt="{$pin_title}" width="{$size.w}" height="{$size.h}" />
+							</div>
+						</a>
+						{/if}
+					</div>
+					
+					{$gallery_images}
+					
+						
+					{$ads.under_image}
+	
+					<div class="pin-source">
+						Przez {$pin_user.login}
+						<button type="button" onclick="systemReport( {$id}, 'file'); return false;" class="button report-button">
+							<i></i><span class="hide-text">{lang=pinit_pin_report}</span>
+						</button>
+					</div>
+					
+					{if="Config::get('widget_url_copy')"}
+					<div class="pin-url-copy">	
+						<input title="{lang=widget_url_copy_action}" value="{#ABS_URL#}pin/{$id}" onclick="this.focus();this.select();" type="text" />
+					</div>
+					{/if}
+					
+					{if="!empty( $pin_tags ) "}
+					<div class="pin-tags">
+						{$pin_tags}
+					</div>
+					{/if}
+					
+					{$mod_links}
+					
+					{$ad_under_pin}
+				</div>
+				
+			</div>
+		  
+			
+			
+			<div class="pin-page-block">
+				
+				<div class="pin-description">
+					<div class="pin-small-block">
+						<a class="pin-user-avatar" href="{$pin_user.link}">
+							<img src="{$pin_user.avatar}" alt="{$pin_user.full_name}" />
+						</a>
+						<div class="small-block-wrapper">
+							<div class="small-block-author">
+								<a class="block-author-name" href="{$pin_user.link}">{$pin_user.full_name}</a>
+								<span class="block-author-date">• {$date_add} </span>
+							</div>
+							<p class="small-block-content">{$pin_description}</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="pin-comments">
+
+					<div class=".pin-comments-wrapper ">
+						{$pin_comments_wrapper}
+					</div>
+				
+				</div>
+				
+				{$ad_under_comments}
+				
+			</div>
+          
+			<div class="pin-add-info pin-page-block">
+				
+				<div class="info-user">
+
+				{if="$pin_user.user_id == USER_ID"}
+					<button type="button" class="disabled button">
+						<span class="button-text">{lang=pinit_user_self}</span>
+					</button>
+				{elseif=" $pin_user.user_follow_user === true "}
+					<button type="button" data-change-text="{lang=follow_action}" class="ips-user-unfollow button" data-id="{$pin_user.user_id}">
+						<span class="button-text">{lang=follow_unfollow}</span>
+					</button>
+				{else}
+					<button type="button" data-change-text="{lang=follow_unfollow}" class="ips-user-follow button" data-id="{$pin_user.user_id}">
+						<span class="button-text">{lang=follow_action}</span>
+					</button>
+				{/if}
+					
+					<a href="{$pin_user.link}">
+						<div class="image-container">
+							<img src="{$pin_user.avatar}" alt="{lang=pinit_user_image} {$pin_user.full_name}" />
+						</div>
+						<h4 class="small-h4">{lang=pinit_pin_pinned_by}</h4>
+						<h5 class="small-h5">{$pin_user.full_name}</h5>
+					</a>
+				</div>
+				
+				<div class="info-board">
+					
+				{if="$board.user_board_author"}
+					<button type="button" class="disabled button">
+						<span class="button-text">{lang=pinit_board_follow_self}</span>
+					</button>
+				{elseif="$board.user_follow_board === true "}
+					<button type="button" data-change-text="{lang=follow_action}" class="ips-board-unfollow button" data-id="{$board.board_id}">
+						<span class="button-text">{lang=follow_unfollow}</span>
+					</button>
+				{else}
+					<button type="button" data-change-text="{lang=follow_unfollow}" class="ips-board-follow button" data-id="{$board.board_id}">
+						<span class="button-text">{lang=follow_action}</span>
+					</button>
+				{/if}
+		
+					<a href="{$board.board_link}">
+						<div class="image-container">
+							<img src="{$board.board_thumb}" />
+						</div>
+						<h4 class="small-h4">{lang=pinit_pin_pinned_onto}</h4>
+						<h5 class="small-h5">{$board.board_title}</h5>
+					</a>
+				</div>
+				
+			</div>
+		  
+		</div>
+
+
+		<div class="pin-right-block">
+			
+			{if="$navigation_buttons"}
+			<div class="pin-page-bar small">
+				{$navigation_buttons}
+			</div>
+			{/if}
+			
+			{$ad_right_pin_top}
+			
+			{if="$board.board_pins > 1"}
+			{include="pin_small_panel.html"}
+			{/if}
+			
+			{$ad_right_pin_middle}
+			
+			{if="$source_pins > 1"}
+			{include="source_small_items.html"}
+			{/if}
+			
+
+			{$ad_right_pin_bottom}
+		</div>
+  </div>
+
+
+	<div class="pin-related ">
+
+		{if="Config::get('widget_pinit_related_boards')"}
+			{include="related_boards.html"}
+		{/if}
+		
+		{if="Config::get('widget_pinit_related_pins')"}
+			{include="related_pins.html"}
+		{/if}
+	</div>
+
+</div>

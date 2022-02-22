@@ -1,0 +1,18 @@
+<div id="media_{$id}" class="media-wrap">
+	<div class="media-object">
+		{$media}
+	</div>
+	<img src="{$image}" />
+</div>
+
+<style>
+#media_{$id}{
+	max-width: {$width}px
+}
+#media_{$id} .media-object{
+	top: {$padding}%;
+	height: {$max_h}% !important;
+	height: 100%;
+	width:{$max_w}%;
+}
+</style>

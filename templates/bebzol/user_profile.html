@@ -1,0 +1,56 @@
+{$moderator}
+<div class="user-profile">
+
+		<div class="user">
+			<a id="avatar_thumb" href="{$avatar}" rel="avatar" title="{lang=user_av} - {$login}">
+				<img src="{$avatar}" />
+			</a> 
+		</div>
+
+		<div class="user-info">
+			<h2>{$login}</h2>
+			<div class="omnie">
+				{$about_me}
+			</div>
+			
+			<div class="text">
+				<b>{lang=user_profile_in_site}</b>
+				<span class="date">{$date_add}</span>
+			</div>
+			
+			<div class="text">
+				<b>{lang=user_last}</b>
+				<span class="date">{$user_last_visit}</span>
+			</div>
+			<div class="user-info-stats">
+				<ul>
+					<li><span>{lang=user_add}</span> {$user_uploads}</li>
+					<li><span>{lang=user_top}</span> {$added_main}</li>
+					<li><span>{lang=user_wait}</span> {$added_wait}</li>
+					<li><span>{lang=user_com}</span> {$user_comments}</li>
+					<li><span>{lang=user_comv}</span> {$comments_opinion}</li>
+					<li><span>{lang=user_addv}</span> {$posts_opinion}</li>
+				</ul>
+			</div>
+			
+		</div>
+		
+		
+		<div class="user-info-links">
+			
+			<a href="messages/write/{$login}" class="u-link" title="{lang=user_msg} {$login}">{lang=user_msg}</a>
+			{if="Config::get('module_history')"}
+			<span class="u-link" onclick="loadHistory( {$id}, this );" style="color: #FFB903;display: inline;">{lang=user_history}</span>
+			{/if}
+			<span class="ips-watch-user u-link" style="display: inline;"title="{lang=follow_action}" data-id="{$id}">{lang=follow_action}</span>
+			
+		</div>
+		<div id="user-history-panel" style="display:none;"></div>
+	
+	<div class="user-profile-files">
+		<ul class="fancy-list single">
+			<li class="regular"><a href="/user/{$login}/{$users_files_action}/">{lang=user_profile_all_files}</a></li>
+		</ul>
+		{$users_files_list}
+	</div>
+</div>

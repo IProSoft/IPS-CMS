@@ -1,0 +1,46 @@
+<div class="simple-page">
+	<form class="register-form validate-form" method="post">
+		
+		<h2>{lang=common_register}</h2>
+		
+		<div class="simple_input input-wrap">
+			<label for="login">{lang=user_set_username}</label>
+			<input type="text" title="{lang=user_set_username}" value="{$login}" name="login" id="login" />
+			<span class="error-msg">{lang=error_alfanum}</span>
+		</div>
+		
+		<div class="simple_input input-wrap">
+			<label for="password">{lang=user_register_password}</label>
+			<input type="password" title="{lang=user_register_password}"  name="password" id="password" />
+			<span class="error-msg">{lang=error_alfanum}</span>
+		</div>
+		
+		<div class="simple_input input-wrap">
+			<label for="password_p">{lang=user_register_password_rep}</label>
+			<input type="password" title="{lang=user_register_password_rep}" name="password_p" id="password_p" />
+			<span class="error-msg">{lang=user_password_diffrent}</span>
+		</div>
+		
+		<div class="simple_input input-wrap">
+			<label for="email">{lang=user_set_email}</label>
+			<input type="text" title="{lang=user_set_email}" name="email" id="email" value="{$email}" />
+			<span class="error-msg">{lang=user_wrong_email}</span>
+		</div>
+		
+		<div class="simple_input input-wrap">
+			<label for="accept_rules">{$user_register_rules_url}</label>
+			<input style="margin-top: 5px;" type="checkbox" name="accept_rules" value="accept_rules" />
+			<span class="error-msg">{lang=user_register_error_rules}</span>
+		</div>	
+		
+	{if="Config::get('user_account', 'register_captcha')"}	
+		<div class="simple_input input-wrap">
+			{include="js_recaptcha.html"}	
+		</div>
+	{/if}
+		
+	<input type="submit" class="button" style="padding: 6px; width:150px; color: #fff;" value="{lang=user_register}" />
+	<br /><br />
+
+	</form>
+</div>

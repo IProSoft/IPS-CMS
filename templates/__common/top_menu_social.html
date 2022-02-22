@@ -1,0 +1,7 @@
+<div class="rwd-simple-menu">
+	<div class="buttons-menu-nice"><a {if="empty( $current_sort )"}class="active"{/if} href="/{$route}/">{lang=top_time_day}</a></div>
+	<div class="buttons-menu-nice"><a {if="$current_sort == 'week'"}class="active"{/if} href="/{$route}/week">{lang=top_time_week}</a></div>
+	<div class="buttons-menu-nice"><a {if="$current_sort == 'month'"}class="active"{/if} href="/{$route}/month">{lang=top_time_month}</a></div>
+	<div class="buttons-menu-nice"><a {if="$current_sort == 'year'"}class="active"{/if} href="/{$route}/year">{lang=top_time_year}</a></div>
+	<div class="buttons-menu-nice"><a {if="$current_sort == 'alltime'"}class="active"{/if} href="/{$route}/alltime">{lang=common_all}</a></div>
+</div>

@@ -1,0 +1,60 @@
+<div class="moderator moderation-panel">
+	<div class="moderator-btns">
+		{if="$main"}
+		<a class="button-link" href="#" data-id="{$id}" data-action="main" alt="{lang=actions_mod_move_main}">
+			{lang=common_main}
+		</a>
+		{/if}
+
+		{if="$wait"}
+		<a class="button-link" href="#" data-id="{$id}" data-action="{$wait_action}" title="{lang=actions_mod_move_wait}">
+			{lang=common_waiting}
+		</a>
+		{/if}
+
+		<a class="button-link confirmation" href="#" data-id="{$id}" data-action="delete" title="{lang=actions_mod_delete}">
+			{lang=common_delete}
+		</a>
+		<a class="button-link ips-file-edit" target="_blank" href="/edit/{$id}/" title="{lang=actions_mod_edit}" data-id="{$id}">
+			{lang=common_edit}
+		</a>
+
+		{if=" $upload_status == 'public' "}
+		<a class="button-link" href="#" data-id="{$id}" data-action="archive" title="{lang=actions_mod_archive}">
+			{lang=common_archive}
+		</a>
+		{/if}
+
+		{if=" $upload_status == 'public' || IPS_VERSION == 'pinestic' "}
+		<a class="button-link" href="#" data-id="{$id}" data-action="facebook" title="{lang=actions_mod_fanpage}">
+			{lang=actions_mod_autopost_set}
+		</a>
+		<a class="button-link" href="#" data-id="{$id}" data-action="social_lock" title="{lang=actions_mod_social_lock}">
+			{$social_lock}
+		</a>
+		<a class="button-link" href="#" data-id="{$id}" data-action="autopost" title="{lang=actions_mod_autopost}">
+			{$autopost}
+		</a>
+		{/if}
+
+		{if=" Config::get( 'adult_files' ) "}
+		<a class="button-link" href="#" data-id="{$id}" data-action="adult">
+			<img src="/images/icons/mod_adult.png" alt="{lang=actions_mod_adult}" />{lang=actions_mod_adult_set}
+		</a>
+		{/if}
+
+		{if=" defined( 'IPS_SELF' ) "}
+		<a class="button-link" href="mp4_fix.php?id={$id}" target="_blank">
+			Konwertuj MP4
+		</a>
+		{/if}
+	</div>
+	{if=" $category_options "}
+	<form action="/options/category_change/" method="POST">
+		<select name="file_category" data-id="{$id}">
+			{$category_options}
+		</select>
+	</form>
+	{/if}
+</div>
+

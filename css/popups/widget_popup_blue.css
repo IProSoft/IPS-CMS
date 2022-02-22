@@ -1,0 +1,120 @@
+#ips-popup{
+	background-color:#fff;
+	display:none;
+	position:fixed;
+	top:200px;
+	_position:absolute; /* hack for IE 6*/
+	max-width:450px;
+	width:95%;
+	border: 10px solid #eee;
+    border-radius: 10px;
+	z-index:20000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin:0pt;
+	padding:1%;
+	color:#333333;
+	text-align:left;
+	font-family:arial,sans-serif;
+	font-size:13px;
+	text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px #FFFFFF;
+	-ms-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px #FFFFFF;
+	-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 1px #FFFFFF;
+	box-shadow: inset 0 0 1px white;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#00a5f0,EndColorStr=#F1F1F1);
+	background-image: -moz-linear-gradient(top,#00a5f0 0,#0892d1 100%);
+	background-image: -ms-linear-gradient(top,#00a5f0 0,#0892d1 100%);
+	background-image: -o-linear-gradient(top,#00a5f0 0,#0892d1 100%);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#00a5f0),color-stop(100%,#0892d1));
+	background-image: -webkit-linear-gradient(top,#00a5f0 0,#0892d1 100%);
+	background-image: linear-gradient(to bottom,#00a5f0 0,#0892d1 100%);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#ips-popup-text-main, #ips-popup-container-body,#buttonArea{
+	color:#fff !important;
+}
+#ips-popup body{
+	background:#fff none repeat scroll 0%;
+	line-height:1;
+	margin:0pt;
+	height:100%;
+}
+
+.ips-save-like{
+	cursor: pointer;
+	font-size:11px !important;
+	color:#000 !important;
+	text-decoration:none !important;
+	border:0 !important;
+}
+
+#ips-popup-wrapper{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#ddd; 
+	z-index:10000;
+}
+
+#ips-popup #ips-popup-close{
+	float:right;
+	margin:7px 15px 0 0;
+	color:#FF0000;
+	text-shadow: none;
+}
+
+#ips-popup h1 {
+    color: #DDDDDD !important;
+    font-family: arial;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
+#ips-popup #actionHolder{
+	min-height: 30px;
+	overflow: hidden;
+}
+
+#ips-popup #buttonArea{
+
+	padding:10px;
+	min-height:50px;
+}
+
+#ips-popup #buttonArea a{
+	color:#999999 !important;
+	text-decoration:none !important;
+	border:0 !important;
+	font-size:10px !important;
+}
+
+#ips-popup #buttonArea a:hover{
+	color:#333 !important;
+	text-decoration:none !important;
+	border:0 !important;
+}
+
+#ips-popup #ips-popup-container-body{
+	font-size:12px !important;
+	font-weight:normal !important;
+	line-height:22px;
+	padding:8px;
+}
+
+#ips-popup #ips-popup-timer-count{
+	float:right;
+	font-size:11px !important;
+	font-weight:normal !important;
+	margin:5px 0 0 0;
+	text-align:right;
+	line-height:16px;
+}

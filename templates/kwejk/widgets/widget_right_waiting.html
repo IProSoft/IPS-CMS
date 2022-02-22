@@ -1,0 +1,13 @@
+<div id="float-wait-box" class="widget-wait-box">
+	<div class="item_title">{lang=widget_wait_box}</div>	
+	{loop="array"}
+	<div class="small-wait-box">
+		<a href="{function="seoLink($value.id, $value.title)"}">
+		<div class="item_title">{$counter+1}) {$value.title}</div>
+			<div class="detail">
+				<img src="{function="ips_img( $value, 'thumb' )"}" />
+			</div>
+		</a>
+	</div>
+	{/loop}
+</div>

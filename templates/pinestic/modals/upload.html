@@ -1,0 +1,32 @@
+<div class="modal-upload">
+	{if="Config::get('pinit_upload_normal')"}
+	<button type="button" class="ips-modal-show modal-upload-pin" data-href="/ajax/pinit/upload_pin">
+		<i></i>
+		<span>{lang=pinit_upload_pin}</span>
+	</button>
+	{/if}
+	
+	{if="Config::get('pinit_upload_website')"}
+	<button type="button" class="ips-modal-show modal-upload-url" data-href="/ajax/pinit/upload_url">
+		<i></i>
+		<span>{lang=pinit_upload_website}</span>
+	</button>
+	{/if}
+	
+	{if="Config::getArray( 'upload_type', 'video') "}
+	<button type="button" class="ips-modal-show modal-upload-video" data-href="/ajax/pinit/upload_video">
+		<i></i>
+		<span>Dodaj lub prześlij Video</span>
+	</button>
+	{/if}
+	{if="Config::getArray( 'upload_type', 'gallery')"}
+	<button type="button" class="ips-modal-show modal-upload-gallery" data-href="/ajax/pinit/upload_gallery">
+		<i></i>
+		<span>Dodaj Galerię</span>
+	</button>
+	{/if}
+	<button type="button" class="ips-modal-show modal-upload-board" data-href="/ajax/pinit/upload_board">
+		<i></i>
+		<span>{lang=pinit_upload_board}</span>
+	</button>
+</div>

@@ -1,0 +1,19 @@
+<div id="float-wait-box" class="widget-wait-box">
+	<div class="item_title">{lang=widget_wait_box}</div>	
+	{loop="array"}
+	<div class="small-wait-box">
+		
+		<div class="detail">
+			<a href="{function="seoLink($value.id, $value.title)"}">
+				<img title="{$value.title}" alt="{$value.title}" src="{function="ips_img( $value, 'thumb' )"}">
+			</a>
+			<div class="small-title fade"> 
+				<a href="{function="seoLink($value.id, $value.title)"}">
+					{$counter+1}) {function="cutWords( $value.title, 25 )"}
+				</a>
+			</div>
+		</div>
+		
+	</div>
+	{/loop}
+</div>

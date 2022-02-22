@@ -1,0 +1,49 @@
+{if="$img_intro"}
+	<a href="{$url}">
+		<img src="{$img}" />
+	</a>
+{/if}
+
+{if="$article_style == '1'"}
+	
+	<div class="article_cnt">
+		{$article.long_text}...
+	</div>
+	
+{elseif="$article_style == '2'"}
+	
+	<div class="article_cnt">
+		{$article.long_text}
+	</div>
+	
+{elseif="$article_style == '3'"}
+	
+	<div class="article_cnt">
+		{$article.intro_text}...<a href="{$url}" class="slide-down font_bolder">{lang=article_show_all}</a>
+	</div>
+	
+{elseif="$article_style == '4'"}
+	
+	<div class="article_cnt">
+		<div class="article_intro_roll">
+			{$article.intro_text}
+		</div>
+		<div class="slide-down font_bolder article_slide_down">
+			{lang=article_show_all}
+		</div>
+		<div class="display_none">{$article.long_text}</div>
+	</div>
+				
+{elseif="$article_style == '5'"}
+	
+	<div class="article_overlay" style="width: {$width}px">
+		<div class="article_overlay_div">
+			<div class="article_overlay_intro">
+				<p>{$article.intro_text}...</p>
+			</div>
+		<a class="article_overlay_link font_bolder" href="{$url}">{lang=see_more}</a>
+		</div>
+		<a class="article_overlay_imglink" href="{$url}"><img src="{$img}" /></a>
+	</div>
+	
+{/if}

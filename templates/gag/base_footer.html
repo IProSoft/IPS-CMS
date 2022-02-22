@@ -1,0 +1,13 @@
+<footer class="footer-main">
+	{$footer_code}
+	<div class="footer-text">
+		{if="!empty($stat_text)"}
+		<span class="footer-stats">{$stat_text}</span>
+		{/if}
+		<span class="footer-meta">
+			{lang=meta_site_footer}
+		</span>
+	</div>
+	<ul class="footer_menu bottom-footer">{$footer_menu}</ul>
+	{$change_language}
+</footer>

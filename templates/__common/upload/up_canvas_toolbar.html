@@ -1,0 +1,47 @@
+<div class="input-wrap canvas_element canvas_toolbar">
+
+	{if="$user_font_changes.type"}
+	<div class="canvas_font_wrap user-menu responsive-ui">
+		<a class="box-button responsive-icon canvas_font_preview" href="#"><span style="font-family:{$font.family}">Aa</span><i class="i-icon i-menu"></i></a>
+		<ul class="fancy-menu responsive-slide">
+			{loop="fonts"}
+				<li>
+					<a href="#" data-font="{$key}" style="font-family:{$value.family}">{$value.family}</a>
+				</li>
+			{/loop}
+		</ul>
+		<input class="canvas_font" type="hidden" value="{$font.name}" name="upload_text_font" />
+	</div>
+	{/if}
+	
+	{if="$user_font_changes.size"}
+	<button class="canvas_action size_change size_minus"><i></i></i></button>
+	<div class="canvas_size_wrap">{$font_size}</div>
+	<button class="canvas_action size_change size_plus"><i></i></button>
+	{/if}
+	
+	{if="$user_font_changes.color"}
+	<div id="upload_color" class="upload_color_select color_select_container canvas_action" data-color="{$font_color}">
+		<div style="background-color: {$font_color};"></div>
+		<input type="hidden" class="canvas_color" name="font_color" value="{$font_color}" />
+	</div>
+	{/if}
+	
+	{if="$user_font_changes.style"}
+	<button class="canvas_action bold" data-action="false"><i></i></button>
+	<button class="canvas_action italic" data-action="false"><i></i></button>
+	<button class="canvas_action underline" data-action="false"><i></i></button>
+	<button class="canvas_action strikeout" data-action="false"><i></i></button>
+	{/if}
+	
+	{if="$user_font_changes.align"}
+	<button class="canvas_action left"><i></i></button>
+	<button class="canvas_action center"><i></i></button>
+	<button class="canvas_action right"><i></i></button>
+	{/if}
+	
+	<button class="canvas_action undo" disabled="disabled"><i></i></button>
+	<button class="canvas_action redo" disabled="disabled"><i></i></button>
+
+	<div class="canvas_action help" data-title="{lang=up_canvas_editor_help}"><img src="/images/svg/icon/help.svg" /></div>
+</div>

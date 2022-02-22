@@ -1,0 +1,42 @@
+.cookie-policy-inform {
+	display: none;
+	font-family: Arial,Tahoma,verdana;
+	position: fixed;
+	left:0;
+	right:0;
+	bottom:0;
+	height: auto;
+	background-color:#eee;
+	border-top: 1px solid black;
+	z-index:100000;
+	overflow: auto;
+	padding: 15px;
+	color: #666;
+	font-size:12px;
+	line-height:150%;
+}
+@media all and (max-width: 600px) {
+	.cookie-policy-inform{
+		position: relative;
+	}
+}
+.cookie_bottom.cookie-policy-inform {
+	position: relative;
+}
+.cookie-policy-inform-close {
+	position: absolute;
+	top: 5px;
+	right: 20px;
+}
+.cookie-policy-inform-close a {
+	color: #000
+}
+.cookie-policy-inform-content {
+	color: #666;
+}
+.cookie-policy-inform-content b {
+	display: block;
+    margin-bottom: 12px;
+	
+}
+

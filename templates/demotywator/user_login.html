@@ -1,0 +1,40 @@
+
+<form class="validate-form"  method="post" action="/login/">
+	<div class="inputs-wrap simple-page section-max">
+		
+		<h3>{lang=common_login}</h3>	
+		
+		<div class="login-content">
+		
+				<div class="input-wrap">
+					<label>{lang=common_username}</label>
+					<input name="login" class="text-input" type="text" placeholder="{lang=common_username}" />
+				</div>
+				
+				<div class="input-wrap">
+					<label>{lang=common_password}</label>
+					<input name="password" class="text-input" type="password" placeholder="{lang=common_password}" />
+				</div>
+				
+				<div class="input-wrap i-check display_none">
+					<label>{lang=user_login_remember}</label>
+					<input type="checkbox" name="user_remember" value="tak" />
+				</div>
+				
+				<input type="hidden" name="action_login" value="true" />
+			
+		</div>
+
+		<div class="form-actions">
+			<a class="action" href="/login/reset_password">{lang=user_actions_recover}</a>
+			<a class="action" href="/login/resend_activation">{lang=user_actions_activation_link}</a>
+			
+			<input class="button" type="submit" value="{lang=user_log_in}" />
+		</div>		
+	</div>
+</form>			
+{if="Config::get('apps_login_enabled', 'facebook') || Config::get('apps_login_enabled', 'nk')"}
+	<div class="inputs-wrap simple-page section-max">
+		{function="str_replace( '{login-buttons}', '<br /> ' . SocialButtons::getConnectButtonFB() . SocialButtons::getConnectButtonNK() . '<br />, '__( 'user_connect_description' ) )"}
+	</div>
+{/if}

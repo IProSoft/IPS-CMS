@@ -1,0 +1,9 @@
+<ul id="searchresults">
+	{loop="files"}
+	<li>
+		<a href="{$value.url}">
+			<span class="searchheading"><img src="{$value.thumb_img}" alt="{$value.title}" />{$value.short_title}</span>
+		</a>
+	</li>
+	{/loop}
+</ul>

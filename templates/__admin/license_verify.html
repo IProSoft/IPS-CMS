@@ -1,0 +1,31 @@
+<div class="title_caption"><span class="caption">{lang=verification_title}</span></div>
+
+{if="$response != null"}
+	{$response}
+{/if}
+
+{function="admin_msg( array(
+	'alert' => __( 'license_auth_pass_data' )
+) )"}
+
+<form id="license-set" action="" method="post">
+	
+	<div class="update-messages">
+		<label>{lang=license_email}</label>
+		<input type="text" name="license_email" />
+	</div>
+	
+	<div class="update-messages">
+		<label>{lang=license_number}</label>
+		<input type="text" name="license_number" />
+	</div>
+	
+	<div class="update-messages" style="width: auto;">
+		<input type="submit" value="Zapisz" class="button" style="padding: 10px 15px;">
+	</div>
+	
+</form>
+
+<div class="div-info-message">
+	{lang=update_info_1}
+</div>

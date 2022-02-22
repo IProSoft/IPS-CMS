@@ -1,0 +1,35 @@
+<div class="plugin-buy">
+	<div class="plugin-buy-top">
+		<a target="_blank" class="plugin-icon" href="http://wp.ips/client/#{$product_hash}"><img src="{$product_thumb}"></a>
+		<div class="column-name">
+			<a target="_blank" href="http://wp.ips/client/#{$product_hash}"><h4>{$product_name}</h4></a>
+		</div>
+		<div class="action-links">
+			<ul class="plugin-action-buttons">
+				<li><a target="_blank" href="http://wp.ips/client/#{$product_hash}" class="install-now button">Kup licencję</a></li>
+			</ul>
+		</div>
+		<div class="column-description">
+			<p>{$product_description}</p>
+		</div>
+		<a class="enter" href="#">Mam już licencję</a>
+		<form class="plugin-buy-form">
+			<img src="images/icons/close-icon.png" class="close" />
+			<input type="text" class="license" placeholder="Wpisz numer licencji..." name="plugin_license[{$product_hash}]" />
+			<input type="hidden" class="plugin_hash" name="plugin_hash" value="{$product_hash}" />
+			<input type="submit" class="button" value="Instaluj" />
+			<div class="msg"></div>
+		</form>
+		
+	</div>
+	<div class="plugin-buy-bottom">
+
+		<div class="column-updated">
+			<strong>Ostatnia aktualizacja:</strong> <span title="{$last_modified}">{$last_modified}</span>
+		</div>
+		<div class="column-downloaded">Kupiono: {$buy_count}</div>
+	</div>
+	{if=" $installed "}
+	<div class="installed"></div>
+	{/if}
+</div>

@@ -1,0 +1,31 @@
+<div id="widget-adult">
+	<div id="widget-adult-header">
+		{lang=widget_only_adult_title_block}
+	</div>
+	<div id="widget-adult-container">
+		<p>{lang=widget_only_adult_content}</p>
+			<a href="#" class="widget-adult-button adult-button-green">
+				<img src="/images/widget-adult-accept.png">{lang=widget_only_adult_close}
+			</a>
+			<a href="http://google.pl/" class="widget-adult-button adult-button-red">
+				<img src="/images/widget-adult-close.png">{lang=widget_only_adult_dismiss}
+			</a>
+	</div>
+</div>
+<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/css/widgets/widget_adults.css">
+<script src="/js/jquery.reveal.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#widget-adult').reveal({ 
+			animation: 'fadeAndPop', // fade, fadeAndPop, none
+			animationspeed: 600,
+			closeonbackgroundclick: false,
+			dismissmodalclass: 'adult-button-green',
+			top: 300
+		});
+		return false;
+	});
+</script>

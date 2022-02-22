@@ -1,0 +1,70 @@
+<form method="post" class="upload-preview simple-form" id="create-pin">
+	
+	{if=" is_array( $thumb )"}
+		<div class="image-preview multiple-images">
+		{loop="thumb"}
+			<div class="multiple-img">
+				<div class="multiple-img-cover {if="$key == 0"}activ{/if}"><i></i></div>
+				<img src="{$value}" />
+				<input type="hidden" name="upload_image_files[]" value="{$value}">
+			</div>
+		{/loop}
+		</div>
+	{else}
+	<div class="image-preview">
+		<img src="{$thumb}" />
+	</div>
+	{/if}
+	
+	<ul class="form-ul">
+
+		<li class="form-box">
+			<h3>
+				{lang=pinit_board}
+			</h3>
+			
+			{$create_board_list}
+		</li>	
+		<li class="form-box">
+			<h3>
+				{lang=pinit_upload_description}
+			</h3>
+			<div class="create-description">
+				<textarea name="pin_description" placeholder="{lang=pinit_upload_pin_description}" required="required">{$pin_title}</textarea>
+				<p class="input-error-message">{lang=pinit_upload_pin_description_error}</p>
+			</div>
+		</li>
+	</ul>
+
+
+
+	<div class="upload-form-footer">    
+		<button type="button" data-dismiss="modal">
+			<span>{lang=pinit_cancel}</span>
+		</button>
+		
+		{if=" isset( $pin_id_edit ) "}
+			<button type="button" class="ips-delete-pin button " data-id="{$pin_id}">
+				<span>{lang=pinit_pin_delete}</span>
+			</button>
+			
+			<button type="submit" class="button-red ips-modal-submit float_right" data-href="/ajax/pinit/edit_pin">
+				<span>{lang=pinit_upload_pin_edit}</span>
+			</button>
+			<input id="pin_id_edit" type="hidden" name="pin_id_edit" value="{$pin_id_edit}" />
+		{else}
+			<button type="submit" class="button-red ips-modal-submit float_right" data-href="/ajax/pinit/create_pin">
+				<span>{lang=pinit_upload_pin_create}</span>
+			</button>
+		{/if}
+		
+	</div>
+	
+	<input type="hidden" name="pin_board_id" data-required="{lang=pinit_upload_pin_board}" value="{if="isset($pin_board_id)"}{$pin_board_id}{/if}" />
+	<input type="hidden" name="pin_from_url" value="{$pin_from_url}" />
+	<input type="hidden" name="repin_from" value="{$repin_from}" />
+	<input type="hidden" name="upload_image" value="{$image_name}" />
+	{if="$upload_video"}
+	<input type="hidden" name="upload_video" value="{$upload_video}" />
+	{/if}
+</form>

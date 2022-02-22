@@ -1,0 +1,11 @@
+<div class="input-wrap">
+	<label>{lang=add_tags}</label>
+	<select class="upload_tags" multiple="multiple">
+		{if="$post_upload_tags"}
+			{loop="post_upload_tags"}
+				<option value="{$value}" selected="selected">{$value}</option>
+			{/loop}
+		{/if}
+	</select>
+	<input type="hidden" name="upload_tags" />
+</div>

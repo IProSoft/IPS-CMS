@@ -1,0 +1,31 @@
+<div class="dialog-login">
+	<form class="validate-form" action="/login/" method="post" style="overflow:visible;">
+		
+		<div class="dialog-login-inputs">
+			<div class="input-wrap">
+				<label for="login">{lang=common_username}</label>
+				<input type="text" name="login" size="20" />
+			</div>
+			<div class="input-wrap">
+				<label for="password">{lang=common_password}</label>
+				<input type="password" name="password" size="20" />
+			</div>
+			<div class="input-wrap fixed_checkbox">
+				<label for="user_remember"> </label>
+				<input type="checkbox" name="user_remember" value="tak" />
+				<span>{lang=user_login_remember}</span>
+			</div>
+		</div>
+		
+		<div class="dialog-login-links">
+			<span class="login_option"><a class="highlight_text" href="/register/">{lang=user_actions_register}</a></span>
+			<span class="login_option"><a class="highlight_text" href="/login/reset_password">{lang=user_actions_recover}</a></span>
+			<span class="login_option"><a class="highlight_text" href="/login/resend_activation">{lang=user_actions_activation_link}</a></span>
+		</div>
+		
+		<button class="dialog-button">{lang=common_login}</button>
+		
+		<input type="hidden" name="action_login" value="true" />
+		
+	</form>
+</div>

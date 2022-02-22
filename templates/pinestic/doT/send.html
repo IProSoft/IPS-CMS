@@ -1,0 +1,73 @@
+<form method="post" id="user-send-pin" class="user-send-pin" style="display: block;">
+
+	<div class="user-send-pin-body">
+		
+		<div class="user-send-pin-header">
+			
+			<h1>
+			{{? it.send_type == 'send-pin'}}
+				{lang=pinit_pin_send_to}
+			{{??}}
+				{lang=pinit_board_send_to}
+			{{?}} 
+			</h1>
+			
+			<button class="button ips-add-message">
+				<i></i><span class="hide-text">{lang=pinit_add_message}</span>
+			</button>
+			
+		</div>
+
+		<div class="user-send-pin-content">
+			<div class="user-send-pin-add-message ">
+				
+				<div class="add-msg-button">
+					<img src="{{=it.current_user.avatar_link}}" alt="{lang=pinit_user_image} {{=it.current_user.full_name}}" />
+				</div>
+				
+				<div class="add-msg-text">
+					<input type="text" name="send_message" placeholder="{lang=pinit_add_message}" autocomplete="off" />
+				</div>
+				
+			</div>
+
+			<div class="modal-typeahead user-send-pin-typeahead">
+				
+				<input type="text" name="user_email" value="" placeholder="{lang=pinit_send_info}" autocomplete="off" class="ui-typeahead" data-href="/ajax/pinit/find_people" />
+				
+				<i class="user-send-search-icon"></i>
+				<!-- <p class="input-error-message ">This is not valid email</p> -->
+				
+				
+				<span class="tt-dropdown-menu" style="display:none;">
+					<div class="tt-dataset-">
+					  <span class="tt-suggestions">
+						  <div class="tt-suggestion">
+							<div class="user-send-seggest-wrapper" style="white-space: normal;">
+								<span class="user-send-img"></span>
+								<p class="user-send-name" id="user-send-id"></p>
+							</div>
+						  </div>
+					  </span>
+					</div>
+				</span>
+				<div type="submit"  class="user-send-to is_hidden" data-href="/ajax/pinit/send_email">
+					<div class="send-icon"></div>
+					<h2>{lang=pinit_send_to} <b></b></h2>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<input type="hidden" name="user_id" value="" />
+	
+	
+	{{? it.send_type == 'send-pin'}}
+	<input type="hidden" name="pin_id" value="{{=it.data_id}}" />
+	{{??}}
+	<input type="hidden" name="board_id" value="{{=it.data_id}}" />
+	{{?}} 
+	
+	<input type="hidden" name="user_login" value="{{=it.current_user.user_login}}" />
+</form>

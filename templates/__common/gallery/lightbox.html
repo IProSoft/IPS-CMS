@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/libs/galleries/lightbox/css/lightbox.css" type="text/css" media="screen" />
+<link href="http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700" rel="stylesheet" type="text/css">
+<div class="gallery_intro">
+	<p>{$intro_text}</p>
+	<div class="gallery_images_pretty">
+		<ul class="galleryBox">
+		{loop="$gallery_images"}
+		<li>
+			<a href="{$value.src}" rel="lightbox[img]"><img class="border" src="{$value.src}" width="60" height="60" /></a>
+		</li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<script src="/libs/galleries/lightbox/js/lightbox.js,galleries/lightbox/js/jquery.smooth-scroll.min.js"></script>

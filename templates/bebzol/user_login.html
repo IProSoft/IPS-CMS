@@ -1,0 +1,53 @@
+
+<form class="validate-form"  method="post" action="/login/">
+	<div class="inputs-wrap simple-page section-max">
+		<ul id="user-options-start">
+			<li>
+				<a href="/login/" class="li-login-register li-login {if="IPS_ACTION == 'login'"}li-current{/if}"><span>{lang=common_login}</span></a>
+			</li>
+			<li>
+				<a href="/register/" class="li-login-register li-register {if="IPS_ACTION == 'register'"}li-current{/if}"><span>{lang=common_register}</span></a>
+			</li>
+		</ul>
+		<div class="login-content">
+			
+			{if="Config::get('apps_login_enabled', 'facebook')"}
+				<a href="/connect/facebook/" class="large-button facebook-button"><i></i>{lang=connect_facebook}</a>
+			{/if}
+			
+			{if="Config::get('apps_login_enabled', 'nk')"}
+				<a href="/connect/nk/" class="large-button nk-button"><i></i>{lang=connect_nk}</a>
+			{/if}
+			
+			{if="Config::get('apps_login_enabled', 'twitter')"}
+			<a href="/connect/twitter/" class="large-button twitter-button"><i></i>{lang=connect_twitter}</a>
+			{/if}
+								
+				<div class="input-wrap">
+					<label>{lang=common_username}</label>
+					<input name="login" class="text-input" type="text" placeholder="{lang=common_username}" />
+				</div>
+				
+				<div class="input-wrap">
+					<label>{lang=common_password}</label>
+					<input name="password" class="text-input" type="password" placeholder="{lang=common_password}" />
+				</div>
+				
+				<div class="input-wrap i-check display_none">
+					<label>{lang=user_login_remember}</label>
+					<input type="checkbox" name="user_remember" value="tak" />
+				</div>
+				
+				<input type="hidden" name="action_login" value="true" />
+			
+		</div>
+
+		<div class="form-actions">
+			<a class="action" href="/login/reset_password">{lang=user_actions_recover}</a>
+			<a class="action" href="/login/resend_activation">{lang=user_actions_activation_link}</a>
+			
+			<input class="button" type="submit" value="{lang=user_log_in}" />
+		</div>
+					
+	</div>
+</form>		

@@ -1,0 +1,124 @@
+
+{$additional_css}
+
+{if="Config::get('rss_off') == 1"}
+	<div class="rss">
+		<img src="images/rss.png" alt="rss" width="28" height="28" />
+		<div class="rss2">
+			<a href="{#ABS_URL#}main.xml" title="{lang=menu_rss_main}">{lang=common_main}</a><br>
+			<a href="{#ABS_URL#}waiting.xml" title="{lang=menu_rss_waiting}">{lang=common_waiting}</a>
+		</div>
+	</div>
+{/if}
+
+<div id="top" class="base-header">
+	{if="!empty( $widgets )"}
+		<div id="search-widget">
+			{$widgets}
+		</div>
+	{/if}
+	<div id="top-container" class="base-top box-max">
+		
+		<a href="{#ABS_URL#}" class="img_logo">
+			<img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-gag.png" />
+		</a>
+		
+		<div class="responsive-wrap responsive-ui">
+			
+			<div class="responsive-icon large"><i>Menu</i></div>
+			
+			<ul class="responsive-menu responsive-slide">
+				{$menu_list}
+			</ul>
+			
+		</div>
+		<div class="base-right float-right">
+			
+		
+			{if="!empty( $widgets )"}
+			<a class="base-right-child search-button" href="{#ABS_URL#}search/"><i>{lang=common_search}</i></a>
+			{/if}
+			<a class="base-right-child random-button" href="{#ABS_URL#}random.html" title="{lang=menu_random}"><i>{lang=menu_random_menu}</i></a>
+				
+			
+			<ul class="base-user base-right-child">
+
+				{if="!USER_LOGGED"}
+					<li>
+						<a href="/login/" title="{lang=user_log_in_long}">{lang=user_log_in}</a>
+					</li>
+					<li>
+						<a href="/register/" title="{lang=user_register}">{lang=user_register}</a>
+					</li>
+				{else}
+					<li class="user-menu responsive-ui">
+						<a href="#" class="box-button responsive-icon">
+							<img title="{#USER_LOGIN#}" src="{$user.avatar_link}" />
+							<span>{#USER_LOGIN#}</span>
+							<i class="i-icon i-menu"></i>
+						</a> 
+						<ul class="fancy-menu responsive-slide">
+							<li>
+								<a class="user-profile-url" href="{#ABS_URL#}profile/{#USER_LOGIN#}" id="login">{lang=user_profile_self}</a>
+							</li>
+							<li>
+								<a class="user-edit-profile" href="{#ABS_URL#}edit_profile">{lang=edit_profile}</a>
+							</li>
+							<li>
+								<a class="user-default" href="{#ABS_URL#}user/{#USER_LOGIN#}/">{lang=user_files}</a>
+							</li>
+							<li>
+								<a class="user-pw" href="{#ABS_URL#}messages/">{lang=user_messages}</a>
+							</li>
+							<li>
+								<a class="user-logout" href="{#ABS_URL#}login/user_logout">{lang=user_log_out}</a>
+							</li>
+							{if="USER_ADMIN"}
+							<li>
+								<a class="user-admin" href="{#IPS_ADMIN_URL#}" title="{lang=user_admin_panel}">{lang=user_admin_panel}</a>
+							</li>
+							{/if}
+							{if="USER_MOD"}
+							<li>
+								<a class="user-moderator" href="{#ABS_URL#}moderator" title="{lang=user_mod_panel}">{lang=user_mod_panel}</a>
+							</li>
+							{/if}
+							{if="$user.facebook_btn"}
+							<li>
+								{function="SocialButtons::getConnectButtonFB('url')"}
+							</li>
+							{/if}
+							{if="$user.nk_btn"}
+							<li>
+								{function="SocialButtons::getConnectButtonNK('url')"}
+							</li>
+							{/if}
+							{if="$contest_url"}
+							<li>
+								<a href="{#ABS_URL#}contest">{lang=menu_contest_menu}</a>
+							</li>
+							{/if}
+						</ul>
+					</li>
+				{/if}
+			</ul>
+			{if="IPS_ACTION != 'up' && USER_LOGGED"}
+			<div class="up-button base-right-child responsive-ui">
+				<a href="/up/" class="responsive-icon">{lang=common_add}</a> 
+				<ul class="fancy-menu responsive-slide up-button-items">
+					<li class="clickable">
+						<a href="/upload/image/" data-type="image">{lang=add_head_image}</a>
+					</li>
+					<li class="clickable">
+						<a href="/upload/video/" data-type="video">{lang=add_head_video}</a>
+					</li>
+					<li>
+						<a target="_blank" href="/up/mem/" data-type="mem">{lang=add_head_mem}</a>
+					</li>
+				</ul>
+			</div>
+			{/if}
+			
+		</div>	
+	</div>	
+</div>

@@ -1,0 +1,118 @@
+.user-idle-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    left: 0;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 155;
+	text-align:left;
+	display:none;
+}
+
+.user-idle {
+    margin-left: -350px;
+    max-width: 700px;
+	width: 70%;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 156;
+	padding-left: 2%;
+    font-size: 13px;
+	margin: 10% auto;
+}
+
+.user-idle h2 {
+	font-size: 28px;
+	font-weight: bold;
+	padding-top: 2%;
+	padding-bottom: 1%;
+}
+
+.user-idle p {
+    color: #999;
+    line-height: 1.6em;
+    margin-bottom: 2%;
+}
+
+.user-idle .content {
+    overflow: hidden;
+    padding-bottom: 3%;
+    width: 96%;
+}
+
+.user-idle .content .ad {
+    float: left;
+}
+
+.user-idle .content .files {
+    float: right;
+}
+.user-idle .content .ad, 
+.user-idle .content .files {
+    width: auto;
+	max-width: 49%;
+}
+.user-idle .has-one-only .ad,
+.user-idle .has-one-only .files {
+    max-width: 99.5%;
+    width: 99.5%;
+}
+.user-idle .content .files {
+    float: right;
+    border: 1px solid #eee;
+}
+
+.user-idle .files > h3 {
+    color: #999;
+    font-size: 12px;
+    height: 28px;
+    line-height: 30px;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.user-idle .files ul {
+    border: 0 none;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+}
+.user-idle .files ul li:hover{
+    background-color: #eee;
+}
+.user-idle .files a {
+    height: 39px;
+    display: block;
+    overflow: hidden;
+    padding: 8px 15px;
+    color: #0087f7;
+    text-decoration: none;
+}
+
+.user-idle .files .img_small {
+    background-color: #e8e8e8;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    width: 60px;
+}
+
+.user-idle .files .files-title {
+    margin-left: 80px;
+}
+
+.user-idle .files .img_small img {
+    border: 0 none;
+}
+
+.user-idle .files .files-title h3 {
+    overflow: hidden;
+    font-size: 13px;
+    color: #000;
+}

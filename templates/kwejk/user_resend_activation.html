@@ -1,0 +1,16 @@
+<div class="inputs-wrap simple-page section-max">
+	<div class="login-content">
+		<form method="post" action="/login/resend_activation">					
+			
+			<input name="resend_activation" class="text-input" type="text" placeholder="{lang=user_set_email}" />
+		
+			<input class="button" type="submit" value="{lang=user_resend_activation}" />
+		
+		</form>
+	</div>
+
+	<div class="form-actions">
+		<span class="action"><a href="#" onclick="userAuth('register');return false;">{lang=user_actions_register}</a></span>
+		<span class="action"><a href="/login/reset_password">{lang=user_actions_recover}</a></span>
+	</div>
+</div>

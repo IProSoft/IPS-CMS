@@ -1,0 +1,48 @@
+<form class="validate-form"  method="post" action="/login/">
+	<div class="inputs-wrap">
+		<div class="simple-page">
+			<h3>{lang=common_login}</h3>	
+			<div class="login-content">
+				{if="Config::get('apps_login_enabled', 'facebook')"}
+					<a href="/connect/facebook/" class="button-link large-button facebook-button"><i></i>{lang=connect_facebook}</a>
+				{/if}
+				{if="Config::get('apps_login_enabled', 'nk')"}
+					<a href="/connect/nk/" class="button-link large-button nk-button"><i></i>{lang=connect_nk}</a>
+				{/if}
+				{if="Config::get('apps_login_enabled', 'twitter')"}
+					<a href="/connect/twitter/" class="button-link large-button twitter-button"><i></i>{lang=connect_twitter}</a>
+				{/if}
+					<div class="login-inputs">				
+						<p>
+							<input name="login" class="text-input" type="text" placeholder="{lang=common_username}" />
+						</p>
+						
+						<p>
+							<input name="password" class="text-input" type="password" placeholder="{lang=common_password}" />
+						</p>
+						
+						<p style="font-size: 0.8em;">
+							<div class="ui-checkbox-cnt">
+								<span class="on-off">
+									<span class="checkbox-on"><p>{lang=pinit_on}</p></span>
+									<span class="checkbox-off is-activ"><p>{lang=pinit_off}</p></span>
+									<input type="checkbox" value="tak" name="user_remember" class="ui-checkbox" />
+								</span>
+							</div>
+							{lang=user_login_remember}
+						</p>
+					</div>
+					<input type="hidden" name="action_login" value="true" />
+			</div>
+			
+		</div>
+		<div class="form-actions">
+			<input class="button-red" type="submit" value="{lang=user_log_in}" />
+			
+			<a class="action" href="/login/reset_password">{lang=user_actions_recover}</a><br />
+			<a class="action" href="/login/resend_activation">{lang=user_actions_activation_link}</a><br />
+			<a class="action" href="/register/">{lang=user_actions_register}</a>
+
+		</div>
+	</div>
+</form>		

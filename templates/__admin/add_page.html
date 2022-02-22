@@ -1,0 +1,57 @@
+<form action="" enctype="multipart/form-data" method="post">
+	<div  class="features-table-actions-div">
+		
+	
+		<div class="option-cnt ">
+			<span>{lang=post_title}</span>
+			<div class="option-inputs">
+				<input value="{$post_title}" type="text" name="post_title" />
+			</div>
+		</div>
+
+		<div class="option-cnt ">
+			<span>{lang=post_type}</span>
+			<div class="option-inputs">
+				<select name="post_type">
+					<option value="pages" {if="$post_type == 'pages'"}selected="selected"{/if}>{lang=post_type_page}</option>
+					<option value="posts" {if="$post_type == 'posts'"}selected="selected"{/if}>{lang=post_type_post}</option>
+					<option value="news" {if="$post_type == 'news'"}selected="selected"{/if}>{lang=post_type_news}</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="option-cnt ">
+			<span>{lang=post_visibility}</span>
+			<div class="option-inputs">
+				<select name="post_visibility">
+					<option value="public" {if="$post_visibility == 'public'"}selected="selected"{/if}>{lang=post_visibility_public}</option>
+					<option value="private" {if="$post_visibility == 'private'"}selected="selected"{/if}>{lang=post_visibility_private}</option>
+				</select>
+			</div>
+		</div>
+		{if="count( $languages ) > 0"}
+		<div class="option-cnt ">
+			<span>{lang=post_language}</span>
+			<div class="option-inputs">
+				<select name="post_language">
+					<option value="all" {if="$post_language == 'all'"}selected="selected"{/if}>{lang=post_language_all}</option>
+					{loop="languages"}
+						<option value="{$value}" {if="$post_language == $value"}selected="selected"{/if}>{$value}</option>
+					{/loop}
+				</select>
+			</div>
+		</div>
+		{/if}
+		<div class="option-cnt ">
+
+			<textarea id="post_content" name="post_content">{$post_content}</textarea>
+
+		</div>
+		
+		{if="$post_id"}
+			<input type="hidden" name="post_id" value="{$post_id}" />
+		{/if}
+		
+	</div>
+		<input id="post_submit" type="submit" name="post_form" class="button" value="{lang=save}" />
+</form>

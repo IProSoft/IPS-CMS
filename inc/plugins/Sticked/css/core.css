@@ -1,0 +1,19 @@
+/*
+* Sticked
+*/
+body .file-container.image-hidden-watermark {
+    display: block;
+    overflow: hidden;
+}
+body .file-container.image-hidden-watermark > img{
+    margin-bottom: -40px !important;
+}
+body .file-container.image-hidden-watermark  > .media-wrap {
+    margin-bottom: -40px !important;
+}
+body.content-while-file_page .file-container.image-hidden-watermark img {
+    margin-bottom: -40px !important;
+}
+/*
+* End Sticked
+*/

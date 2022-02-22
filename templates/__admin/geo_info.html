@@ -1,0 +1,40 @@
+<div class="title_caption"><span class="caption">{lang=caption_geo}</span></div>
+<div class="nice-blocks" style="margin-top:0">
+	<div class="blocks-content">
+		<div style="width: 100%; height: auto" class="stats-blocks">
+			<div class="table-body">
+				<table width="100%" cellspacing="0" cellpadding="0" class="blocks-table">
+					<thead>
+					
+					</thead>
+					<tbody>
+						{if="isset( $user ) "}
+						<tr>
+							<td>{lang=user_id}</td><td>{$user.id}</td>
+						</tr>
+						<tr>
+							<td>Login</td><td>{$user.login}</td>
+						</tr>
+						<tr>
+							<td>Email</td><td>{$user.email}</td>
+						</tr>
+						{/if}
+						<tr>
+							<td>{lang=file_id}</td><td>{$upload_id}</td>
+						</tr>
+						<tr>
+							<td>{lang=browser}</td><td>{$browser_info}</td>
+						</tr>
+						<tr>
+							<td>{lang=ip}</td><td>{$ip}</td>
+						</tr>
+						<tr>
+							<td>{lang=more}</td><td><a href="https://ipinfo.io/{$ip}" target="_blank">https://ipinfo.io/{$ip}</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

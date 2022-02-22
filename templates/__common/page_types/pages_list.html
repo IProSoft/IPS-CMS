@@ -1,0 +1,19 @@
+<div class="ips-post-list">
+	<div class="ips-post-links">
+	<div class="ips-post-title">Menu</div>
+	{loop="data"}
+		<div class="ips-post-link {if="$current_permalink == $value.post_permalink"}post-current{/if}">
+			<div class="ips-post-title"><a href="{#ABS_URL#}{$value.post_type}/{$value.post_permalink}">{$value.post_title}</a></div>
+		</div>
+	{/loop}	
+	</div>
+	{if="!empty( $post )"}
+	<div class="ips-post-page">
+		<div class="ips-post-title">{$post.post_title}</div>
+		<div class="ips-post-content">	
+			{$post.post_content}
+		</div>
+	</div>
+	{/if}
+	<div class="clear_columns"></div>
+</div>

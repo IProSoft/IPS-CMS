@@ -1,0 +1,50 @@
+<script type="text/javascript" src="js/contact_form.js"></script>
+<div class="contact_form box-max">
+	<form method="post" onsubmit="return sendContact();" action="#">
+	
+		<div class="contact_block input-wrap rwd_inputs">		
+			<label for="name">{lang=contact_form_user}</label>
+			<input type="text" class="text" name="name" />
+			<p class="error">{lang=contact_form_error_user}</p>
+		</div>
+		
+		<div class="contact_block input-wrap rwd_inputs">	
+			<label for="email">{lang=contact_form_email}</label>
+			<input type="text" class="text" name="email" />
+			<p class="error">{lang=contact_form_error_email}</p>
+		</div>
+		
+		<div class="contact_block input-wrap rwd_inputs">		
+			<label for="contact_category">{lang=contact_form_category}</label>
+			<select name="contact_category">
+				<option value="contact_form_category_question">{lang=contact_form_category_question}</option>
+				<option value="contact_form_category_ads">{lang=contact_form_category_ads}</option>
+				<option value="contact_form_category_problem">{lang=contact_form_category_problem}</option>
+			</select>
+		</div>
+		
+		<div class="contact_block input-wrap rwd_inputs">	
+			<label for="message">{lang=contact_form_message}</label>
+			<textarea name="message" rows="8" cols="12"></textarea>
+			<p class="error">{lang=contact_form_error_message}</p>
+		</div>
+		
+		<div class="contact_block input-wrap rwd_inputs">	
+			<label for="captcha" id="captcha_label"></label>
+			<input type="text" name="captcha" style="width: auto;" />
+			<p class="error">{lang=contact_form_error_captcha}</p>
+		</div>	
+		
+		<script type="text/javascript">
+			generate_captcha('captcha_label');
+		</script>	
+		
+		<div class="contact_block input-wrap rwd_inputs">	
+			<input type="submit" class="contact_form_send button" name="send_contact" value="{lang=contact_form_send}" />
+		</div>	
+	
+	</form>
+</div>
+<div id="message_sent" style="display:none;">
+	{lang=contact_form_success}
+</div>

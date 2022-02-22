@@ -1,0 +1,31 @@
+<form class="validate-form"  method="post" action="/login/" data-validation="validate_connect">	
+	<div class="inputs-wrap simple-page section-max block-shadow">
+		<h3>{lang=connect_header}</h3>
+		
+		<div class="connect-description">	
+		{lang=connect_description}
+		</div>
+		
+		<div class="login-content">	
+					
+			<div class="input-wrap">
+				<label>{lang=connect_name}</label>
+				<input name="suggested_login" value="{$login}" class="text-input" type="text" />
+			</div>
+			{if="empty( $email )"}
+			<div class="input-wrap">
+				<label>{lang=connect_email}</label>
+				<input name="suggested_email" value="{$email}" class="text-input" type="text" />
+			</div>
+			{/if}
+		</div>	
+		
+		<div class="form-actions">
+			<a href="/" class="button-link cancel">{lang=common_back}</a>
+			<input class="button" type="submit" value="{lang=connect_accept}" />
+		</div>
+		<div class="loading-shadow"></div>
+	</div>
+</form>	
+
+

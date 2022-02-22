@@ -1,0 +1,45 @@
+{if="$is_negative"}
+	<div class="is_negative">
+		{lang=comments_below}<a href="#" title="{lang=comments_below_info}">{lang=js_com_hidden_show}</a>
+	</div>
+{/if}
+<div id="comment_div_{$id}" class="{$div_comment_css} comment pin-small-block" data-id="{$id}" data-upload-id="{$upload_id}"> 	
+	<a class="pin-user-avatar" href="/profile/{$user_login}">
+		<img src="{$avatar}" alt="{$full_name}" />
+	</a>
+	<div class="small-block-wrapper">
+		
+		<div class="small-block-author">
+			<a class="block-author-name" href="/profile/{$user_login}">{$full_name}</a>
+			<span class="block-author-date">• {$date_format} </span>
+		</div>
+	
+
+		<span class="comment-header">		
+			<span class="moderator-block">
+				
+				{if="$moderator"}
+					<span class="highlight_text ips-edit-comment" href="#">[{lang=user_mod_comment_moderate}] | </span>
+				{/if}
+				
+				{if="$can_delete"}
+					<span class="highlight_text ips-delete-comment" href="#">[{lang=common_delete}]</span>
+				{/if}
+				
+			</span>
+		</span>	
+
+		<div class="comment-content small-block-content" >{$content}</div>
+						
+			
+		
+		<div class="pin-report-comment">
+
+			<i title="{lang=report_warning}" class="icon-report"></i>
+			<button type="button" onclick="systemReport({$id}, 'comment', {$upload_id}); return false;" class="button">
+				<i></i>
+			</button>
+		</div>
+	</div>	
+	<span class="comment-reply ips-reply-comment"><i></i>{lang=comments_answer}</span>			
+</div>

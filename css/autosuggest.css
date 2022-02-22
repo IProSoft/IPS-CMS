@@ -1,0 +1,70 @@
+#search_suggest {
+    display: none;
+    position: absolute;
+    min-width: 320px;
+	z-index: 99;
+	margin-top: 1%;
+}
+.ver-kwejk #search_suggest {
+    margin-top: 0;
+}
+#searchresults { 
+	display: inline-block;
+	min-width:320px;
+}
+ul#searchresults  {
+    background-color: #F5F5F5;
+    border: 1px solid #FFFFFF;
+}
+ul#searchresults li {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #fff;
+    display: block;
+    float: none !important;
+    list-style: outside none none;
+    padding: 0;
+}
+ul#searchresults li:first-child {
+    border-top: medium none;
+	padding-top: 0px;
+}
+ul#searchresults li:last-child {
+    border-bottom: medium none;
+}
+ul#searchresults li a {
+    border: medium none !important;
+    color: #999999 !important;
+    display: block !important;
+    padding: 10px 5px !important;
+    text-decoration: none !important;
+	font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px !important;
+    text-shadow: 1px 1px 0 white !important;
+	float: none !important;
+}
+ul#searchresults li a:hover {
+	background-color:#fff;
+	color:#666;
+	cursor:pointer;
+}
+#searchresults a span {
+    float: none;
+    height: 30px;
+    line-height: 15px;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+#searchresults a span, #searchresults a img {
+	display: inline-block;
+}
+#searchresults a img {
+    float: left;
+	max-height: 30px;
+    max-width: 30px;
+	width: expression(this.width > 30 ? "30px" : true); 
+	height: expression(this.height > 30 ? "30px" : true);
+}

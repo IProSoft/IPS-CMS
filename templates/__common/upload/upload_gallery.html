@@ -1,0 +1,74 @@
+<div class="add-new-file">
+	<form id="upload_form" name="upload_form" action="/upload/gallery" method="post" enctype="multipart/form-data">
+
+		<input type="hidden" name="upload_url" value="{$post_upload_url}" />
+
+		<div class="input-wrap">
+			<label for="title" class="h3_bold">{lang=add_title}<b>(*)</b></label>
+			<input id="title" name="title" type="text" maxlength="255" value="{$post_title}" class="up-verify" data-alert="{lang=err_title}" />
+		</div>
+		
+		<div id="up_image_file" class="input-wrap up_image">
+			{function="Upload_Helper::dropzone('image', true)"}
+			<input type="hidden" value="{$post_upload_url}" />
+		</div>
+		
+		{if="Config::get( 'gallery_options', 'add_description' )"}	
+			<div id="gallery_add_descript" class="input-wrap up_long_text up_gallery_text">
+				<div class="long_text_description">{$add_description}</div>
+				<textarea id="long_text" name="long_text" rows="20" cols="6" class="tinyeditor">{$post_long_text}</textarea>
+				<script type="text/javascript">
+					tinyEditor( 'long_text' );	
+				</script>
+			</div>	
+		{/if}
+		
+		{if="USER_ADMIN"}
+			{include="/upload/up_add_thumb.html"}		
+		{/if}
+
+		{if="Config::get('upload_tags')"}
+			{include="/upload/up_tags.html"}		
+		{/if}
+		
+		{if="Config::get('add_source')"}
+			{include="/upload/up_source.html"}	
+		{/if}
+			
+		{if="Config::get('categories_option') == 1"}
+			{include="/upload/up_pick_category.html"}
+		{/if}
+			
+		{if="Config::get('add_captcha') == 2 || ( Config::get('add_captcha') == 1 && !USER_LOGGED ) "}
+			{include="/upload/up_captcha.html"}
+		{/if}
+			
+		
+		<input type="hidden" name="upload_images" value="{$upload_images}" />	
+		
+	
+		<input type="hidden" name="MAX_FILE_SIZE" value="{$max_file_size}" />
+		<input type="hidden" name="edit_id" value="{$edit_id}" />
+		<input type="hidden" name="_token" value="{$edit_id|csrf_token}" />
+		
+		<div class="add-actions-bottom">
+			
+			{if="Config::get('add_private_files')"}
+				{include="/upload/up_is_private.html"}	
+			{/if}
+		
+			{if="Config::get('add_is_adult_field')"}
+				{include="/upload/up_is_adult.html"}
+			{/if}
+			
+			{if="Config::get('add_require_rules')"}
+				{include="/upload/up_require_rules.html"}
+			{/if}
+			
+			<a class="submit button-link cancel" href="/">{lang=add_cancel}</a>
+			
+			<button class="submit" id="add-form-submit">{lang=common_add}</button>
+			
+		</div>
+	</form>
+</div>

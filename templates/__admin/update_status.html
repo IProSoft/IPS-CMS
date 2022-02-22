@@ -1,0 +1,32 @@
+<div class="nice-blocks features-table-actions-div">
+	<div class="blocks-header">{$table_name}</div>
+	<div class="blocks-content nice-blocks features-table-actions-div">
+		<div style="width: 100%; height: auto" class="stats-blocks">
+			<table width="100%" cellspacing="0" cellpadding="0" class="blocks-table">
+			<thead>
+				<tr>
+					<th><span class="table-header">{$row_first}</span></th>
+					<th><span class="table-header">{$row_second}</span></th>
+				</tr>
+			</thead>
+				<tbody>
+					{loop="data"}
+					<tr>
+						<td style="width: 30px;">
+							{if="$value.status === 'loader'"}
+								<img width="24" height="24" src="/images/svg/spinner.svg">
+							{elseif="$value.status"}
+								<img src="images/icons/update-success.png" />
+							{else}
+								<img src="images/icons/update-error.png" />
+							{/if}
+						</td>
+						<td>{$value.msg}</td>
+					</tr>
+					{/loop}
+				</tbody>
+			</table>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

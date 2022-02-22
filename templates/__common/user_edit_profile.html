@@ -1,0 +1,127 @@
+<div class="edit_profile">
+	<h4>{lang=edit_profile}</h4>
+	
+	<form action="" method="post">
+		
+		<div class="input-wrap">
+			<h5>{lang=edit_profile_avatar}</h5>
+			<div class="input-wrap-content avatar_thumb">
+				<div class="image-block">
+					<img width="100px" height="100px" src="{$avatar}" />
+				</div>
+				<div class="image-block-file">
+					<input type="file" name="file" size="20" />
+					<p>{lang=edit_profile_extensions}</p>
+				</div>
+			</div>
+		</div>
+					
+		<div class="input-wrap">				
+			<label for="">{lang=edit_profile_email}<b>(*)</b></label>
+			<input type="text" name="email" value="{$email}" /><br />
+		</div>
+	
+		<div class="input-wrap">	
+			<label for="">{lang=edit_profile_about_me}</label>
+			<textarea name="user_data[about_me]">{$user_data.about_me}</textarea>
+		</div>
+		
+		<div class="input-wrap">	
+			<label for="">{lang=edit_profile_gender}</label>
+			
+			<div class="radio_options_block">
+				<span class="i-check display_none" for="male">
+					<label>{lang=user_male}</label>
+					<input {if=" $user_data['gender'] == 'male' "}checked="checked"{/if} type="radio" value="male" name="user_data[gender]" />
+				</span>
+
+				<span class="i-check display_none">
+					<label>{lang=user_female}</label>
+					<input {if="$user_data['gender'] == 'female' "}checked="checked"{/if} type="radio" value="female" name="user_data[gender]" />
+				</span>
+			</div>	
+			
+		</div>	
+		
+		{if="Config::getArray( 'language_settings', 'ips_multilanguage' )"}
+		<div class="input-wrap">	
+			<label for="">{lang=user_default_language}</label>
+			<select name="user_data[default_language]">
+			{loop="default_languages"}	
+				<option value="{$value}" {if="$value == $user_data['default_language']"}selected="selected"{/if}>{$value}</option>
+			{/loop}
+			</select>
+		</div>
+		{/if}
+		
+		{if="Config::get('apps_login_enabled', 'facebook')"}
+		<div class="input-wrap">		
+			<label for="">{lang=user_connect_account} Facebook</label>
+			
+			<div class="radio_options_block facebook_login_btn">
+				<span class="i-check display_none">
+					<label>{lang=radio_on}</label>
+					<input type="radio" value="1" {if=" $user_data['facebook_uid'] != false "}checked="checked"{/if} name="facebook_login" />
+				</span>
+				<span class="i-check display_none">
+					<label>{lang=radio_off}</label>
+					<input type="radio" value="0" {if=" $user_data['facebook_uid'] == false "}checked="checked"{/if} name="facebook_login" />
+				</span>
+			</div>
+		</div>
+		{/if}
+		
+		{if=" $user_data['facebook_uid'] != false "}
+		<div class="input-wrap" title="{lang=facebook_publish_explain}">	
+			<label for="">{lang=edit_profile_facebook_publish}</label>
+
+			<div class="radio_options_block facebook_login_btn">
+				<span class="i-check display_none">
+					<label>{lang=radio_on}</label>
+					<input type="radio" value="1" {if=" $user_data['post_facebook'] == 1 "}checked="checked"{/if} name="user_data[post_facebook]" />
+				</span>
+				<span class="i-check display_none">
+					<label>{lang=radio_off}</label>
+					<input type="radio" value="0" {if=" $user_data['post_facebook'] == 0 "}checked="checked"{/if} name="user_data[post_facebook]" />
+				</span>
+			</div>
+			
+		</div>
+		<div class="input-wrap" title="{lang=facebook_publish_text_explain}">	
+			<label for="">{lang=facebook_publish_text}</label>
+			<input type="text" name="user_data[post_facebook_message]" value="{if=" $user_data['post_facebook_message'] != false "}{$user_data.post_facebook_message}{/if}" />
+		</div>
+		{/if}
+		
+		<div class="input-wrap">	
+			<label for="">{lang=user_newsletter}</label>
+			
+			<div class="radio_options_block">
+				<span class="i-check display_none">
+					<label for="">{lang=radio_on}</label>
+					<input type="radio" value="1" {if=" $user_data['newsletter'] == 1 "}checked="checked"{/if} name="user_data[newsletter]" />
+				</span>
+				<span class="i-check display_none">
+					<label for="">{lang=radio_off}</label>
+					<input type="radio" value="0" {if=" $user_data['newsletter'] == 0 "}checked="checked"{/if} name="user_data[newsletter]" />
+				</span>
+			</div>
+
+		</div>
+		
+		<div class="input-wrap">	
+			<label for="birth_date">{lang=edit_profile_birth_date}<b>(*)</b></label>
+			<input id="birth_date" type="text" name="birth_date" value="{$birth_date}" /><br />
+		</div>	
+		
+		<div class="input-wrap edit_password">
+			<a href="/edit_profile/password" class="button-link">{lang=edit_password}</a>
+		</div>	
+		
+		<div class="edit-actions">	
+			<a href="/login/delete_account" class="submit button-link cancel">{lang=user_delete_account}</a>
+			<button name="submit" class="button-link">{lang=edit_profile_save}</button>
+		</div>	
+	</form>	
+		
+</div>	

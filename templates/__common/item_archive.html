@@ -1,0 +1,30 @@
+{$ads.above_file}
+<div class="item-archive">
+	<table class="tbl">
+		<tr class="font_bolder" cellpadding="0" cellspacing="0">
+			<td>{lang=common_opinion}</td>
+			<td>{lang=archive_votes}</td>
+			<td>{lang=common_comments_num}</td>
+			<td>{lang=item_added_info}</td>
+			<td>{lang=archive_author}</td>
+		</tr>
+		<tr>
+			<td>{$votes_opinion}</td>
+			<td>{$votes_count}</td>
+			<td>{$comments}</td>
+			<td>{$date_add}</td>
+			<td><a href="profile/{$user_login}">{$user_login}</a></td>
+		</tr>
+	</table>
+	<div class="dobre_{$id}">
+		<span class="button ips-vote-file vote-archive" data-id="{$id}" data-action="vote_archive" title="{lang=archive_vote}">{lang=archive_vote_up}</span>
+	</div>
+	<div class="item">	
+		<div class="file-container">	
+			{$file_container}
+		</div>
+	</div>
+</div>
+{$mod_links}
+{$description_box}
+{$ads.under_file}

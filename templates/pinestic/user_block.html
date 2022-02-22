@@ -1,0 +1,38 @@
+<div class="item small-item-layout middle-block pin-small-block user-middle" id="user-block-{$id}" >
+
+		<a href="{$link}">
+
+			
+			<div class="middle-block-header">
+				<h4 class="small-h4">{$full_name}</h4>
+				<h5 class="small-h5">{$user_uploads} {lang=pinit_pins} • {$user_followers} {lang=pinit_followers}</h5>             
+			</div>
+			
+			<div class="middle-block-cover">
+				<span class="item-block-overflow"></span>
+				<img src="{$user_thumb}" />
+			</div>
+			
+			<ul class="middle-block-ul">
+				{loop="user_thumbs"}
+				<li>
+					<span class="item-block-overflow"></span>
+					<img src="{$value}" class="thumb" />
+				</li>
+				{/loop}
+			</ul>    
+		</a>
+		{if="$id == USER_ID"}
+			<button type="button" class="big-button button disabled">
+				<span class="button-text">{lang=pinit_user_self}</span>
+			</button>
+		{elseif="$user_follow_user"}
+			<button type="button" data-change-text="{lang=pinit_user_follow}" class="ips-user-unfollow big-button button" data-id="{$id}">
+				<span class="button-text">{lang=pinit_user_unfollow}</span>
+			</button>
+		{else}
+			<button type="button" data-change-text="{lang=pinit_user_unfollow}" class="ips-user-follow big-button button" data-id="{$id}">
+				<span class="button-text">{lang=pinit_user_follow}</span>
+			</button>
+		{/if}
+</div>

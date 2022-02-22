@@ -1,0 +1,36 @@
+<script src="/js/validate/register_validate.js" type="text/javascript"></script>
+<div class="dialog-register">
+	
+	<form id="modal-register" class="validate-form" action="/register/" method="post">
+
+			<div class="input-wrap">
+				<label for="login">{lang=user_set_username}</label>
+				<input type="text" name="login" id="login" />
+			</div>
+			
+			<div class="input-wrap">
+				<label for="email">{lang=user_set_email}</label>
+				<input type="text" name="email" id="email" value="" />
+			</div>
+			
+			<div class="input-wrap">	
+				<label for="password">{lang=user_register_password}</label>
+				<input type="password" name="password" id="password" value="" />
+			</div>
+			
+			<div class="input-wrap">	
+				<label for="password_p">{lang=user_register_password_rep}</label>
+				<input type="password" name="password_p" id="password_p" value="" />
+			</div>
+			
+			<div class="input-wrap">	
+				<label for="first"> {$user_register_rules_url}</label>
+				<input type="checkbox" name="accept_rules" value="accept_rules" />
+			</div>
+		
+			<input type="hidden" name="form_box" value="true">
+			<button class="dialog-button  float-right">{lang=user_register}</button>
+
+	</form>
+	
+</div>

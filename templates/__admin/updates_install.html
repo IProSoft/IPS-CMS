@@ -1,0 +1,19 @@
+<form action="{function="admin_url( 'update', 'action=install' )"}" method="post">
+	{loop="downloaded"}
+	<div class="tabbed_area update-messages {if="$key > 0 "}update-blocked{/if}">		
+		<div class="update-messages">{$value.up_title}</div>
+		<div class="update-messages">{lang=created} {$value.up_created_time}
+			{if="$key == 0 "}
+			<input type="hidden" name="updates_install[{$value.up_id}][up_hash]" value="{$value.up_hash}" />
+			<input type="hidden" name="updates_install[{$value.up_id}][up_directory]" value="{$value.up_directory}" />
+			{/if}
+		</div>
+		<div class="update-messages">{lang=info} {$value.up_description}</div>
+	</div>
+	{/loop}
+	<br />
+	<button class="button">{lang=updates_install_selected}</button>
+</form>
+<div class="div-info-message">
+	<p>{lang=update_info_3}</p>
+</div>

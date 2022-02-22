@@ -1,0 +1,16 @@
+<div class="jcarousel-cnt">
+	<script type="text/javascript" src="/libs/galleries/jcarousel/jcarousel.js"></script>
+	<div class="jcarousel">	
+		<ul>
+			{loop="$gallery_images"}
+			<li>
+				<a href="' . $img['src'] . '">
+					<img class="jcarousel-item" src="' . $img['src'] . '" width="75" height="75" />
+				</a>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<a class="jcarousel-control-prev" href="#"><i class="i-icon">‹</i></a>
+	<a class="jcarousel-control-next" href="#"><i class="i-icon">›</i></a>
+</div>

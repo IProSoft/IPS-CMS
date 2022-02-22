@@ -1,0 +1,21 @@
+{loop="users"}
+<div class="top_profile">
+	
+	<div class="top_profile_info">
+		<h1>{$value.user_position}</h1>
+		<h3>{$value.added_main} / {$value.user_uploads}</h3>
+	</div>
+	
+	<div class="top_profile_img">
+		<img src="upload/img_avatar/{$value.avatar}" class="top_avatar" alt="{$value.login}" />
+	</div>
+	
+	<div class="top_profile_login">
+		<a href="/profile/{$value.login}/">{$value.login}</a>
+	</div>
+
+	<div class="comment">
+		{$value.user_top_stats}
+	</div>
+</div>
+{/loop}

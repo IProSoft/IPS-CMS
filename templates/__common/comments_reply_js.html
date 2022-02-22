@@ -1,0 +1,23 @@
+<div class="comment-reply-form" style="display:none;">
+	<h3>
+		{lang=comments_answer}
+	</h3>
+	<span class="comment_modified">
+		{lang=comments_answer_emots}
+	</span>
+	<form name="comments">
+		
+		<textarea id="comment_field_answer" name="comment_field_answer"></textarea>
+		
+		<button onclick="addComment({$upload_id}, 0, {$comment_id}); return false;">
+			{lang=common_add}
+		</button>
+		
+		<button onclick="closeAnswerForm(); return false;">
+			{lang=comments_answer_reject}
+		</button>
+		
+		<input name="reply_to_id" value="{$comment_id}" type="hidden" />
+		
+	</form>
+</div>

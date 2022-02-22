@@ -1,0 +1,32 @@
+<script src="/js/private_messages.js"></script>
+<div class="messages_block">
+	<ul class="fancy-list">
+		<li class="regular"><a href="/messages/new" id="messages_form"><span>{lang=pw_message_write}</span></a></li>
+		<li class="regular"><a href="/messages/new"><span>{lang=pw_messages_unreaded}</span></a></li>
+		<li class="regular"><a href="/messages/send"><span>{lang=pw_messages_sended}</span></a></li>
+		<li class="regular"><a href="/messages/read"><span>{lang=pw_messages_readed}</span></a></li>
+		<li class="regular"><a href="/messages/deleted"><span>{lang=pw_messages_deleted}</span></a></li>
+	</ul>
+	
+	{$messages}
+	
+	<div id="messages_form_wrapper" style="{if="empty($send_to)"}display:none{/if}">
+		<form class="messages_form" name="new" method="post" action="/messages/">
+			
+			<label>{lang=pw_user_to}</label>
+			<input type="text" name="message_to" value="{if="!empty($send_to)"}{$send_to}{/if}" />
+				
+			<label>{lang=pw_message_subject}</label>
+			<input type="text" name="message_subject" value="" />
+				
+				
+			<label>{lang=pw_message}</label>
+			<textarea name="message_content"></textarea>
+
+			<label></label>	
+			<button id="messages_send" name="newmessage" class="button-link" >{lang=pw_send}</button>
+				
+		</form>
+	</div>
+
+</div>

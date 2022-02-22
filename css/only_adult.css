@@ -1,0 +1,54 @@
+#dorosli {
+	background: url(/images/adult.png) no-repeat;
+	width: 420px;
+	height: 222px;
+	margin: 2px auto 0px auto;
+	padding-top: 305px;
+	position: relative;
+}
+#dorosli .zawartosc {
+	position: absolute;
+	left: 10px;
+	top: 320px;
+	text-align: center;
+	width: 400px;
+	color: #6a6a6a;
+	font-size: 11px;
+}
+#dorosli .zawartosc h2 {
+	display: block;
+	text-align: center;
+	color: #303030;
+	font-size: 14px;
+	margin: 0px 0px 25px 0px;
+}
+#dorosli .zawartosc span {
+	color: #9e0878;
+}
+
+#dorosli .zawartosc span h3 {
+    text-align: center;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+#dorosli a.enter {
+	position: absolute;
+	display: block;
+	width: 161px;
+	height: 32px;
+	background: url(/images/enter.png) no-repeat;
+	left: 130px;
+	top: 485px;
+}
+
+h1 {
+    text-align: center;
+    font-size : 18px;
+    font-weight: bold;
+    color : #000000;
+    font-style: italic;
+    letter-spacing : 1px;
+    margin: 10px 0px;
+}

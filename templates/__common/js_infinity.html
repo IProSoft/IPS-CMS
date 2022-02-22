@@ -1,0 +1,10 @@
+{if="!defined('IPS_ONSCROLL')"}
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$( window ).one( "scroll", loadInfiniteScroll( "#content", ".item" ));
+	});
+	</script>
+{/if}
+
+
+<a id="next-scroll" class="hidden-element button-link infinitescroll_button" href="{$next_page}" data-ajax="/ajax/{$ajax}">{lang=load_more_files}</a>

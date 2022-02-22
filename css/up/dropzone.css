@@ -1,0 +1,132 @@
+.dz-preview{
+	display: none !important;
+}
+.dz-clickable.input-wrap{
+	text-align: center;
+}
+.dropzone, .dropzone-url {
+	border: 4px dashed #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 97% !important;
+	white-space: normal;
+	position: relative;
+	margin: 0 auto
+}
+.dropzone, .dropzone-url, .dropzone * {
+    box-sizing: border-box;
+	color: #fff
+}
+.dropzone-url {
+	margin-top: 1%;
+	position: relative;
+}
+.dropzone-url-button{
+	background-color: #fff;
+	color: #333;
+	border: 1px solid #ddd;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 0.5% 1%;
+	vertical-align: middle;
+	display: block;
+}
+
+.dropzone-url .url-input > *{
+	width: 70%;
+	margin: 1% auto;
+}
+.dropzone .dz-message {
+    /* margin: 2em 0; */
+    text-align: center;
+}
+.add-new-file .input-wrap .dropzone-preview {
+	text-align: center;
+	width: auto;
+	max-width: 700px;
+	margin: 0 auto;
+}
+.add-new-file .input-wrap .dropzone-preview .file-cnt,
+.add-new-file .input-wrap .dropzone-preview .file-margin {
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.dropzone .up-message {
+	padding: 20px 0;
+	display: block;
+}
+.up_file_preview{
+	margin: 2% auto 2%;
+	text-align:center;
+	display:none;
+	max-width: 700px
+}
+.ver-gag .up_file_preview{
+	max-width: 600px
+}
+.up_file_preview.active{
+	display: block;
+}
+.up_file_preview .file-margin {
+	 width: auto;
+	display: table;
+	margin: 0 auto;
+}
+.up_file_preview .file-cnt {
+	max-width: 100%;
+}
+.up_file_preview .file-cnt > *{
+	display: table-cell;
+}
+#canvas_text{
+	text-align: center;
+}
+.up_file_preview #canvas_text{
+	position: relative;
+}
+.up_file_preview #canvas_text .canvas_toolbar{
+	display: none !important;
+	right: 0;
+	left: 0;
+}
+.up_file_preview #canvas_text:hover .canvas_toolbar{
+	display: block !important;
+	overflow: visible !important;
+}
+.up_file_preview #canvas_text .canvas_element{
+	padding:0;
+	max-width: 100%
+}
+
+
+
+
+
+.up_file_preview #canvas_text .up_file_change {
+	display: none !important;
+	padding: 1%;
+	position: absolute;
+	bottom: 1%;
+	left: 0;
+	right: 0;
+	z-index: 52;
+}
+.up_file_preview #canvas_text:hover .up_file_change{
+	display: block !important;
+}
+.up_file_preview #canvas_text .canvas_wrap{
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.progress-line{
+	display: inline-block;
+	height: 100%;
+}
+.progress-line svg {
+  height: 100%;
+  opacity: 0.4;
+}

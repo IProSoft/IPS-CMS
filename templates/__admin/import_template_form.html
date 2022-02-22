@@ -1,0 +1,31 @@
+<form name="auto_import" action="{$form_action}" method="post">
+	{loop="ready_files"}
+	<div class="auto-yt">
+		<a href="{$value.img}" target="_blank" title="{$value.title}">
+			<img src="{$value.img}" alt="{$value.title}" />
+		</a><br />
+		<input type="checkbox" checked="checked" name="import_files[{$key}][import]" value="{$key}" />
+		<input type="hidden" name="import_files[{$key}][upload_subtype]" value="{$value.upload_subtype}" />
+		<textarea name="import_files[{$key}][title]">{$value.title}</textarea>
+		{if="IPS_VERSION == 'pinestic'"}
+			<select name="import_files[{$key}][pin_board_id]">
+				{function="uploadBoardList( $import_settings.pin_board_id )"}
+			</select>
+		{elseif="Config::get('categories_option') == 1"}
+		
+			<select style="width: 144px;" name="import_files[{$key}][import_category]">
+				{function="Categories::categorySelectOptions( $import_settings.import_category )"}
+			</select>
+		{/if}
+	</div>
+	{/loop}
+	
+	<input type="hidden" name="post_files_to_add" value="true" />
+	
+	<br /><br />
+	<div class="ips-message msg-info">
+		<input class="button" type="Submit" value="Dodaj pliki" />  
+		<button class="button" onclick="auto_import.action='{function="admin_url( 'import-save-drafts' )"}'; return true;">{lang=save_templates_for_cron_job}</button>
+		{$clear_session}
+	</div>
+</form>

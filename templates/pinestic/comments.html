@@ -1,0 +1,55 @@
+<div id="comments_wrapper" class="comments-cnt">
+	
+	<a href="#" class="button-link" onclick="loadComments({$id}); return false;" class="comments-visibility">{lang=js_comments_show}</a>
+	
+	{if="Config::get('widget_top_comments') "}
+	<div class="comments-best-cnt display_none">
+		<h2>{lang=widget_top_comments}</h2>
+		<div class="comments-best">
+			<img width="48" height="48" src="/images/svg/spinner-grey.svg">
+		</div>
+	</div>
+	{/if}
+
+	<div id="comment-load" class="comment-loader display_none">
+		<span>{lang=comments_loading_info}</span><img src="/images/loaders/html5_loader.gif" />
+	</div>
+	
+	<div id="comments"></div>	
+	
+	{$facebook_comments}
+		
+	<div class="comments-form-box">	
+		<div id="comment_add_cnt" class="pin-small-block">
+		
+			{if="USER_LOGGED || Config::getArray( 'user_guest_option', 'comment' )"}
+
+				<a class="pin-user-avatar" href="/profile/{$current_user.login}">
+					<img src="{$current_user.avatar_link}" alt="{$current_user.full_name}" />
+				</a>
+				
+				<div class="small-block-wrapper">	
+					<div class="small-block-author">
+					  <a class="block-author-name" href="/profile/{$current_user.login}">{$current_user.full_name}</a>
+					  {if="$current_user.id == USER_ID"}
+					  <span class="block-author-date">• {lang=pinit_user_self} </span>
+					  {/if}
+					</div>
+					<form class="comments_form" name="comments" method="post">
+						{include="comments_emots_panel.html"}
+						<textarea id="comment_field" name="comment_field" placeholder="Add comment..."></textarea>
+						<div class="small-add-comment">
+							<button class="button-red" onclick="addComment({$id}, 1); return false;">{lang=common_add}</button>
+						</div>
+					</form>
+				</div>	
+			{else}
+				{lang=comments_add_logged}
+			{/if}
+		</div>
+	</div>
+	
+	<span id="comments_status" class="status">{lang=comments_hidden}</span>
+	
+</div>
+

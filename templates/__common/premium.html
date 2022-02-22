@@ -1,0 +1,48 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#sms_services option:first").attr('selected','selected');
+	
+	$("#sms_services").change(function() {
+		var id = $("#sms_services").val();
+		$("#service").val(id);
+		$("#sms-load-info").html( $("#serviceid-"+id).html() );
+		if( $("#sms-form:visible").length == 0 )
+		{
+			$("#sms-form").slideDown();
+		}
+	}).trigger('change');
+	
+});
+</script>
+
+<h3 class="header-text">{lang=premium_sms_a}</h3>
+
+<div class="sms-container simple-page">
+	
+	{lang=premium_sms_time}
+	
+	<select id="sms_services" name="sms_services" style="width: 100px;">
+		{loop="premium_services"}
+		<option value="{$value.service_id}">{$value.sms_extend_premium}</option>
+		{/loop}
+	</select>
+
+	<div id="sms-load-info"></div>
+				  
+	<form id="sms-form" class="sms-form display_none" action="" method="post">
+		<b>{lang=premium_sms}</b>
+		<input maxlength="8" name="code" type="text" />
+		<input id="service" name="service" type="hidden" value="" />
+		<input class="button" value="{lang=common_check}" type="submit">
+	</form>
+	
+	<div class="sms-info-cnt">
+		<div class="sms-description">
+			{$admin_description}
+		</div>
+	</div>
+</div>
+
+{loop="premium_services"}
+	{$value.fees}
+{/loop}

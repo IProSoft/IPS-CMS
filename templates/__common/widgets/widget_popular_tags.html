@@ -1,0 +1,10 @@
+<div class="popular-tags nice-message-block">
+	{if="$display_header"}
+	<div class="popular-tags-header">{lang=widget_popular_tags}</div>
+	{/if}
+	<div class="popular-tags-container">
+		{loop="tags"}
+			<a class="popular-tags-{$value.class}" href="{$value.url}">{$value.tag}</a>
+		{/loop}
+	</div>
+</div>

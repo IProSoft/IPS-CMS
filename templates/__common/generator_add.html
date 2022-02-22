@@ -1,0 +1,26 @@
+<div class="add-new-file mem_generator nice-message-block">
+	<div class="mem_add_descript">{lang=generator_add_description}</div>
+	
+	<form method="post" enctype="multipart/form-data" action="/mem/add" id="formu">
+		
+		<div class="input-wrap">
+			<label>{lang=generator_add_title}</label>
+			<input type="text" maxlength="128" name="mem_title" />
+		</div>
+		
+		<div class="input-wrap">
+			<label>{lang=generator_add_file}</label>
+			<input type="file" name="mem_image" />
+		</div>
+		
+		<div class="input-wrap">
+			<label>{lang=generator_add_category}</label>
+			<select name="mem_category">
+				{$category_opts}
+			</select>
+		</div>
+		<div class="generator_button">
+			<button class="button" onclick="IpsApp._shadow.loader();">{lang=generator_add}</button>
+		</div>
+	</form>
+</div>

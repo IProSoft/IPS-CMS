@@ -1,0 +1,47 @@
+<ul class="ranking-box">
+	{if=" !empty( $row_text.long_text ) "}
+	<li class="ranking-description simple-page">{$row_text.long_text}</li>
+	{/if}
+	<li class="ranking-title">
+		<div class="ranking-votes">
+			{lang=ranking_position}
+		</div>
+		<div class="ranking-image">
+			{lang=ranking_image}
+		</div>
+	</li>
+	{loop="images"}
+		
+		<li>
+			<div class="ranking-votes" id="ranking-{$value.id}" data-id="{$value.id}">
+			{if="$key < 3"}
+				<span class="ranking-medal-{$counter+1}"></span>
+			{else}
+				<h2>{$counter+1}</h2>
+			{/if}
+				<a href="#" title="{lang=votes_up}" class="ranking-vote-button ranking-up">
+					<span class="how-like"></span>
+				</a>
+				<a href="#" title="{lang=votes_down}" class="ranking-vote-button ranking-down">
+					<span class="how-like"></span>
+				</a>
+				<div class="ranking-votes-opinion">{$value.votes_opinion}</div>
+			</div>
+			<div class="ranking-image">
+				<a title="{$title} - {$counter+1}" target="_blank" href="{#IPS_RANKING_IMG#}/{$value.src}">
+					<img src="{#IPS_RANKING_IMG#}/{$value.src}" />
+				</a>
+				{if="USER_MOD"}
+				<br /><a href="#" class="ranking_delete" data-id="{$value.id}">{lang=common_delete}</a><br />
+				{/if}
+			</div>
+		</li>
+	
+	{/loop}
+	
+	{if="$add_more"}
+	<li class="ranking-add-more">
+		<a class="button-link" href="{#ABS_URL#}up/ranking/add/{$id}">{lang=add_ranking_next}</a>
+	</li>
+	{/if}
+</ul>

@@ -1,0 +1,109 @@
+
+{$additional_css}
+
+{if="Config::get('rss_off') == 1"}
+	<div class="rss">
+		<img src="images/rss.png" alt="rss" width="28" height="28" />
+		<div class="rss2">
+			<a href="{#ABS_URL#}main.xml" title="{lang=menu_rss_main}">{lang=common_main}</a><br>
+			<a href="{#ABS_URL#}waiting.xml" title="{lang=menu_rss_waiting}">{lang=common_waiting}</a>
+		</div>
+	</div>
+{/if}
+
+<div id="top" class="base-header">
+	{if="!empty( $widgets )"}
+	<div id="search-widget">
+		{$widgets}
+	</div>
+	{/if}
+	<div id="top-container" class="base-top">
+		
+		<a class="img_logo" href="{#ABS_URL#}">
+			<img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-vines.png" />
+		</a>
+		
+		<div class="base-like-wrapper">
+			<!-- Kod Likebox -->
+			{$fanpage}
+			<!-- Kod Likebox -->
+		</div>
+		
+		<div class="responsive-wrap responsive-ui">
+			
+			<div class="responsive-icon large "><i>Menu</i></div>
+			
+			<ul class="responsive-menu responsive-slide">
+				{$menu_list}
+			</ul>
+			
+		</div>
+
+		<ul class="base-user">
+			{if="!empty( $widgets )"}
+				<li>
+					<a class="box-button search-button" href="{#ABS_URL#}search/">{lang=common_search}</a>
+				</li>
+			{/if}
+			{if="!USER_LOGGED"}
+				{if="IPS_ACTION == 'login'"}
+				<li>
+					<a href="/register/" title="{lang=user_register}" class="box-button">{lang=user_register}</a>
+				</li>
+				{else}
+				<li>
+					<a href="/login/" title="{lang=user_log_in_long}" class="box-button"><i></i>{lang=user_log_in}</a>
+				</li>
+				{/if}
+			{else}
+				<li class="user-menu responsive-ui">
+					<a href="#" class="box-button responsive-icon">{#USER_LOGIN#}</a> 
+					<ul class="responsive-slide">
+						<li>
+							<a class="user-profile" href="{#ABS_URL#}profile/{#USER_LOGIN#}" id="login">{lang=user_profile_self}</a>
+						</li>
+						<li>
+							<a class="user-edit-profile" href="{#ABS_URL#}edit_profile">{lang=edit_profile}</a>
+						</li>
+						<li>
+							<a class="user-default" href="{#ABS_URL#}user/{#USER_LOGIN#}/">{lang=user_files}</a>
+						</li>
+						<li>
+							<a class="user-pw" href="{#ABS_URL#}messages/">{lang=user_messages}</a>
+						</li>
+						<li>
+							<a class="user-logout" href="{#ABS_URL#}login/user_logout">{lang=user_log_out}</a>
+						</li>
+						{if="USER_ADMIN"}
+						<li>
+							<a class="user-admin" href="{#IPS_ADMIN_URL#}" title="{lang=user_admin_panel}">{lang=user_admin_panel}</a>
+						</li>
+						{/if}
+						{if="USER_MOD"}
+						<li>
+							<a class="user-moderator" href="{#ABS_URL#}moderator" title="{lang=user_mod_panel}">{lang=user_mod_panel}</a>
+						</li>
+						{/if}
+						{if="$user.facebook_btn"}
+						<li>
+							{function="SocialButtons::getConnectButtonFB('url')"}
+						</li>
+						{/if}
+						{if="$user.nk_btn"}
+						<li>
+							{function="SocialButtons::getConnectButtonNK('url')"}
+						</li>
+						{/if}
+						{if="$contest_url"}
+						<li>
+							<a href="{#ABS_URL#}contest">{lang=menu_contest_menu}</a>
+						</li>
+						{/if}
+					</ul>
+				</li>
+
+			{/if}
+		</ul>
+	</div>	
+	<div class="clear_both"></div>
+</div>

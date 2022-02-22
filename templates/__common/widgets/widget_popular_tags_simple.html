@@ -1,0 +1,5 @@
+<div class="widget-wait-tags">
+	{loop="tags"}
+		<a href="{$value.url}">{$value.tag}</a>{if="$count > $counter"} , {/if}
+	{/loop}
+</div>

@@ -1,0 +1,23 @@
+<div class="comment"> 	
+	
+	<span class="comment-author">
+		<img src="{$avatar}" />
+	</span>
+	
+	<div class="comment-wrap">	
+		
+		<span class="comment-header">	
+			
+			<a class="comment-user" href="/profile/{$user_login}">{$user_login}</a>		
+			
+			<span class="comment-date-add">{$date_format}</span>	
+			
+		</span>	
+
+		<div class="comment-content">{$content}</div>
+						
+		<a class="comment-go" data-id="{$id}" href="#">{lang=comments_go}</a>
+
+	</div>
+	
+</div>

@@ -1,0 +1,23 @@
+<div id="ips-popup-wrapper"></div>
+<div id="ips-popup">
+	<div id="ips-popup-text-main">
+		<div id="ips-popup-close">
+		{if="$close_timer"}
+		<a id="#ips-save-like" class="ips-save-like" onclick="saveLikePopup({$close_timer}); return false;" href="#">{lang=js_close} x</a>
+		{/if}
+		</div>
+		<h1>{function="__( Config::getArray( 'widget_popup_options', 'title' ) )"}</h1>
+	</div>
+	<div id="ips-popup-container-body">{function="__( Config::getArray( 'widget_popup_options', 'message' ) )"}</div>
+	<div id="buttonArea">
+		<div id="actionHolder">
+			{if="$like_box"}
+			<div class="fb-like-box" data-href="{$url}" data-width="430" data-height="200" data-show-faces="true" data-stream="false" data-header="false"></div>
+			{else}
+			<fb:like layout="button_count"  id="ips-popup-like" href="{$url}" show_faces="true" width="450"></fb:like>
+			{/if}
+		</div>
+		<div id="ips-popup-timer-count">{lang=js_popup_wait} <span id="ips-countdown"> </span>  {lang=js_popup_seconds}</div>
+		<div style="clear:both"></div>
+	</div>
+</div>

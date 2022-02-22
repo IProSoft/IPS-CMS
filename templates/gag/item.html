@@ -1,0 +1,83 @@
+<article class="item">
+	
+	{if="Config::getArray('template_settings', 'item_title' )"}
+	<h2 class="file-title info-section">
+		<a href="{$file_url}" title="{$title}">{$title}</a>
+	</h2>
+	{/if}
+
+	<div class="file-container {$file_class_css}" data-target="{$file_url}">
+		{$file_container}
+	</div>
+	
+	<div class="item-footer ">
+	
+			<div class="stats-section info-section">
+				<span class="add-vote file_votes_{$id}"> {$votes_opinion} {lang=common_opinion} </span>
+				<span class="add-comment"> {$comments} {lang=common_comments_num} </span>
+				{if=" Config::get('favourites_add') "}
+				<span title="{lang=favourites_add}" class="ips-add-favourites add-favourites" data-id="{$id}">{lang=favourites_short}</span>
+				{/if}
+			</div>
+
+				
+			<div class="actions-section actions-left vote_buttons_{$id}">	
+				{if=" $vote_type != 10 "}
+				<span data-id="{$id}" data-action="vote_file_down" class="ips-vote-file votes_down action-btn" title="{lang=vote_down_long}">
+					<img alt="{lang=votes_down}" class="img_vote" src="images/icons/vote/vote_down_{$vote_type}.png" />
+				</span>
+				<span data-id="{$id}" data-action="vote_file_up" class="ips-vote-file votes_up action-btn" title="{lang=vote_up_long}">
+					<img alt="{lang=votes_up}" class="img_vote" src="images/icons/vote/vote_up_{$vote_type}.png" />
+				</span>
+				{/if}
+				<div class="action-btn">	
+					<a href="{$file_url}#comments_wrapper"><img alt="{lang=comments_add_comment}" src="/images/mobile/mobile-comments-grey.png" /></a>
+				</div>
+				{if=" Config::get('widget_smilar_url') == '1' && IPS_ACTION_LAYOUT == 'one' "}
+				<div class="action-btn">	
+					<a class="add-smilar" href="/tag/{$id}/"><img alt="{lang=button_smilar}" src="/images/mobile/mobile-smilar-small.png" /></a>
+				</div>
+				{/if}
+				
+			</div>
+			
+			<div class="actions-section actions-right">	
+				{$button_share}
+				{$button_twitter}
+				
+				{if="!empty($button_google) || !empty($button_nk) || !empty($button_like)"}
+				
+				<div class="action-btn more-tools responsive-ui">
+					<a class="responsive-icon" href="javascript:void(0);">More</a>
+					<ul class="fancy-menu responsive-slide" style="display: none;">
+						<li>{$button_like}</li>
+						<li>{$button_google}</li>
+						<li>{$button_nk}</li>
+					</ul>
+				</div>
+				{/if}
+			</div>
+		
+		
+
+				
+					
+				{if="IPS_ACTION == 'file_page' && !empty( $upload_tags ) "}
+				<div class="info-section clear_both">
+					<div class="tag_list">{lang=item_tags} {$upload_tags}</div>
+				</div>
+				{/if}
+			
+			{if=" $widget_url_copy "}
+			<input class="widget-url-copy clear_both" title="{lang=widget_url_copy_action}" value="{$file_url}" type="text" />
+			{/if}
+
+		{$upload_source}
+	</div>
+</article>
+{$mod_links}
+
+{if="isset($img_social_share)"}
+	{include="/widgets/widget_social.html"}
+{/if}
+

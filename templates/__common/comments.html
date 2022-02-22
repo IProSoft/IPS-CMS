@@ -1,0 +1,82 @@
+<div id="comments_wrapper" class="comments-cnt {if="$comments_options.allways_visible"}comments-set-visible{/if}">
+	
+	{if="!$comments_options.allways_visible"}
+	<span class="comments_actions">
+		<a href="#" class="comments-visibility" onclick="loadComments( {$id} ); return false;">{lang=js_comments_show}</a>
+		<a href="#" class="comments-visibility-alltime" onclick="saveComments(); return false;">{$comments_options.comments_show_text}</a>
+	</span>
+	{/if}
+	
+	{if=" IPS_VERSION =='demotywator' "}
+	<div class="comments-nav">
+		<ul>
+			{if="$comments_options.ajax"}
+				<li rel="normal"> {lang=comments_add} {$comments_options.count.ajax}</li>
+			{/if}
+			{if="$comments_options.facebook_comments"}
+				<li> {lang=comments_add_facebook} {$comments_options.count.facebook}</li>
+			{/if}
+		</ul>
+	</div>
+	{/if}
+	
+	<div class="comments-list-cnt">
+		
+		<div id="comment-load" class="comment-loader display_none">
+			<span>{lang=comments_loading_info}</span><img src="/images/loaders/html5_loader.gif" />
+		</div>
+		
+		{if="$comments_options.facebook_comments"}
+		<div class="comments-fb comments-b-color">
+			{$comments_options.facebook_comments}
+		</div>
+		{/if}
+		
+		{if="$comments_options.ajax"}
+		<div class="comments-ajax height_animation">	
+			
+			{if="Config::get('widget_top_comments') "}
+			<div class="comments-best-cnt display_none">
+				<h2>{lang=widget_top_comments}</h2>
+				<div class="comments-best">
+					<img width="48" height="48" src="/images/svg/spinner-grey.svg">
+				</div>
+			</div>
+			{/if}
+			
+
+			<div class="comments-form-box comments-b-color">		
+				
+				<div id="comment_add_cnt">
+				
+					{if="Config::getArray( 'user_guest_option', 'comment' ) || USER_LOGGED"}
+						<h2>{lang=comments_add}</h2>
+						
+						{include="comments_emots_panel.html"}
+						
+						<form class="comments_form" name="comments" >
+							<textarea id="comment_field" name="comment_field"></textarea>
+							<button class="button-red" onclick="addComment({$id}, 1); return false;">{lang=common_add}</button>
+						</form>
+					{else}
+						{lang=comments_add_logged}
+					{/if}
+				</div>
+				
+				{if="$comments_options.as_comment"}
+				<div class="comment_as_demot">{lang=comments_add_as_demot}</div>
+				{/if}
+
+			</div>
+			
+			<div id="comments"></div>
+			
+		</div>
+		
+		<span id="comments_status" class="status comments-b-color">{lang=comments_hidden}</span>
+		{/if}
+	</div>	
+	
+	
+	
+</div>

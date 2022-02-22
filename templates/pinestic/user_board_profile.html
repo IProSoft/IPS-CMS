@@ -1,0 +1,12 @@
+<div class="item create-item">
+	<a href="#" class="create-board-item ips-modal-show modal-upload-board" data-href="/ajax/pinit/upload_board/{$boards_privacy}">
+		<i></i>
+		<span>
+		{if="$boards_privacy == 'private'"}
+			{lang=pinit_upload_board_private}
+		{else}
+			{lang=pinit_upload_board}
+		{/if}
+		</span>
+	</a>
+</div>

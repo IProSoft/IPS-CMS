@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:fb="http://ogp.me/ns/fb#">
+
+	{include="header.html"}
+	
+	<body class="{$body_class}">
+	<noscript>
+		<div class="noscriptmsg">
+			{lang=noscript}
+		</div>
+	</noscript>
+	
+		<div id="fb-root"></div>
+		
+		{if="!isset( $minimal_layout )"}
+			{include="base_menu.html"}
+		{/if}
+		
+		<div id="all_page">	
+		
+			<!-- #hook before_content-->
+			{hook="before_content"}
+			<!-- /hook -->
+				<!-- #content -->
+				<div id="content">
+					<!-- #side_block -->
+
+						{$side_block}
+				
+					<!-- #side_block -->
+					
+						<!-- sub-content -->
+						<div class="sub-content">
+						{$body_content}
+						</div>
+						<!-- END sub-content -->
+						
+					{hook="display_paginator"}
+					
+					<div id="bottom-widgets">
+					<!-- #hook after_content-->
+					{hook="after_content"}
+					<!-- /hook -->
+					</div>		
+					<!-- #content -->
+				</div>
+			<!-- #all_page -->
+		</div>
+			
+		{hook="before_footer"}
+		
+		{if="!isset( $minimal_layout )"}
+		
+			{include="base_footer.html"}
+		
+		{/if}
+		
+		{hook="after_footer"}
+
+		{hook="init_end"}
+	</body>
+</html>
+

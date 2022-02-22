@@ -1,0 +1,32 @@
+{
+    "name": "coldume/translated-exception",
+    "type": "library",
+    "keywords": ["exception", "translation"],
+    "description": "Automatic exception message translation",
+    "license": "MIT",
+    "homepage": "https://github.com/coldume/translated-exception",
+    "authors": [
+        {
+            "name": "Xianghan Wang",
+            "email": "coldume@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/translation": "~2.4",
+        "symfony/config": "~2.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TranslatedException\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.1.x-dev"
+        }
+    }
+}

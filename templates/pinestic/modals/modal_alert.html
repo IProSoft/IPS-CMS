@@ -1,0 +1,20 @@
+<div id="ips-modal-alert" class="ips-modal-container ips-modal-alert">
+	<div class="ips-modal modal fade">
+		<div class="modal-header">
+			<span class="ips-modal-close">
+				<i></i>&nbsp;
+			</span>
+			<h3>{{=it.title}}</h3>
+		</div>
+		<div class="modal-body">
+		{{=it.message}}
+		{if=" $load_button "}
+		<div class="standalone-footer modal-footer">    
+			<button class="button-red alert-modal-close">
+				<span>Ok</span>
+			</button>
+		</div>
+		{/if}
+		</div>
+	</div>
+</div>

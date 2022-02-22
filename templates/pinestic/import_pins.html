@@ -1,0 +1,25 @@
+{loop="pins"}
+<div class="item">       
+	<div class="pin-item pinned from-website">
+		<div class="pin-wrapper">
+			<div class="pin-holder">
+				<div class="pin-actions-bar-wrapper">
+					<button class="button-red ips-pin-it" data-href="/ajax/pinit/pin_it">
+						<span>Pin It</span>
+					</button>
+				</div>
+				<a class="pin-image-wrapper">
+					{if="isset( $value.pin_video )"}
+					<div data-video="{$value.pin_video_url}" data-source="{$value.pin_source}" data-img="{$value.upload_image}" class="div-overflow-video pin-video">
+						{$value.pin_video}
+					</div>
+					{else}
+					<div class="div-overflow"></div>
+					<img src="{$value.upload_image}" title="{$value.pin_title}" class="pin-image" data-source="{$value.pin_source}" />
+					{/if}
+				</a>
+			</div>
+		</div>
+	</div>      
+</div>
+{/loop}

@@ -1,0 +1,53 @@
+<head>
+	<meta charset="utf-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+
+	<title>{$title}</title>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes" />
+	<meta name="keywords" content="{$keywords}" />
+	<meta name="description" content="{$description}" />
+	<meta name="robots" content="all" />
+	<meta name="script:author" content="IPS" />
+	<link rel="icon" href="{#ABS_URL#}favicon.ico" />
+	
+	{$facebook_init}
+	
+	<base href="{#ABS_URL#}" />
+
+	<link rel="alternate" type="application/rss+xml" href="{#ABS_URL#}rss.xml" />
+		
+	{loop="header_css"}
+	<link href="{$value.src}?{$value.ips_randomity}" rel="stylesheet" type="text/css" />
+	{/loop}
+	
+	
+	<script type="text/javascript">
+		var ipsAddEvent = function(b,c){try{window.addEventListener(b,c,!1)}catch(d){window.attachEvent('on'+b,c)}};
+		var triggerEvent = function(e){b=document;b.createEvent?(a=b.createEvent("Event"),a.initEvent(e,true,true),window.dispatchEvent(a)):(a=b.createEventObject(),e.fireEvent("on"+window,a))};
+	
+	{$js_variables}
+	
+	</script>
+	
+
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js "></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	{loop="header_js"}
+	<script type="text/javascript" src="{$value.src}?{$value.ips_randomity}"></script>
+	{/loop}
+
+	<!--STATS-->
+		{$head_code}
+	<!--STATS-->
+	
+	<!--[if IE]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/ie.css" />
+	<![endif]-->
+</head>

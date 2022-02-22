@@ -1,0 +1,86 @@
+<script type="text/javascript">
+$(function() {
+    
+	function show_top_menu( element )
+	{
+		if( element.children('a').attr("href") != '/top/users' )
+		{
+			$("ul.menu_body").css( "margin-left", element.position().left );
+			
+			var href = element.children('a').attr("href");
+			
+			$("ul.menu_body a").each( function(){
+				$(this).attr( 'href', href + '/' + $(this).attr( 'data-id' ) );
+			} );
+			
+			$("ul.menu_body").slideDown('fast');
+		}
+	}
+	
+	if( ips_config.is_mobile)
+	{
+		$("div.buttons-menu-nice").on( 'click', function (e) {
+
+			e.preventDefault();	
+			
+			if( !$("ul.menu_body").is(':visible') )
+			{
+				return show_top_menu( $(this) )
+			}
+
+			return $("ul.menu_body").slideUp('fast');
+
+		});
+	}
+	
+	$("div.buttons-menu-nice").on( 'mouseover', function ( e ) {
+		return show_top_menu( $(this) )
+    });
+	
+	$("div.menu_top").on( 'mouseleave',function () {
+		
+		return $("ul.menu_body").slideUp('fast');
+    });
+});
+</script>
+
+
+<div class="menu_top">
+	
+	
+
+	
+	<div class="rwd-simple-menu">
+		{if=" Config::get('vote_file_menu') != 10 "}
+		<div class="buttons-menu-nice">
+			<a href="/top/votes_opinion">{lang=top_opinion}</a>
+		</div>
+		<div class="buttons-menu-nice">
+			<a href="/top/votes_count">{lang=top_votes}</a>
+		</div>
+		{/if}
+		<div class="buttons-menu-nice">
+			<a href="/top/comments">{lang=top_comments}</a>
+		</div>
+		<div class="buttons-menu-nice">
+			<a href="/top/users">{lang=top_users}</a>
+		</div>
+	</div>
+	<ul class="menu_body">
+		<li>
+			<a href="#" data-id="day">{lang=top_time_day}</a>
+		</li>
+		<li>
+			<a href="#" data-id="week">{lang=top_time_week}</a>
+		</li>
+		<li>
+			<a href="#" data-id="month">{lang=top_time_month}</a>
+		</li>
+		<li>
+			<a href="#" data-id="year">{lang=top_time_year}</a>
+		</li>
+		<li>
+			<a href="#" data-id="">{lang=top_time_all}</a>
+		</li>
+	</ul>
+</div>

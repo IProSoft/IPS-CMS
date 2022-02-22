@@ -1,0 +1,19 @@
+<div class="ips-lock social_lock {$class}">
+	<div class="ips-lock-text">
+		<h1>{lang=ips_social_lock}</h1>
+		<div class="ips-lock-buttons">
+			{function="SocialButtons::like( $url )"}
+		</div>
+	</div>
+</div>
+<style>
+.ips-lock{
+	width: {$size.width}px;
+	height: {$size.height}px;
+}
+{if="$image"}
+.ips-lock.display-img {
+    background: url("{$image}") repeat scroll 0 0 transparent;
+}
+{/if}
+</style>

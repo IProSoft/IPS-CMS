@@ -1,0 +1,193 @@
+<form method="post" id="form" action="{$form_action}">
+	<div class="content_tabs tabbed_area">
+
+		<div class="option-cnt">
+			<label>{lang=import_usernames}</label>
+			<div class="option-inputs">
+				<input value="{#USER_LOGIN#}" type="text" name="import[authors]" />
+			</div>
+		</div>
+		
+		<div class="option-cnt">	
+			<label>{lang=import_destination}</label>
+			<div class="option-inputs">
+				<select name="import[import_add_to]">
+					<option value="wait" selected="selected">{lang=common_waiting}</option>
+					<option value="main">{lang=common_main}</option>
+				</select>
+			</div>
+		</div>
+	
+	
+	
+	{if="IPS_VERSION == 'pinestic'"}		
+		<div class="option-cnt">	
+			<label>{lang=import_add_board}</label>
+			<div class="option-inputs">
+				<select name="import[pin_board_id]">
+					{$boards_list}
+				</select>
+			</div>
+		</div>
+	{elseif="Config::get('categories_option')"}		
+		<div class="option-cnt">	
+			<label>{lang=import_destination_category}</label>
+			<div class="option-inputs">
+				<select name="import[import_category]">
+					{function="Categories::categorySelectOptions()"}
+				</select>
+			</div>
+		</div>
+	{/if}
+	
+	{if="$import_type == 'images' || $import_type == 'youtube-links' || $import_type == 'gallery'"}	
+		
+			
+		<div class="option-cnt">
+			<label>{if="$import_type == 'images' || $import_type == 'gallery'"}{lang=import_site_addresses}{else}{lang=import_youtube_links}{/if}</label>
+			<div class="option-inputs">
+				<input id="import-urls" type="text" type="text" name="import[import_urls]" />
+			</div>
+		</div>
+
+		{if="$import_type != 'gallery'"}
+		<div class="option-cnt">
+			<label>{lang=import_site_count_subpages} </label>
+			<div class="option-inputs">
+				<span class="import_pages_limit down click" style="color: red;"> - </span>
+				<input type="text" id="import_pages_limit" style="width: 12px;margin: 0; " value="1" name="import[import_pages_limit]">
+				<span class="import_pages_limit up click" style="color: green;"> + </span>
+			</div>
+		</div>
+			
+		<span id="import_pages_other" style="display:none;">
+			
+			<div class="option-cnt">	
+				<label>{lang=import_site_count_subpages_from}</label>
+				<div class="option-inputs">
+					<input type="text" value="1" name="import[import_pages_start]">
+				</div>
+			</div>
+			
+			<div class="option-cnt">
+				<label>{lang=import_pagination_format}</label>
+				<div class="option-inputs">
+					<select name="import[import_pages_direct]">
+						<option value="normal" selected="selected">0,1,2,3....</option>
+						<option value="back">10,9,8,7....</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="option-cnt">	
+				<label>{lang=import_pagination_next}</label>
+				<div class="option-inputs">
+					<input type="text" value="" name="import[import_pages_regexp]">
+				</div>
+			</div>
+			
+		</span>
+		{/if}
+	{elseif="$import_type == 'playlist'"}	
+		
+		<div class="option-cnt">	
+			<label>{lang=import_playlist_url}</label>
+			<div class="option-inputs">
+				<input type="text" name="import[import_urls]" id="import-urls" />
+			</div>
+		</div>
+	
+	{elseif="$import_type == 'folder'"}	
+		<script type="text/javascript" src="{#ABS_URL#}libs/Uploadify/jquery.uploadify-3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{#ABS_URL#}libs/Uploadify/uploadify.css"/>
+		
+		<div class="option-cnt">	
+			<label>{lang=import_folders_to_server}</label>
+			<div class="option-inputs">
+				<input type="multiupload_file" name="import[file_upload]" id="admin-multiupload" data-text="{lang=import_folders_to_server_text}" />
+			</div>
+		</div>
+		
+		<div class="option-cnt">	
+			<label>{lang=import_folders_on_server}</label>
+			<div class="option-inputs">
+				<input value="" type="text" name="import[import_directory]" />
+			</div>
+		</div>
+		
+		<div class="option-cnt">	
+			<label>{lang=import_folders_add_count}</label>
+			<div class="option-inputs">
+				<input type="text" value="10" name="import[import_pages_limit]" />
+			</div>
+		</div>
+	{/if}
+	
+	{if="$import_type == 'images' || $import_type == 'folder'"}	
+	<div class="option-cnt">	
+		<label>{lang=import_remove_watermark}</label>
+		<div class="option-inputs">
+			<input id="watermark_remove" type="checkbox" name="import[import_watermark_cut][cut]" value="ok" />
+		</div>
+	</div>
+	
+	<div id="watermark_remove_cnt" style="display:none;">
+		
+		<div class="option-cnt">	
+			<label>{lang=import_remove_watermark_position}</label>
+			<div class="option-inputs">	
+				<select name="import[import_watermark_cut][cut_direct]">
+					<option value="cut_bottom" selected="selected">{lang=watermark_cut_bottom}</option>
+					<option value="cut_top">{lang=watermark_cut_top}</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="option-cnt">
+			<label>{lang=import_remove_watermark_px}</label>
+			<div class="option-inputs">
+				<input type="text" style="width: 25px; " value="40" name="import[import_watermark_cut][cut_height]" />
+			</div>
+		</div>
+		
+	</div>
+
+	{/if}
+	
+	{if="$import_type == 'images'"}	
+	<div class="option-cnt">	
+		<label>{lang=import_image_verify}</label>
+		<div class="option-inputs">
+			<input type="checkbox" name="import[import_verify_images]" value="ok">
+		</div>	
+	</div>
+	{/if}
+	
+	{if="$import_type == 'folder' || $import_type == 'gallery'"}		
+		<div class="option-cnt">	
+			<label>{lang=import_folders_default_name}</label>
+			<div class="option-inputs">
+				<input value="" type="text" name="import[import_default_name]" />
+			</div>
+		</div>
+	{/if}	
+		<div class="option-cnt">
+			<label>{lang=import_additional_tags}</label>
+			<div class="option-inputs">
+				<input value="" type="text" name="import[upload_tags]">
+			</div>
+		</div>
+		
+		<div class="option-cnt">
+			<label>{lang=import_duplicates_info} </label>
+		</div>
+			
+	</div>	
+	
+	<input type="Submit" class="button" class="button" value="Zacznij" />
+		
+</form>
+
+
+
+<span style="color: rgb(153, 153, 153); font-size: 12px;">{lang=import_copyright_notice}</span>

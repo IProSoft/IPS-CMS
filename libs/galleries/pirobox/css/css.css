@@ -1,0 +1,41 @@
+.pirobox {
+    color: white;
+    display: block;
+    width: 100%;
+}
+.pirobox ul {
+    display: block;
+
+    margin: 5px 0 0 4px;
+
+    list-style-type: none;
+}
+.pirobox li {
+    color: white;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.pirobox a {
+    display: inline-block;
+    margin: 10px 9px 0 0;
+    padding: 0;
+}
+.pirobox img:hover {
+    border: 1px dotted #ddd;
+}
+.pirobox p {
+    float: left;
+    padding: 5px;
+}
+.pirobox a img {
+    float: left;
+	max-height: 100px;
+	max-width: 100px;
+	width:expression(document.body.clientWidth < 100? "100px" : document.body.clientWidth > 100? "100px" : "auto");
+	border: 1px dotted #999999;
+}
+a.pirobox_gall{
+	padding:5px
+}

@@ -1,0 +1,113 @@
+#ips-popup{
+	background:#fff none repeat scroll 0%;
+	display:none;
+	position:fixed;
+	top:200px;
+	_position:absolute; /* hack for IE 6*/
+	max-width:450px;
+	box-shadow: 0 0 35px 7px #999999;
+    border-radius: 10px;
+	z-index:20000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin:0pt;
+	padding:1%;
+	color:#333333;
+	text-align:left;
+	font-family:arial,sans-serif;
+	font-size:13px;
+	text-shadow: 0 -1px rgba(136, 136, 136, 0.2);
+	width:90%
+}
+
+#ips-popup-text-main, #ips-popup-container-body,#buttonArea{
+	color:#222 !important;
+}
+#ips-popup body{
+	background:#fff none repeat scroll 0%;
+	line-height:1;
+	margin:0pt;
+	height:100%;
+}
+
+
+.ips-save-like {
+    border: 0 none !important;
+    color: #555555 !important;
+    cursor: pointer;
+    font-size: 10px !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+#ips-popup-wrapper{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000; 
+	z-index:10000;
+}
+
+#ips-popup #ips-popup-close {
+    background: none repeat scroll 0 0 #eee;
+    border: 2px solid #555555;
+    border-radius: 7px 7px 7px 7px;
+    padding: 2px 5px 3px 5px;
+    color: #FF0000;
+    float: right;
+    margin: -29px 15px 0 0;
+    text-shadow: none;
+}
+
+#ips-popup h1 {
+    color: #555 !important;
+    font-family: arial;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
+#ips-popup #actionHolder{
+	min-height: 30px;
+	overflow: hidden;
+}
+
+#ips-popup #buttonArea{
+
+	padding:10px;
+	min-height:50px;
+}
+
+#ips-popup #buttonArea a{
+	color:#999999 !important;
+	text-decoration:none !important;
+	border:0 !important;
+	font-size:10px !important;
+}
+
+#ips-popup #buttonArea a:hover{
+	color:#333 !important;
+	text-decoration:none !important;
+	border:0 !important;
+}
+
+#ips-popup #ips-popup-container-body{
+	font-size:12px !important;
+	font-weight:normal !important;
+	line-height:22px;
+	padding:8px;
+}
+
+#ips-popup #ips-popup-timer-count{
+	float:right;
+	font-size:11px !important;
+	font-weight:normal !important;
+	margin:5px 0 0 0;
+	text-align:right;
+	line-height:16px;
+}

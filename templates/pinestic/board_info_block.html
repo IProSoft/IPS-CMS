@@ -1,0 +1,44 @@
+<h1 class="big-header-title">{$board_title}</h1>
+
+<div class="board-info-panel full-width-info-block pin-wrapper">
+
+	<div class="author-info">
+		<a href="/{$user_board_author.login}/boards/">
+		<div class="author-info-thumb"> <img src="{$user_board_author.avatar}" /> </div>
+		<div class="author-info-name"> {$user_board_author.full_name} </div>
+		</a>
+	</div>
+	
+	{if="$user_follow_board === 'is_author'"}
+	<button type="button" class="ips-edit-board big-button button" data-id="{$board_id}">
+		<span class="button-text">{lang=pinit_board_edit}</span>
+	</button>
+	{elseif="!$user_follow_board"}
+	<button data-id="{$board_id}" data-change-text="{lang=pinit_board_unfollow}" class="ips-board-follow button" type="button">
+		<span class="button-text">{lang=pinit_board_follow}</span>
+	</button>
+	{else}
+	<button data-id="{$board_id}" data-change-text="{lang=pinit_board_follow}" class="ips-board-follow button" type="button">
+		<span class="button-text">{lang=pinit_board_unfollow}</span>
+	</button>
+	{/if}
+
+	
+
+	<button data-send-id="{$board_id}" class="button ips-send ips-send-board" data-original-title="" title="">
+		<i></i><span>{lang=pinit_board_send}</span>
+	</button>
+
+
+	
+	<ul class="user-followers block-right">
+		<li>
+			<a href="/board/{$board_id}/pins/">{$board_pins} {lang=pinit_pins}</a>
+		</li>
+		<li>
+			<a href="/board/{$board_id}/followers/">{$board_followers} {lang=pinit_followers}</a>
+		</li>
+	</ul>
+
+</div>
+	

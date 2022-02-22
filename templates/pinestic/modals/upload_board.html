@@ -1,0 +1,131 @@
+<form method="post" class="form-create-board simple-form" id="create-board">
+	<ul class="form-ul">
+
+		<li class="form-box">
+			<h3>
+				{lang=pinit_board_add_title}
+			</h3>
+			<input value="{$board_title}" type="text" name="board_title" placeholder="{lang=pinit_board_add_default_title}" autofocus="" />
+			<p class="input-error-message board_title_error">{lang=pinit_board_add_title_error}</p>
+		</li>
+		<li class="form-box">
+			<h3>
+				{lang=pinit_upload_description}
+			</h3>
+			<textarea name="board_description" placeholder="{lang=pinit_board_add_default_description}">{$board_description}</textarea>
+			<p class="input-error-message board_description_error">{lang=pinit_board_add_description_error}.</p>
+		</li>
+		<li class="form-box">
+			<h3>
+				{lang=pinit_board_add_category}
+			</h3>
+			<select name="category_id">
+				{$categories_list}
+			</select>
+		</li>
+		<li class="form-box">
+			<h3>
+				{lang=pinit_board_secret}
+			</h3>
+			<div class="ui-checkbox-cnt">
+				<span class="on-off {if=" $board_privacy == 'private' "}is-on{/if}">
+					{if=" $board_privacy == 'private' "}
+					<span class="checkbox-on is-activ"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off"><p>{lang=pinit_off}</p></span>
+					<input class="ui-checkbox" type="checkbox" checked="checked" name="board_privacy" />
+					{else}
+					<span class="checkbox-on"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off is-activ"><p>{lang=pinit_off}</p></span>
+					<input class="ui-checkbox" type="checkbox" name="board_privacy" />
+					{/if}
+				</span>
+			</div>
+			
+		</li>
+		
+		{if=" empty( $board_id ) "}
+		<li class="form-box">
+			<h3>
+				Dodać Mapę ?
+			</h3>
+			<div class="ui-checkbox-cnt">
+				<span class="on-off">
+					<span class="checkbox-on"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off is-activ"><p>{lang=pinit_off}</p></span>
+					<input class="ui-checkbox" type="checkbox" name="board_has_map" />
+				</span>
+			</div>
+		</li>
+		{/if}
+		
+		{if="isset($users_can_pin)"}
+		<li class="form-box">
+			<h3>
+				{lang=pinit_board_pinner_who}
+			</h3>
+			<div class="modal-typeahead board-pinners-typeahead">
+					
+					<input type="text" name="user_login_pinners" value="" autocomplete="on" class="ui-typeahead" data-href="/ajax/pinit/find_people" />
+
+					<span class="tt-dropdown-menu" style="display:none;">
+						<div class="tt-dataset-">
+						  <span class="tt-suggestions">
+							  <div class="tt-suggestion">
+								<div class="user-send-seggest-wrapper" style="white-space: normal;">
+									<span class="user-send-img"></span>
+									<p class="user-send-name" id="user-send-id"></p>
+								</div>
+							  </div>
+						  </span>
+						</div>
+					</span>
+			</div>
+
+		
+			<div id="board-pinners-wrapper" class="board-pinners">
+				
+				{loop="users_can_pin"}
+				
+				<input type="hidden" name="users_can_pin_current[]" value="{$value.user_id}" />
+				
+				<div class="board-pinners board-pinner-item">
+				
+					<input data-pinner-id="{$value.user_id}" type="hidden" name="users_can_pin[]" value="{$value.user_id}" />
+					
+					<button type="button" class="invite-pinner remove-invited on-edit {if="USER_ID == $value.user_id"}hidden-element{/if}" data-user-id="{$value.user_id}">
+						<span>Usuń</span>
+					</button>
+
+					<div class="small-user-thumb">
+						<a href="{$value.login}/boards">
+							<div class="image-container">
+								<img src="{$value.avatar}" alt="{$value.full_name}">
+							</div>
+							<h4 class="small-h4">{$value.full_name}</h4>
+							<div class="small-user-info">{$value.invited_by.full_name}</div>
+						</a>
+					</div>
+
+				</div>
+				{/loop}
+			</div>
+		</li>
+		{/if}
+	</ul>
+	
+	<div class="upload-form-footer">    
+		{if="is_numeric($board_id)"}
+		<input value="{$board_id}" type="hidden" name="board_id" />
+		<button type="button" class="ips-delete-board button" data-id="{$board_id}">
+			<span>{lang=pinit_board_delete}</span>
+		</button>
+		{/if}
+		<button type="button" data-dismiss="modal">
+			<span>{lang=pinit_cancel}</span>
+		</button>
+		<button type="button" class="create-board button-red">
+			<span>{if="is_numeric( $board_id )"}{lang=pinit_board_edit_save}{else}{lang=pinit_board_create}{/if}</span>
+		</button>
+		
+	</div>
+</form>

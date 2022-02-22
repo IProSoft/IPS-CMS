@@ -1,0 +1,46 @@
+<h4 class=" box-max">
+	<a href="/profile/{$user_login}">{$user_login}</a>
+</h4>
+<div class="user-profile-menu">
+	<ul class="fancy-list user_menu_items box-max">
+		<li class="regular">
+			<a href="/user/{$user_login}/all" class="wybrany">{lang=common_all}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/main">{lang=common_main}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/votes_opinion">{lang=common_popular}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/wait">{lang=common_waiting}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/comments">{lang=common_comments}</a>
+		</li>
+
+		<li class="regular">
+			<a href="/user/{$user_login}/fav">{lang=favourites_menu}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/archive">{lang=common_archive}</a>
+		</li>
+		{if="$user_files"}
+		<li class="regular">
+			<a href="/user/{$user_login}/private">{lang=common_private}</a>
+		</li>
+		
+		<li class="regular">
+			<a href="/user/{$user_login}/followed">{lang=follow_menu}</a>
+		</li>
+		{/if}
+	</ul>
+</div>
+{if="$new_follower_files"}
+	<div class="ips-message msg-info"><a href="/user/{$user_login}/followed"><span>{lang=follow_new_files}</span></a></div>
+{/if}

@@ -1,0 +1,46 @@
+<div class="notifications-header">
+	<h2>{lang=user_notifications}</h2>
+</div>
+
+<div class="notifications-content">
+	{if=" !empty($items) "}
+		{loop="items"}
+		<div class="notifications-item" data-redirect="{$value.notify_content.redirect}">
+			
+			{if=" !empty($value.notify_content.user) "}
+			<div class="notify-item-users">
+				<a class="notify-item-user" href="{$value.notify_content.user.url}">
+					<span><img src="{$value.notify_content.user.image}"></span>
+				</a>
+			</div>
+			{/if}
+			
+			<p class="notify-item-content">
+				{$value.notify_content.content}
+				<span class="notify-item-time">{$value.notify_date}</span>
+			</p>
+			
+			{if=" !empty($value.notify_content.object) "}
+			<a class="notify-item-object" href="{$value.notify_content.object.url}">
+				<span><img src="{$value.notify_content.object.image}"></span>
+			</a>
+			{/if}
+			
+			{if=" !empty($value.notify_content.message) "}
+			<div class="notify-item-message">
+				<div class="notify-item-message-text">
+					“{$value.notify_content.message}”
+				</div>
+			</div>
+			{/if}
+			
+		</div>
+		{/loop}
+	{else}
+		<div class="notifications-item">
+			<p class="notify-item-content">{lang=pinit_user_notify_none}</p>
+		</div>
+	{/if}
+</div>
+
+<div class="notifications-footer"></div>

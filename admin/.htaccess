@@ -1,0 +1,15 @@
+RewriteEngine On
+#Dla serwerów nazwa.pl usuń hash poniżej
+RewriteBase /admin
+DirectoryIndex login.php
+
+<Files ~ "^license\.txt">
+Order allow,deny
+Deny from all
+</Files>
+
+
+RewriteRule ^backup/?$ admin.php [QSA,L,NC]
+RewriteRule ^route-([A-Za-z0-9\_\-]+)/?$ admin.php?route=$1 [QSA,L,NC]
+RewriteRule ^([A-Za-z0-9]+).html$ admin.php?route=$1 [L]
+RewriteRule ^plugin/([A-Za-z0-9_]+)$ libs/plugins/$1/call-$1.php [L]

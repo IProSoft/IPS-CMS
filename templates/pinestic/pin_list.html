@@ -1,0 +1,90 @@
+{loop="pins"}
+<div class="item not-visible" data-file-id="{$value.id}" data-sort="{$value.sort_key}">       
+	<div class="pin-item pinned">
+		<div class="pin-wrapper">
+			{if="$value.pin_featured == 1"}
+				<div class="pin-featured"></div>
+			{/if}
+			<div class="pin-actions-bar-wrapper">
+			
+				<button class="button-red ips-pin-it" data-href="/ajax/pinit/re_pin">
+					<span>{lang=pinit_pin_it}</span>
+				</button>
+			
+			
+				<button class="button ips-send" data-send-id="{$value.id}">
+					<i></i><span>{lang=pinit_pin_send}</span>
+				</button>
+			
+			</div>
+			<div class="like-wrapper">
+				{if="$value.is_author"}
+				<button data-id="{$value.id}" class="button ips-file-edit">
+					<i></i><span class="hide-text">Edytuj</span>
+				</button>
+				{else}
+				<button data-id="{$value.id}" class="button ips-like-it user-not-liked" data-href="/ajax/pinit/like">
+					<i></i><span class="hide-text">{lang=pinit_pin_like}</span>
+				</button>
+				{/if}
+			</div>
+			
+			<div class="pin-holder">
+				{if="$value.pin_type == 'gif'"}
+					<div class="gif-wrapper"><div class="gif-controls"></div>GIF</div>
+				{elseif="$value.pin_type == 'video'"}
+				<div class="video-wrapper" data-id="{$value.id}"><div class="video-controls"></div>VIDEO</div>
+				{/if}
+				<a style="background: {$value.pin_color}" href="/pin/{$value.id}" class="pin-image-wrapper ips-modal-pinover no-resize" data-file-id="{$value.id}">
+					<div class="div-overflow"></div>
+					<img title="{$value.pin_title}" src="{$value.upload_image}" class="pin-image" width="{$value.upload_image_size.w}" height="{$value.upload_image_size.h}" />
+				</a>
+			</div>
+			
+			<div class="pin-info">
+				{if="$display_title && $value.pin_has_place == '' "}
+				<p class="pin-description">{$value.pin_description}</p>
+				{elseif=" $value.pin_has_place != '' "}
+				<div class="pin-info-featured">
+					
+					<div class="pin-map-icon pin-map-marker" data-id="{$value.id}"><i class="i-icon"><img src="{$value.upload_image}" /></i></div>
+					
+					<div class="pin-credit">
+						<img src="https://cdn1.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/32/social_google_box.png" />
+						<span>przez GoogleMaps</span>
+					</div>
+
+					<p class="pin-description">{$value.pin_description}</p>
+				</div>
+				{/if}
+				
+                <div class="pin-likes-repins-comments">
+					{if="$value.pin_repins > 0"}
+					<a class="pin-repins-s" href="/pin/{$value.id}/repins/"><i></i>{$value.pin_repins} <span>{lang=pinit_pin_repins}</span></a>
+					{/if}
+					{if="$value.pin_likes > 0"}
+					<a class="pin-likes-s" href="/pin/{$value.id}/likes/"><i></i>{$value.pin_likes} <span>{lang=pinit_pin_likes}</span></a>
+					{/if}
+					{if="$value.pin_comments > 0"}
+					<a class="pin-comments-s" href="/pin/{$value.id}/#comments"><i></i>{$value.pin_comments} <span>{lang=pinit_pin_comments}</span></a>
+					{/if}
+                </div>
+				
+			</div>
+			<div class="pin-credits">
+				<a href="{$value.pin_user.link}" class="pin-credit">
+					<img src="{$value.pin_user.avatar}" class="pin-credit-image" />
+					<div class="pin-credit-text">{$value.pin_user.text}</div> <div class="pin-credit-board-name">{$value.pin_user.full_name}</div>
+				</a>
+				{if=" $value.pin_has_place == '' "}
+				<a href="{$value.board.board_link}" class="pin-credit">
+					<img src="{$value.board.board_thumb}" class="pin-credit-image board-thumb-{$value.board.board_id}" />
+					<div class="pin-credit-text">{lang=pinit_onto}</div> <div class="pin-credit-board-name">{$value.board.board_title}</div>
+				</a>
+				{/if}
+			</div>
+			
+		</div>
+	</div>      
+</div>
+{/loop}

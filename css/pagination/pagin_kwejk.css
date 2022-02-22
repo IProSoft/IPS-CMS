@@ -1,0 +1,53 @@
+ul.pagination-kwejk
+{
+	display:table;
+	list-style:none;
+	padding:0;
+	margin:0 auto;
+	text-align:center;
+	height:1.5em;
+	width:auto;
+	margin-bottom:1.5em;
+	font-family: Arial,Helvetica,sans-serif;
+}
+ul.pagination-kwejk b
+{
+	color: #FFF;
+}
+ul.pagination-kwejk li
+{
+	display:table-cell;
+	padding:4px;
+	color:#f6b100;
+	list-style:none;
+	-moz-user-select:none;
+	-khtml-user-select:none;
+}
+ul.pagination-kwejk li a.currentPage, ul.pagination-kwejk li a.currentPage li a:hover
+{
+	width:1.5em;
+	height:1.5em;
+	line-height:1.5em;
+	font-size: 1.1em;
+}
+ul.pagination-kwejk li a.currentPage, ul.pagination-kwejk li a.currentPage li a:hover span
+{
+	font-weight: bold;
+	color: #FFFFFF !important;
+}
+ul.pagination-kwejk li a {
+    color: #F6B100;
+    display: block;
+    font-size: 1em;
+    margin: 0;
+    outline: medium none;
+    padding: 3px;
+    text-decoration: none;
+    width: auto;
+}
+.ver-gag ul.pagination-kwejk li a.currentPage, 
+.ver-gag ul.pagination-kwejk li a.currentPage li a:hover span,
+.ver-gag ul.pagination-kwejk b
+{
+	color: #000 !important;
+}

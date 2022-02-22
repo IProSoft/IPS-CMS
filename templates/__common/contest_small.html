@@ -1,0 +1,21 @@
+<div class="contest">
+	{if=" !empty( $contest_thumb ) "}
+		<img alt="{$contest_title}" class="contest_image" src="{$contest_thumb}" />
+	{/if}
+	<div class="contest_cnt {if=" empty( $contest_thumb ) "}has_image{/if}">		
+		
+		<a class="contest_title" href="{$contest_url}">{$contest_title}</a>
+		<div class="contest_result">
+			{$contest_expire_text}
+		</div>
+		<div class="contest_files font_bolder">
+			{$contest_files}
+		</div>
+		
+		<a class="contest_see_btn font_bolder" href="{$contest_url}">{lang=common_see}</a>
+		
+	</div>
+	
+	
+	<div class="clear_both"></div>
+</div>

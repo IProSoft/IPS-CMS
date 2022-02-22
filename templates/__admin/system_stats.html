@@ -1,0 +1,50 @@
+<div class="stats-blocks-cnt nice-blocks features-table-actions-div">
+	<div class="blocks-header">{lang=statistics} </div>
+	<div class="blocks-content nice-blocks features-table-actions-div blocks-count-4">
+		<div class="stats-blocks">
+			<div class="table-body" style="padding: 15px">
+				{$statistic_mysql}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="stats-blocks-cnt nice-blocks features-table-actions-div">
+	<div class="blocks-header">{lang=statistic_items} </div>
+	<div class="blocks-content nice-blocks features-table-actions-div blocks-count-4">
+		<div id="server-stats">
+			<script type="text/javascript">
+				loadStats( "load-server-stats", "server-stats" );
+			</script>
+			<img style="margin:100px" src="images/system-loading.gif" style="vertical-align: middle;"> 
+		</div>
+	</div>
+</div>
+
+<div class="stats-blocks-cnt nice-blocks features-table-actions-div">
+	<div class="blocks-header">{lang=statistic_counters} </div>
+	<div class="blocks-content nice-blocks features-table-actions-div blocks-count-4">
+		{$statistic_counters}
+	</div>
+</div>
+
+<div class="stats-blocks-cnt nice-blocks features-table-actions-div">
+	<div class="blocks-header">{lang=statistic_shares} </div>
+	<div class="blocks-content nice-blocks features-table-actions-div blocks-count-4">
+		{$statistic_shares}
+	</div>
+</div>
+
+
+
+<div id="clear_system_confirm" style="display:none" title="{lang=confirm_info}">
+	<p>{lang=clear_system}</p>
+</div>
+
+<div class="buttons-block">
+	<a href="admin.php?backup=files" class="button">{lang=statistic_backup_files}</a> 
+	<a href="admin.php?backup=mysql" class="button">{lang=statistic_mysql_backup}</a>
+	<a href="admin.php?clear-system" class="button" id="clear_system">{lang=clear_system_title}</a>
+</div>
+		

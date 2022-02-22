@@ -1,0 +1,36 @@
+<div class="modal-upload">	
+	{if="Config::getArray( 'upload_video_type', 'video')"}
+	<button type="button" class="video_url">
+		<i></i><span>Dodaj link Video</span>
+	</button>
+	{/if}
+	
+	{if="Config::getArray( 'upload_video_type', 'mp4')"}
+	<button type="button" class="video_file">
+		<i></i><span>Prześlij plik video MP4</span>
+	</button>
+	{/if}
+	<span class="clear_columns"></span>
+</div>
+
+<div id="upload_video_url" class="upload-ajax-form">	
+	<form class="upload_video table_form" id="upload_video" method="post">
+		<div class="upload_video_url_field">
+			<input name="upload_video_url" type="text" placeholder="http://..." autofocus="">
+			<p class="input-error-message">{lang=pinit_upload_website_error}</p>
+		</div>
+		<button type="submit" class="button-red ips-modal-submit" data-href="/ajax/pinit/upload_video_url">
+			<span>Dodaj Video</span>
+		</button>
+	</form>
+</div>
+
+<div id="upload_video_file" class="upload-ajax-form">
+	<form method="post">
+		<div class="ips-upload-wrapper">
+			<div type="button" class="button-red left-rounded ips-upload-file" data-response="/ajax/pinit/upload_video_file" data-upload="/ajax/pinit_upload/video">
+				<span class="inside-button-text">Wybierz MP4</span>
+			</div><div class="upload-progress"><span>{lang=pinit_upload_chose_file_error}</span></div>
+		</div>
+	</form>
+</div>

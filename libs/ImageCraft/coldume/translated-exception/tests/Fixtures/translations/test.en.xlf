@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>hello.%cp_name%</source>
+                <target>Hello %cp_name%!</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>eat.apples.%cp_count%</source>
+                <target>{0} I eat no apple.|{1} I eat one apple.|[2, Inf] I eat %cp_count% apples.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

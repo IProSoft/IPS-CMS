@@ -1,0 +1,58 @@
+{if="$is_negative"}
+	<div class="is_negative">
+		{lang=comments_below}<a href="#" title="{lang=comments_below_info}">{lang=js_com_hidden_show}</a>
+	</div>
+{/if}
+<div id="comment_div_{$id}" class="{$div_comment_css} comment" data-id="{$id}" data-upload-id="{$upload_id}"> 	
+	
+	<span class="comment-author">
+		<img src="{$avatar}" />
+	</span>
+	
+	<div class="comment-wrap">	
+		
+		<span class="comment-header">	
+			
+			<a class="comment-user" href="/profile/{$user_login}">{$user_login}</a>		
+			
+			<span class="comment-date-add">{$date_add}</span>		
+			
+			<span class="moderator-block">
+				
+				{if="$moderator"}
+					<span class="highlight_text ips-edit-comment" href="#">[{lang=user_mod_comment_moderate}] | </span>
+				{/if}
+				
+				{if="$can_delete"}
+					<span class="highlight_text ips-delete-comment" href="#">[{lang=common_delete}]</span>
+				{/if}
+				
+			</span>
+		</span>	
+
+		<div class="comment-content">{$content}</div>
+						
+		<span class="comment-reply ips-reply-comment">{lang=comments_answer}</span>
+		
+		<span class="comment_vote_wrapper">
+			
+			<span class="comment-vote up">
+				<i></i>
+			</span>
+
+			<span class="comment-vote down">
+				<i></i>
+			</span>
+				
+			<div class="comment-vote-result">
+				{lang=comments_opinion} <span class="comment-opinion">{$comment_opinion}</span> ({lang=comments_votes} <span class="comment-votes">{$comment_votes}</span>)			
+				<div class="comment-vote-response"></div>
+			</div>
+			
+		</span>	
+			
+		<a class="comment_report" href="#" title="{lang=report_warning}" onclick="systemReport({$id}, 'comment', '{lang=report_this}'); return false;">{lang=report_this}</a>
+	
+	</div>
+	
+</div>

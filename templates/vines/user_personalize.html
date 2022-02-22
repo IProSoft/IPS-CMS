@@ -1,0 +1,51 @@
+<div class="widget-personalize">
+	<div class="widget-personalize-title off">
+		<h3>{lang=widget_presonalize_title}<i></i></h3>
+	</div>
+	<form id="ajax-personalize-form" action="" method="post" style="display:none;">
+		<ul>
+			{if="!Config::get('gif_auto_play')"}
+			<li>
+				<p>
+					<span>{lang=widget_presonalize_gif}</span>
+				</p>
+				<span class="toggle_chbx {if="$auto_animated"}on{/if}">
+					<span class="on">On</span>
+					<span class="off">Off</span>
+					<span class="switch"></span>
+					<input type="hidden" value="{$auto_animated}" name="personalize[auto_animated]" />
+				</span>
+			</li>
+			{/if}
+			{if="Config::getArray( 'template_settings', 'layout') == 'one'"}
+			<li>
+				<p>
+					<span>{lang=widget_presonalize_video}</span>
+				</p>
+				<span class="toggle_chbx {if="$auto_video"}on{/if}">
+					<span class="on">On</span>
+					<span class="off">Off</span>
+					<span class="switch"></span>
+					<input type="hidden" value="{$auto_video}" name="personalize[auto_video]" />
+				</span>
+			</li>
+			{/if}
+			<li>
+				<p>
+					<span>{lang=widget_presonalize_adult}</span>
+				</p>
+				<span class="toggle_chbx {if="$show_adult"}on{/if}">
+					<span class="on">On</span>
+					<span class="off">Off</span>
+					<span class="switch"></span>
+					<input type="hidden" value="{$show_adult}" name="personalize[show_adult]" />
+				</span>
+			</li>
+		</ul>
+		<div class="widget-personalize-buttons">
+			<a href="#" class="btn-green">{lang=widget_presonalize_save}</a>
+			<a href="#" class="btn-reset">{lang=widget_presonalize_reset}</a>
+		</div>
+		
+	</form>
+</div>

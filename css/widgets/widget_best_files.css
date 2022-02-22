@@ -1,0 +1,191 @@
+.ver-demotywator .best-files-list > a,
+.ver-kwejk .best-files-list > a,
+.ver-pinestic .best-files-list > a{
+	display:none;
+}
+.widget-best-files {
+    height: auto;
+    margin: 0 auto 5px;
+    max-width: 850px;
+    padding: 1% 0 0;
+    position: relative;
+    width: 100%;
+}
+.widget-best-files h4 {
+	width: 100%;
+	font-size: 1.2em;
+	padding: 1% 0;
+}
+.widget-best-files-container{
+	width: 100%;
+}
+
+.best-files-list{
+	width: 98%;
+}
+.best-files-list {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.widget-best-files .best-files-item {
+    border: 0 none;
+    display: inline-block;
+    float: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.widget-best-files .files_count_4 .best-files-item{
+	width: 23%;
+}
+.widget-best-files .files_count_5 .best-files-item{
+	width: 19%;
+}
+
+@media all and (max-width: 850px) {
+	.widget-best-files .files_count_4 .best-files-item{
+		width: 22%;
+	}
+	.widget-best-files .files_count_5 .best-files-item{
+		width: 18%;
+	}
+	.widget-best-files .best-files-list div.best-files-item > a,
+	.widget-best-files .best-files-list div.best-files-item img {
+		max-height: 150px;
+	}
+}
+
+@media all and (max-width: 800px) {
+	.widget-best-files .files_count_4 .best-files-item{
+		width: 21%;
+	}
+	.widget-best-files .files_count_5 .best-files-item{
+		width: 17%;
+	}
+	.widget-best-files .best-files-list div.best-files-item > a,
+	.widget-best-files .best-files-list div.best-files-item img {
+		max-height: 120px;
+	}
+}
+@media all and (max-width: 650px) {
+	.widget-best-files .files_count_4 .best-files-item{
+		float:left;
+		margin: 1%;
+	}
+	.widget-best-files .files_count_5 .best-files-item{
+		float:left;
+		margin: 1%;
+	}
+}
+@media all and (max-width: 550px) {
+	.widget-best-files .best-files-item .best-files-buttons{
+		display: block;
+		height: 0;
+		opacity: 0;
+	}
+	body div.widget-best-files .best-files-list .best-files-item > a img{
+		height: auto;
+	}
+	.widget-best-files .best-files-list div.best-files-item > a,
+	.widget-best-files .best-files-list div.best-files-item img {
+		max-height: 80px;
+	}
+	body div.widget-best-files .best-files-item .best-files-overflow{
+		height: auto
+	}	
+}
+
+.widget-best-files .best-files-item .best-files-buttons{
+	text-align:center;
+	transition: all 1.2s ease-out 0s;
+	-moz-transition: all 1.2s ease-out 0s;
+	-webkit-transition: all 1.2s ease-out 0s;
+}
+.widget-best-files .best-files-item .best-files-overflow {
+    width: 100%;
+}
+
+.widget-best-files .best-files-list .best-files-item > a,
+.widget-best-files .best-files-list .best-files-item img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-height: 180px;
+    max-width: 100%;
+    padding: 2% 0;
+    width: auto;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+.widget-best-files .best-files-item > a.best-files-url {
+    
+}
+
+.widget-best-files .best-files-item div .tools .fb-like span iframe{
+    border: medium none;
+    height: 20px !important;
+    overflow: hidden;
+    width: 110px !important;
+}
+
+.widget-best-files .widget-best-files-close {
+    background: url("/images/best-files-close.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 16px;
+    margin: 5px 20px 20px;
+    width: 16px;
+}
+
+
+
+.widget-best-files .best-files-item img {
+    display: block;
+    margin: 0 auto;
+    width: 161px;
+}
+
+.widget-best-files .best-files-item > a {
+    color: #6C6C6C;
+    font: 12px/16px Arial;
+    text-decoration: none;
+}
+.widget-best-files .best-files-control {
+    display: inline-block;
+    margin: 1% 0 0 3%;
+    position: relative;
+    width: 100%;
+}
+.widget-best-files .best-files-control li {
+    background: url("/images/best-files-navigate.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 18px;
+    width: 18px;
+}
+.widget-best-files .best-files-control li.on-screen {
+    background-position: 0 -19px;
+}
+body div.widget-best-files .best-files-title {
+    color: #595959;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 180px;
+}

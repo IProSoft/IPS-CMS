@@ -1,0 +1,24 @@
+{if="$previous"}
+<div class="box-previous" style="left: 0px;">
+	<a href="{$previous.url}" class="box-link">
+		{lang=prev}
+	</a>
+	<div class="img">
+		<a href="{$previous.url}">
+		<img alt="{$previous.title}" src="{$previous.upload_image}"></a>
+	</div>
+	<p>{$previous.title}</p>
+</div>
+{/if}
+{if="$next"}
+<div class="box-next" style="right: 0px;">
+	<a href="{$next.url}" class="box-link">
+		{lang=next}
+	</a>
+	<div class="img">
+		<a href="{$next.url}">
+		<img alt="{$next.title}" src="{$next.upload_image}"></a>
+	</div>
+	<p>{$next.title}</p>
+</div>
+{/if}

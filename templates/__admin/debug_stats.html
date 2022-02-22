@@ -1,0 +1,278 @@
+<style>
+.debug_table td {
+    padding: 3px;
+}
+.debug_table td, .debug_table h2 {
+	color: #000
+}
+.debug_table table {
+	margin: 10px auto
+}
+.debug_table .tpl-stats span {
+	display: inline-block
+}
+.debug_table .tpl-stats span:first-child {
+	width: 30%
+}
+.debug_table .tpl-stats span:last-child {
+	
+}
+</style>
+<div style="background-color: rgb(255, 255, 255); padding: 20px; font-size: 14px;" class="debug_table">
+    <h1>Debug</h1>
+	<h2>System Variables</h2>
+	<table align="center" cellpadding="4" cellspacing="1" style="background-color: #666666" width="95%">
+        <tbody>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_VERSION</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_VERSION#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">ABS_PATH</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#ABS_PATH#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_DNS_URL</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_DNS_URL#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">USER_ID</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#USER_ID#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">USER_ADMIN</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#USER_ADMIN#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">USER_MOD</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#USER_MOD#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_ACTION</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_ACTION#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_GET_ACTION</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_GET_ACTION#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_POST_PAGE</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_POST_PAGE#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_ACTION_PAGE</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_ACTION_PAGE#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_ACTION_GET_ID</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_ACTION_GET_ID#}</td>
+            </tr>
+            <tr>
+                <td style="background-color: #CCCCCC; font-weight: bold" width="10%"><span style="size:2;">IPS_ACTION_LAYOUT</span></td>
+				<td style="background-color: #EFEFEF; font-weight: bold">{#IPS_ACTION_LAYOUT#}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+	
+    <h2>Page Generation</h2>
+
+    <table align="center" cellpadding="4" cellspacing="1" style="background-color: #666666" width="95%">
+        <tbody>
+            <tr>
+                <td colspan="4" style="background-color: #CCCCCC; font-weight: bold"><span style="size:2;">Page Generation Statistics</span></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">Page Generation Time:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$stats.all_time} seconds</td>
+
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">No. DB Queries:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$db.query_count}</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">PHP Processing Time:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$stats.php_time} seconds ({$stats.php_time_percents}%)</td>
+
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">DB Processing Time:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$stats.db_time} seconds ({$stats.db_time_percents}%)</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">PHP Version:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{#PHP_VERSION#}</td>
+
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">Server Load:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$stats.php_load}</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">GZip Encoding Status:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$php.php_gzip}</td>
+
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">No. Templates Used:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$templates.all_count} ({$templates.cached_count} Cached / {$templates.normal_count} Normal )</td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">Memory Usage:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$php.php_memory} MB</td>
+
+                <td style="background-color: #EFEFEF; font-weight: bold" width="25%">Memory Limit:</td>
+
+                <td style="background-color: #FEFEFE" width="25%">{$php.php_memory_limit}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Database Connections (1 Total)</h2>
+
+    <table align="center" cellpadding="4" cellspacing="1" style="background-color: #666;" width="95%">
+        <tbody>
+            <tr>
+                <td style="background: #fff;">[READ] {#DB_USER#}@{#DB_HOST#}</td>
+            </tr>
+        </tbody>
+    </table><br>
+	{if="!empty( $db.error )"}
+		<h2>Database Queries Errors</h2>
+		 <table align="center" cellpadding="4" cellspacing="1" style="background-color: #666;" width="95%">
+        <tbody>
+            {loop="$db.error"}
+			<tr>
+                <td style="background-color: #ccc;" colspan="8">
+                    <div>
+                        <strong>#{$key} - {$value.query}</strong>
+                    </div>
+                </td>
+            </tr>
+			<tr style="background-color: #fefefe;">
+				<td colspan="8"><span style="font-family: Courier; font-size: 14px;">{$value.message}</span></td>
+			</tr>
+			<tr style="background-color: #fefefe;">
+				<td colspan="8"><span style="font-family: Courier; font-size: 14px;">{$value.file}</span></td>
+			</tr>
+			{/loop}
+        </tbody>
+    </table><br>
+	{/if}
+    <h2>Database Queries ({$db.query_count} Total)</h2>
+	{loop="$db.queries"}
+    <table align="center" cellpadding="4" cellspacing="1" style="background-color: #666;" width="95%">
+        <tbody>
+            <tr>
+                <td style="background-color: #ccc;" colspan="9">
+                    <div>
+                        <strong>#{$key} - {$value.query_type}</strong>
+                    </div>
+                </td>
+            </tr>
+
+            <tr style="background-color: #fefefe;">
+                <td colspan="9"><span style="font-family: Courier; font-size: 14px;">{$value.sql}</span></td>
+            </tr>
+			{if="!empty($value.explain)"}
+			  <tr style="background-color: #efefef;">
+                <td><strong>select_type</strong></td>
+				
+				<td><strong>table</strong></td>
+
+                <td><strong>type</strong></td>
+
+                <td><strong>possible_keys</strong></td>
+
+                <td><strong>key</strong></td>
+
+                <td><strong>key_len</strong></td>
+
+                <td><strong>ref</strong></td>
+
+                <td><strong>rows</strong></td>
+
+                <td><strong>Extra</strong></td>
+            </tr>
+				{if="isset( $value.explain.id ) "}
+				<tr style="background-color: #FFFFFF">
+					<td>{$value.explain.select_type}</td>
+					
+					<td>{$value.explain.table}</td>
+
+					<td>{$value.explain.type}</td>
+
+					<td>{$value.explain.key}</td>
+				   
+					<td>{$value.explain.key}</td>
+
+					<td>{$value.explain.key_len}</td>
+
+					<td>{$value.explain.ref}</td>
+
+					<td>{$value.explain.rows}</td>
+
+					<td>{$value.explain.Extra}</td>
+
+				</tr>
+				{else}
+					{loop="$value.explain"}
+					<tr style="background-color: #FFFFFF">
+						<td>{$value.select_type}</td>
+						
+						<td>{$value.table}</td>
+
+						<td>{$value.type}</td>
+
+						<td>{$value.key}</td>
+					   
+						<td>{$value.key}</td>
+
+						<td>{$value.key_len}</td>
+
+						<td>{$value.ref}</td>
+
+						<td>{$value.rows}</td>
+
+						<td>{$value.Extra}</td>
+
+					</tr>
+					{/loop}
+				{/if}
+			{/if}
+            <tr>
+                <td style="background-color: #FFFFFF" colspan="9">Query Time: {$value.time}</td>
+            </tr>
+			<tr>
+                <td style="background-color: #FFFFFF" colspan="9">Call In: {$value.class.files}</td>
+            </tr>
+			<tr>
+                <td style="background-color: #FFFFFF" colspan="9">Function Trace: {$value.class.functions}</td>
+            </tr>
+        </tbody>
+    </table><br>
+	{/loop}
+    
+
+    <h2>Template Statistics</h2>
+
+    <table align="center" cellpadding="4" cellspacing="1" style="background-color: #666;" width="95%">
+        <tbody>
+            <tr>
+                <td style="background-color: #ccc;"><strong>Templates Used (Loaded for this Page) - {$templates.all_count} Total</strong></td>
+            </tr>
+
+            <tr>
+                <td style="background: #fff;">{$templates.all_names}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

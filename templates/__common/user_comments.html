@@ -1,0 +1,22 @@
+{loop="comments"}
+<div id="comment_div_{$value.id}" class="comment pin-small-block">	
+	
+	<span class="comment-author">
+		<img src="{$value.avatar}">
+		<a href="/profile/{$value.user_login}">{$value.user_login}</a>
+	</span>
+	
+	<span class="comment-date-add">{$value.date_add}</span>
+	
+	<span class="comment_vote_wrapper">
+	{lang=common_opinion}: <span class="comment-opinion">{$value.comment_opinion}</span> 
+	({lang=archive_votes}: <span class="comment-votes">{$value.comment_votes}</span>)
+	 | <a href="#" onclick="systemReport({$value.id}, 'comment'); return false;">{lang=user_report_item}</a>
+	</span>
+	
+	<div class="comment-content">{$value.content}</div>
+	
+	<a class="comment-reply" href="/{$value.upload_id}/#comments_wrapper">[{lang=user_mod_item_view}]</a>	
+	
+</div>
+{/loop}

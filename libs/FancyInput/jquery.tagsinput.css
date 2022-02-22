@@ -1,0 +1,79 @@
+div.tagsinput{
+	background: #FFF;
+	border: 1px solid #CCC;
+	height: 100px;
+	overflow-y: auto;
+	padding: 5px;
+	width: 300px;
+}
+div.tagsinput span.tag{
+	background: #cde69c;
+	border: 1px solid #a5d24a;
+	color: #638421;
+	display: block;
+	float: left;
+	font-family: helvetica;
+	font-size: 13px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	moz-border-radius: 2px;
+	padding: 5px;
+	text-decoration: none;
+	webkit-border-radius: 2px;
+}
+div.tagsinput span.tag a{
+	color: #82ad2b;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.tagsinput input{
+	background: transparent;
+	border: 1px solid transparent;
+	color: #000;
+	font-family: helvetica;
+	font-size: 13px;
+	margin: 0px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	outline: 0px;
+	padding: 5px;
+	width: 80px;
+}
+div.tagsinput div{
+	display: block;
+	float: left;
+}
+.tags_clear{
+	clear: both;
+	height: 0px;
+	width: 100%;
+}
+.not_valid{
+	background: #FBD8DB !important;
+	color: #90111A !important;
+}
+div.tagsinput span.tag span:first-child{
+	display: inline;
+}
+
+
+.tags_fancy_input div.tagsinput span.tag{
+    background-clip: padding-box;
+    background-color: #e4e4e4;
+    background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+    color: #333;
+    cursor: default;
+    line-height: 13px;
+    margin: 3px 0 3px 5px;
+    padding: 3px 10px 3px 5px;
+    position: relative;
+}
+.tags_fancy_input div.tagsinput span.tag a {
+    color: #888;
+    display: inline-block;
+    font-size: 1.2em;
+}

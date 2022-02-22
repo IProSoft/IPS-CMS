@@ -1,0 +1,38 @@
+<div class="mem_generator_cnt">
+	{if="!empty($count)"}
+	{include="generator_upload_mem.html"}
+	{/if}
+	<div class="rwd-simple-menu">
+		<div class="buttons-menu-nice">
+			<a {if="$category == 'all'"}class="active"{/if} href="/mem/category/all">{lang=common_all}</a>
+		</div>
+		{loop="categories"}
+		<div class="buttons-menu-nice">
+			<a href="/mem/category/{$value.rewrite_text}" {if="$value.rewrite_text == $category"}class="active"{/if}>{$value.category_text}</a>
+		</div>
+		{/loop}	
+	</div>
+
+	<div id="generator_search" class="mem_generator_search input-group">
+		<span class="input-group-addon">{lang=generator_search_image}</span>
+		<input type="text" class="form-control" name="generator_search" data-category="{$category}" />
+		<div class="input-group-loader"><img src="/images/loaders/html5_loader.gif" /></div>
+		<span class="input-group-btn">
+			<button class="button" type="button">{lang=common_search}</button>
+		</span>
+	</div>
+	
+	<ul class="mem_generator">
+
+		{include="generator_list_img.html"}
+
+		<li class="suggest">
+			<a href="/mem/add/{$actual_category}" title="{lang=generator_suggest}">
+				<span>{lang=generator_suggest}</span>
+			</a>
+		</li>
+	</ul>
+	
+</div>
+
+

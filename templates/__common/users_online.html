@@ -1,0 +1,12 @@
+<div class="online-box"><h4>{lang=users_online}:</h4>
+	{loop="users_online"}
+	<div class="online-box-user">
+		<div class="online-box-user-img">
+			<a href="{$value.url}">
+				<img src="{$value.avatar_url}" alt="{$value.login}" />
+			</a>
+		</div>
+		<a href="{$value.url}">{$value.login}</a>
+	</div>
+	{/loop}
+</div>

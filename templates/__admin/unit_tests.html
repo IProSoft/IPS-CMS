@@ -1,0 +1,57 @@
+<button class="unit" data-id="/upload/kwejk/" data-type="image">Dodaj kwejk</button>
+<button class="unit" data-id="/upload/demotywator/" data-type="image">Dodaj demotywator</button>
+<button class="unit" data-id="/upload/article/" data-type="article">Dodaj artykuł</button>
+<button class="unit" data-id="/upload/ranking/" data-type="ranking">Dodaj ranking</button>
+<button class="unit" data-id="/upload/gallery/" data-type="gallery">Dodaj galerię</button>
+<button class="unit" data-id="/upload/mem/" data-type="mem">Dodaj mem</button>
+<button class="unit" data-id="/upload/kwejk/" data-type="video">Dodaj kwejk video</button>
+<button class="unit" data-id="/upload/kwejk/" data-type="text">Dodaj kwejk text</button>
+
+
+
+<style>
+button.unit{
+	display:block;
+	margin: 1%;
+	width:100%;
+}
+</style>
+<script>
+
+$(document).ready(function(){
+	$('.unit').on( 'click', function(){
+		
+		var fields = {};
+		fields.typ = $(this).attr('data-type');
+		
+		fields.title = 'Tytuł';
+		fields.top_line = 'Górna linia';
+		fields.bottom_line = 'Dolna linia';
+		fields.article = 'Długi tekst artykułu, dsfdsfd fds fdssd fbds bsdsdf bsdfds sdfn df n';
+
+		
+		fields.upload_images = ["http://abload.de/img/vun_7sxjoboa8na0pyde4yoyf2.jpg","http://s7.directupload.net/images/140611/vrgf7yva.jpg","http://abload.de/img/fyyaazkylysmabxfp494cwfsf5.jpg","http://s1.directupload.net/images/140828/7ejd59kl.jpg","http://www.4freeimagehost.com/uploads/c5048991b6ba.jpg"];
+		fields.upload_images  = ["http://abload.de/img/vun_7sxjoboa8na0pyde4yoyf2.jpg","http://s7.directupload.net/images/140611/vrgf7yva.jpg","http://abload.de/img/fyyaazkylysmabxfp494cwfsf5.jpg","http://s1.directupload.net/images/140828/7ejd59kl.jpg","http://www.4freeimagehost.com/uploads/c5048991b6ba.jpg"];
+		
+		
+		
+		/** tekstowy z tłem */
+		fields.long_text = 'Długi teskt materiału tesktowego, opisu galeri, rankingu itp';
+		fields.text_bg_link = 'http://abload.de/img/fyyaazkylysmabxfp494cwfsf5.jpg';
+		fields.link = 'http://abload.de/img/fyyaazkylysmabxfp494cwfsf5.jpg';
+		
+		fields.upload_video_url = 'https://www.youtube.com/watch?v=maTbogCY0Co';
+		fields.upload_tags = 'tag1,tag2,taggg 3';
+		fields.upload_source = 'Żródło';
+		fields.font = 'Verdana.ttf';
+		fields.kolor = '#ffffff';
+
+		IpsApp._ajax( $(this).attr('data-id'), fields, 'POST'  );
+	
+	});
+
+});
+
+
+</script>
+

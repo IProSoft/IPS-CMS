@@ -1,0 +1,32 @@
+<div id="messages_list">
+	<table>
+		<tbody>
+			<tr class="messages_list_menu">
+				<td>{lang=pw_user_to}</td>
+				<td class="messages_subject">{lang=pw_message_subject}</td>
+				<td class="messages_status">{lang=pw_status}</td>
+				<td class="messages_date">{lang=pw_data}</td>
+			</tr>
+
+			{if=" !empty($messages_list) "}
+			
+			{loop="messages_list"}
+			<tr class="messages_table">
+				<td>{$value.user_to_login}</td>
+				<td>{$value.message_title}</td>
+				<td>{$value.info}</td>
+				<td>{$value.created}</td>
+			</tr>
+			{/loop}
+			
+			{else}
+			<tr>
+				<td class="messages_empty" colspan="3">
+					<strong>{lang=pw_messages_empty}</strong>
+				</td>
+			</tr>
+			{/if}
+
+		</tbody>
+	</table>
+</div>

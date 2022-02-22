@@ -1,0 +1,185 @@
+<div class="tabbed_area" style="display:block">
+	
+	<h3>{lang=editor_edit_file} {$file}</h3>
+	
+	{lang=editor_edit_template} 
+	<select onchange="selectTheme()" id="themeselect">
+		<option>default</option>
+		<option>ambiance</option>
+		<option>blackboard</option>
+		<option>cobalt</option>
+		<option>eclipse</option>
+		<option>elegant</option>
+		<option>erlang-dark</option>
+		<option>lesser-dark</option>
+		<option>monokai</option>
+		<option>neat</option>
+		<option>night</option>
+		<option selected="selected">rubyblue</option>
+		<option>vibrant-ink</option>
+		<option>xq-dark</option>
+	</select>
+
+	<button class="button" id="fullscreen">{lang=editor_full_screen}</button>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$(".editor_search").on( 'click', function(){
+			CodeMirrorEditor.execCommand( 'find' );
+		});
+		
+		$(".editor_replace").on( 'click', function(){
+			CodeMirrorEditor.execCommand( 'replace' );
+		});
+		
+		$(".editor_replace_all").on( 'click', function(){
+			CodeMirrorEditor.execCommand( 'replaceAll' );
+		});
+		
+		$("#fullscreen").toggle( function(){
+			winHeight = $(window).height() - 60;
+			$(".CodeMirror-wrap").css({"height" : "100%", "left" : "0", "position" : "fixed", "top" : "0", "width" : "100%"});
+			$(".CodeMirror-scroll").css({"height" : winHeight});
+			$(this).addClass("edit-button-float");
+			$("#editorsave").addClass("edit-button-float").css({"left" : "130px"});
+		}, function(){
+			$(".CodeMirror-wrap").removeAttr("style");
+			$(this).removeClass("edit-button-float");
+			$("#editorsave").removeClass("edit-button-float").css({"bottom" : "", "left" : ""});
+			$(".CodeMirror-scroll").css({"height" : "300px"});
+		});
+		
+	});
+	</script>
+
+</div>
+<br />
+				
+<form action="" enctype="multipart/form-data" method="post">
+	
+	<input type="hidden" name="edit_file_name" value="{$file}" />
+	
+	<textarea id="edits" name="edits" style="display:none">{$file_content}</textarea>
+	
+	<br />
+	
+	<div class="tabbed_area" style="padding: 10px">
+
+		<button class="button editor_search">{lang=editor_search}</button>
+		<button class="button editor_replace">{lang=editor_replace}</button>
+		<button class="button editor_replace_all">{lang=editor_replace_all}</button>
+
+	</div>
+	
+	<br />
+	
+	<input type="submit" class="button" role="button" id="editorsave" value="{lang=editor_save_file}" />
+	
+</form>
+
+<style>
+.CodeMirror-fullscreen {
+	display: block !important;
+	position: absolute !important;
+	top: 0 !important; left: 0 !important;
+	width: 100% !important;
+	z-index: 9999 !important;
+}
+</style>
+<link rel="stylesheet" href="edytor/theme/neat.css">
+<link rel="stylesheet" href="edytor/theme/elegant.css">
+<link rel="stylesheet" href="edytor/theme/erlang-dark.css">
+<link rel="stylesheet" href="edytor/theme/night.css">
+<link rel="stylesheet" href="edytor/theme/monokai.css">
+<link rel="stylesheet" href="edytor/theme/cobalt.css">
+<link rel="stylesheet" href="edytor/theme/eclipse.css">
+<link rel="stylesheet" href="edytor/theme/rubyblue.css">
+<link rel="stylesheet" href="edytor/theme/lesser-dark.css">
+<link rel="stylesheet" href="edytor/theme/xq-dark.css">
+<link rel="stylesheet" href="edytor/theme/ambiance.css">
+<link rel="stylesheet" href="edytor/theme/blackboard.css">
+<link rel="stylesheet" href="edytor/theme/vibrant-ink.css">
+<link rel="stylesheet" href="edytor/lib/codemirror.css">
+
+<script src="edytor/lib/codemirror.js"></script>
+<script src="edytor/mode/css/css.js"></script>
+<script src="edytor/mode/javascript/javascript.js"></script>
+<script src="edytor/lib/util/searchcursor.js"></script>
+<script src="edytor/lib/util/search.js"></script>
+
+<script type="text/javascript">
+	
+	function isFullScreen( cm )
+	{
+		return /\bCodeMirror-fullscreen\b/.test(cm.getWrapperElement().className);
+    }
+	
+    function winHeight()
+	{
+		return window.innerHeight || (document.documentElement || document.body).clientHeight;
+    }
+	
+    function setFullScreen(cm, full)
+	{
+		var wrap = cm.getWrapperElement(), scroll = cm.getScrollerElement();
+		
+		if ( full )
+		{
+			wrap.className += " CodeMirror-fullscreen";
+			scroll.style.height = winHeight() + "px";
+			document.documentElement.style.overflow = "hidden";
+		}
+		else
+		{
+			wrap.className = wrap.className.replace(" CodeMirror-fullscreen", "");
+			scroll.style.height = "";
+			document.documentElement.style.overflow = "";
+		}
+		
+		cm.refresh();
+    }
+	
+    CodeMirror.connect(window, "resize", function() {
+		var showing = document.body.getElementsByClassName("CodeMirror-fullscreen")[0];
+		if (!showing) return;
+		showing.CodeMirror.getScrollerElement().style.height = winHeight() + "px";
+    });
+	
+	CodeMirrorEditor = CodeMirror.fromTextArea(document.getElementById("edits"), {
+	
+		lineNumbers: true,
+		lineWrapping: true,
+	
+		extraKeys: {
+			"F11": function(cm) {
+			  setFullScreen(cm, !isFullScreen(cm));
+			},
+			"Esc": function(cm) {
+			  if (isFullScreen(cm)) setFullScreen(cm, false);
+			}
+		}
+	});
+
+	input = document.getElementById("themeselect");
+  
+	function selectTheme() {
+		var theme = input.options[input.selectedIndex].innerHTML;
+		CodeMirrorEditor.setOption("theme", theme);
+	}
+  
+	var choice = window.location.href.split("#")[1];
+
+	if( !choice )
+	{
+		var choice = input.options[input.selectedIndex].innerHTML;
+	}
+	
+	if (choice)
+	{
+		input.value = choice;
+		CodeMirrorEditor.setOption("theme", choice);
+	}
+	
+</script>
+

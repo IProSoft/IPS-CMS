@@ -1,0 +1,279 @@
+<script type="text/javascript">
+jQuery(function($) {
+	$.datepicker.regional['pl'] = {
+		closeText: ips_i18n.__( 'js_close' ),
+		prevText: ips_i18n.__( 'js_datepicker_prev' ),
+		nextText: ips_i18n.__( 'js_datepicker_next' ),
+		currentText: ips_i18n.__( 'js_datepicker_today' ),
+		monthNames: ips_i18n.__( 'js_datepicker_months' ).split('|'),
+		monthNamesShort: ips_i18n.__( 'js_datepicker_short_months' ).split('|'),
+		dayNames: ips_i18n.__( 'js_datepicker_day_names' ).split('|'),
+		dayNamesShort: ips_i18n.__( 'js_datepicker_day_names_short' ).split('|'),
+		dayNamesMin: ips_i18n.__( 'js_datepicker_day_names_minshort' ).split('|'),
+		weekHeader: ips_i18n.__( 'js_datepicker_week' ),
+		dateFormat: 'yy-mm-dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['pl']);
+});
+$(function() {
+	$( "#birth_date" ).datepicker({
+		dateFormat: 'yy-mm-dd',
+		changeMonth: true,
+		changeYear: true,
+		minDate: '-50Y',
+		maxDate: '-5Y',
+		defaultDate: $( "#birth_date" ).val()
+	});
+});
+function setSocialStatus( element, url )
+{
+	if( url != '' )
+	{
+		$("." + element + "-on span:first-child").checkboxSwitch();
+		$(".edit-connected-status." + element).append( '{lang=user_connect_url} ' + url );
+	}
+	else
+	{
+		$(".edit-connected-status." + element).append( '{lang=user_connect_url_empty}' );
+	}
+}
+$(document).ready(function() {
+	
+
+	$(".nk-on span,.twitter-on span").on( 'click', function(){
+		
+		if( $(this).hasClass('checkbox-on') )
+		{
+			if( $(this).hasClass('is-activ') )
+			{
+				return;
+			}
+			$('body').modalWindow( null, null );
+			
+			$.cookie('ips-redir', 'edit_profile/', { expires: '1m', path: '/' });
+			
+			if( $(this).parent().hasClass('nk-on') )
+			{
+				window.location.href = ips_config.url + 'connect/nk/';
+			}
+			else if( $(this).parent().hasClass('twitter-on') )
+			{
+				window.location.href = ips_config.url + 'connect/twitter/';
+			}
+		}
+		else
+		{
+			console.log( $(this).hasClass('checkbox-off') );
+		}
+	});
+	
+	if( $(".edit-connected-status.facebook").length > 0  )
+	{
+		IpsApp._FB.afterInit( function(){
+			FB.api('/me', function(response) {
+				var url = '';
+				if( response.link )
+				{
+					var url = ' <a href="' + response.link + '">' + response.name + '</a>';
+				}
+				setSocialStatus( 'facebook', url );
+			});
+		});
+	}
+	
+	if( $(".edit-connected-status.nk").length > 0  )
+	{
+		
+		var url = '';
+		if( '{$user_data.nk_uid}' != '' )
+		{
+			var url = ' <a href="http://nk.pl/#profile/{$user_data.nk_uid}">NK</a>';
+		}
+		setSocialStatus( 'nk', url );
+	}
+	
+	if( $(".edit-connected-status.twitter").length > 0  )
+	{
+		var url = '';
+		if( '{$user_data.twitter_uid}' != '' && '{$user_data.username_twitter}' )
+		{
+			var url = ' <a href="https://twitter.com/' + ( twitter_username !== '' ? twitter_username : 'account/redirect_by_id?id={$user_data.twitter_uid}' ) + '">Twitter</a>';
+		}
+		setSocialStatus( 'twitter', url );
+	}
+});
+</script>
+
+<div class="edit_profile rwd_inputs">
+	<h4>{lang=edit_profile}</h4>
+	
+	<form action="" method="post">
+			
+		<div class="edit-block first_last_name">				
+			<label for="">Imię i nazwisko</label>
+			<input type="text" name="first_name" value="{$first_name}" />
+			<input type="text" name="last_name" value="{$last_name}" />
+		</div>
+		
+		<div class="edit-block">
+			<div class="edit-block-content">
+				<div class="image-block">
+					<img id="avatar_thumb" width="100px" height="100px" src="{$avatar}" />
+				</div>
+				<div class="image-upload-block">
+					<label for="">{lang=edit_profile_avatar}</label>
+					<input type="file" name="file" id="imageUpload" size="20" />
+					<p>{lang=edit_profile_extensions}</p>
+				</div>
+			</div>
+		</div>
+					
+		<div class="edit-block">				
+			<label for="">{lang=edit_profile_email}</label>
+			<input type="text" name="email" value="{$email}" />
+		</div>
+
+		<div class="edit-block">
+			<a href="/edit_profile/password" class="button-link">{lang=edit_password}</a>
+		</div>	
+		
+		<div class="edit-block">	
+			<label for="">{lang=edit_profile_about_me}</label>
+			<textarea name="user_data[about_me]">{$user_data.about_me}</textarea>
+		</div>
+		
+		<div class="edit-block">	
+			<label for="">{lang=edit_profile_gender}</label>
+			<div class="sex-container">
+				<label for="male">{lang=user_male}
+					<input id="male" {if=" $user_data['gender'] == 'male'"}checked="checked"{/if} type="radio" value="male" name="user_data[gender]">
+				</label>
+				<label for="female">{lang=user_female}
+					<input id="female" {if=" $user_data['gender'] == 'female'"}checked="checked"{/if} type="radio" value="female" name="user_data[gender]">
+				</label>
+			</div>
+		</div>	
+		{if="Config::getArray( 'language_settings', 'ips_multilanguage' )"}
+		<div class="edit-block">	
+			<label for="">{lang=user_default_language}</label>
+			<select name="user_data[default_language]">
+			{loop="default_languages"}	
+				<option value="{$value}" {if="$value == $user_data['default_language']"}selected="selected"{/if}>{$value}</option>
+			{/loop}
+			</select>
+		</div>
+		{/if}
+		<div class="edit-block">	
+			<label for="birth_date">{lang=edit_profile_birth_date}</label>
+			<input id="birth_date" type="text" name="birth_date" value="{$birth_date}" />
+		</div>	
+		
+		<div class="edit-actions">	
+			<a href="/login/delete_account" class="submit button-link cancel">{lang=user_delete_account}</a>
+			<button name="submit" class="button-link">{lang=edit_profile_save}</button>
+		</div>	
+	</form>	
+		
+</div>	
+
+<div class="edit_profile rwd_inputs">
+	<h4>Sieci społecznościowe</h4>
+	<form action="" method="post">
+
+	{if="Config::get('apps_login_enabled', 'facebook')"}
+		<div class="edit-block">
+			<div class="edit-connected-status facebook">
+				<i></i>
+			</div>
+		</div>
+		<div class="edit-block facebook_login_btn">		
+			<label for="">{lang=user_connect_account} Facebook</label>
+			<div class="ui-checkbox-cnt">
+				<span class="on-off {if=" $user_data['facebook_uid'] != false "}is-on{/if}">
+					<span class="checkbox-on {if=" $user_data['facebook_uid'] != false "}is-activ{/if}"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off {if=" $user_data['facebook_uid'] == false "}is-activ{/if}"><p>{lang=pinit_off}</p></span>
+					<input type="checkbox" class="ui-checkbox" {if=" $user_data['facebook_uid'] != false "}checked="checked"{/if} />
+				</span>
+			</div>
+		</div>
+		
+		{if=" $user_data['facebook_uid'] != false "}
+		<div class="edit-block facebook_login_btn" title="{lang=facebook_publish_explain}">		
+			<label for="">{lang=edit_profile_facebook_publish}</label>
+			<div class="ui-checkbox-cnt facebook_login_btn">
+				<span class="on-off {if=" $user_data['post_facebook'] == 1 "}is-on{/if}">
+					<span class="checkbox-on {if=" $user_data['post_facebook'] == 1 "}is-activ{/if}"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off {if=" $user_data['post_facebook'] == 0 "}is-activ{/if}"><p>{lang=pinit_off}</p></span>
+					<input type="checkbox" name="user_data[post_facebook]" class="ui-checkbox" {if=" $user_data['post_facebook'] == 1 "}checked="checked"{/if} />
+				</span>
+			</div>
+		</div>
+		<div class="edit-block" title="{lang=facebook_publish_text_explain}">	
+			<label for="">{lang=facebook_publish_text}</label>
+
+			<input type="text" name="user_data[post_facebook_message]" value="{if=" $user_data['post_facebook_message'] != false "}{$user_data.post_facebook_message}{/if}" />
+		</div>
+		{/if}
+	
+	{/if}
+
+	
+	{if="Config::get('apps_login_enabled', 'twitter')"}	
+		<div class="edit-block">
+			<div class="edit-connected-status twitter">
+				<i></i>
+			</div>
+		</div>	
+		<div class="edit-block">				
+			<label for="">{lang=user_connect_account} Twitter </label>
+			<div class="ui-checkbox-cnt">
+				<span class="on-off twitter-on">
+					<span class="checkbox-on {if=" $user_data['twitter_uid'] != false "}is-activ{/if}"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off {if=" $user_data['twitter_uid'] == false "}is-activ{/if}"><p>{lang=pinit_off}</p></span>
+					<input type="checkbox" class="ui-checkbox"  {if=" $user_data['twitter_uid'] != false "}checked="checked"{/if} />
+				</span>
+			</div>
+		</div>
+	{/if}
+	
+	{if="Config::get('apps_login_enabled', 'nk')"}	
+		<div class="edit-block">
+			<div class="edit-connected-status nk">
+				<i></i>
+			</div>
+		</div>	
+		<div class="edit-block">				
+			<label for="">{lang=user_connect_account} NK </label>
+			<div class="ui-checkbox-cnt">
+				<span class="on-off nk-on">
+					<span class="checkbox-on {if=" $user_data['nk_uid'] != false "}is-activ{/if}"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off {if=" $user_data['nk_uid'] == false "}is-activ{/if}"><p>{lang=pinit_off}</p></span>
+					<input type="checkbox" class="ui-checkbox"  {if=" $user_data['nk_uid'] != false "}checked="checked"{/if} />
+				</span>
+			</div>
+		</div>
+	{/if}	
+		
+		<div class="edit-block">	
+			<label for="">{lang=user_newsletter}</label>
+			
+			
+			<div class="ui-checkbox-cnt">
+				<span class="on-off newsletter-on">
+					<span class="checkbox-on {if=" $user_data['newsletter'] != false "}is-activ{/if}"><p>{lang=pinit_on}</p></span>
+					<span class="checkbox-off {if=" $user_data['newsletter'] == false "}is-activ{/if}"><p>{lang=pinit_off}</p></span>
+					<input type="checkbox" class="ui-checkbox"  {if=" $user_data['newsletter'] != false "}checked="checked"{/if} />
+				</span>
+			</div>
+
+		</div>
+		
+		<div class="edit-actions">	
+			<button name="submit" class="button-link">{lang=edit_profile_save}</button>
+		</div>	
+	</form>	
+		
+</div>	

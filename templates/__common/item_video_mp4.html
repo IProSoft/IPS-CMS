@@ -1,0 +1,31 @@
+{if=" $player_type == 'mediaelement' "}
+	<div id="html5_video_{$id}" class="video-container mediaelement" video-config='{$video_config}'>
+		<video width="{$width}" height="{$height}" poster="{$vid_config.media_poster}" controls="controls" preload="false" style="width: 100%; height: 100%;">
+			<source type="video/mp4" src="{$vid_config.video_src}" />
+			<source type="video/webm" src="{$vid_config.video_webm}" />
+			<object width="{$width}" height="{$height}" type="application/x-shockwave-flash" data="/libs/MediaElement/flashmediaelement.swf">
+				<param name="movie" value="/libs/MediaElement/flashmediaelement.swf" />
+				<param name="flashvars" value="controls=true&file={$vid_config.video_src}" />
+				<img src="{$vid_config.media_poster}" width="{$width}" height="{$height}" title="No video playback capabilities" />
+			</object>
+		</video>
+	</div>
+{else}
+	<div id="html5_video_{$id}" class="video-container paused" video-id="{$id}" video-config='{$video_config}'>
+		<div class="html5_video_container"></div>
+		<div class="html5_video_controls">
+			<a class="video_player_button"></a>
+			<a class="video_loader"></a>
+		</div>
+		<h3 class="html5_video_caption">
+			<a href="{$video_url}">{$video_title}</a>
+		</h3>
+		<div class="html5_video_cover" video-id="{$id}"></div>
+	</div>
+{/if}
+<script type="text/javascript">
+	ipsAddEvent( 'loaded', function a(){
+		ips_video_mp4( {$id}, {$video_autoplay}, '{$player_type}' );
+		this.removeEventListener('loaded', a, false);
+	} );
+</script>

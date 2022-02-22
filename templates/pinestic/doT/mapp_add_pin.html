@@ -1,0 +1,91 @@
+<div class="map-search" data-map-id="{{=it.board_id}}" >
+	<div class="map-search-form">
+
+		<div class="header">
+			
+			<h2>Wybierz miejsce</h2>
+			
+			<button class="button flat float_right module-close map-first-step">
+				<span>Zamknij</span>
+			</button>
+			
+			<button class="button flat float_right map-second-step map-back">
+				<span>Wstecz</span>
+			</button>
+			
+			<div class="clear_columns"></div>
+		</div>
+
+		<div class="map-first-step">
+			<div class="map-search-autosuggest ">
+				<div class="wait-for-location display-none"><img src="/images/svg/spinner-pinit.svg"></div>
+				<div class="map-place-slector">
+
+					<input class="place-input" autocomplete="off" placeholder="Nazwa i miasto?" name="place" />
+
+				</div>
+			</div>
+			
+			<div class="map-search-no-result display-none ">
+				<h3>Przepraszamy, ale nie udało nam się tego znaleźć</h3>
+				<div class="divider"></div>
+				<div class="map-search-tips">
+					Sprawdź pisownię lub spróbuj innej nazwy.
+				</div>
+			</div>
+			
+			<div class="map-search-empty">
+				<h3>Wskazówki dotyczące wyszukiwania</h3>
+				<div class="divider"></div>
+				<div class="map-search-tips">
+					Spróbuj wprowadzić nazwę swojego miejsca i lokalizację:<br> np.  <b>Science museum near London</b>
+				</div>
+				<div class="divider"></div>
+			</div>
+		</div>
+		
+		<!-- Pick image for PIN -->
+		<div class="map-second-step-cnt map-second-step">
+			
+			<div class="map-selected-place">
+				<h2></h2>
+			</div>
+			
+			<div class="items-block">
+				<div class="item add-image ips-upload-file async" data-response="maps_append_image">
+					<div class="upload-cover"><i class="i-icon"></i></div>
+					<div class="button">
+						<span class="inside-button-text">{lang=pinit_upload_chose_file}</span>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="map-selected-description">
+			
+				<form id="map_pin" method="post" class="upload-preview simple-form">
+				
+					<div class="description">
+						<textarea name="pin_description" placeholder="{lang=pinit_upload_pin_description}" required="required"></textarea>
+						<p class="input-error-message">{lang=pinit_upload_pin_description_error}</p>
+					</div>
+					
+					<div class="map-save-pin">
+						<button type="submit" disabled="disabled" class="button-red ips-modal-submit float_right" data-href="/ajax/pinit/places/?place_action=create">
+							<span>{lang=pinit_upload_pin_create}</span>
+						</button>
+					</div>
+					
+					<input name="pin_board_id" type="hidden" value="{{=it.board_id}}" />
+					<input id="place_upload_image" name="upload_image" type="hidden" value="" />
+					<input id="place_data" name="place_data"  type="hidden" value="" />
+				</form>
+			</div>
+		
+		
+		</div>
+		
+	</div>
+
+</div>

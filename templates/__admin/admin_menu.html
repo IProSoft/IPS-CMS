@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Panel Administracyjny</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<base href="{#IPS_ADMIN_URL#}/" />
+	
+	<link type="text/css" rel="stylesheet" href="css/code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"  />
+	<link type="text/css" rel="stylesheet" href="{#IPS_ADMIN_URL#}/css/main.css"  />
+	<link rel="stylesheet" type="text/css" href="jpaginate/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cuprum&subset=latin,latin-ext" />
+
+	<script src="js/code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="js/code.jquery.com/jquery-migrate-1.2.1.min.js "></script>
+	<script src="js/code.jquery.com/jquery-ui.min.js"></script>
+	<script src="{#ABS_URL#}libs/alertify.js/lib/alertify.min.js"></script>
+	<script src="{#ABS_URL#}js/libraries.js"></script>
+	<script src="{#ABS_URL#}{function="Translate::getInstance()->getJsLang()"}"></script>
+	
+	<script type="text/javascript" src="js/jquery.autosize-min.js"></script>
+	<script type="text/javascript" src="jpaginate/jquery.paginate.js"></script>
+	<script type="text/javascript" src="js/adminfunctions.js"></script>
+	<script type="text/javascript" src="js/instantEdit.js"></script>
+	
+	<script type="text/javascript" src="http://api.iprosoft.pro/stats.js"></script>
+	
+	<link rel="stylesheet" href="{#ABS_URL#}libs/alertify.js/themes/alertify.core.css" type="text/css" />
+	<link rel="stylesheet" href="{#ABS_URL#}libs/alertify.js/themes/alertify.default.css" type="text/css" />
+	
+	<script type="text/javascript" src="{#ABS_URL#}libs/FancyInput/jquery.tagsinput.js"></script>
+	<link rel="stylesheet" href="{#ABS_URL#}libs/FancyInput/jquery.tagsinput.css" type="text/css" />
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#import-urls").tagsInput({
+			defaultText: "dodaj link",
+			height: "50px",
+			width: "500px"
+		});
+		$("textarea.tags_fancy_input,input.tags_fancy_input, .tags_fancy_input textarea, .tags_fancy_input input").tagsInput({
+			defaultText: "dodaj"
+		});
+	});
+	</script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="{if="!empty($admin_route)"} action-{$admin_route}{/if}">
+	{if="!empty( $admin_alerts )"}
+	<script>
+	{loop="admin_alerts"}
+		{if="!empty( $value.message )"}
+			alertify.{$value.type}( '{function="__($value.message)"}', "", 0 );
+		{/if}
+	{/loop}
+	</script>
+	{/if}
+	<div id="spinner_loader"></div>
+	<div class='dialog' id='dialog'></div>
+
+	<div class="fixed-top">
+		<span>
+			<a href="{#ABS_URL#}" title="Główna"><img alt="" src="images/mainpage.png"> {lang=admin_menu_back}</a>
+			<a href="route-logout" style="float: right;" title="wyloguj"><img alt="" src="images/logout.png"> {lang=user_log_out}</a>
+			<a class="ips-suggest" href="#" style="float: right; margin-right: 20px;" title="Prześlij sugestię"><img alt="" src="images/suggest.png"> {lang=admin_menu_suggestions}</a>
+		</span>
+	</div>
+	<div id="ips-suggest-box" style="display:none">
+		<form method="post" action="" style="height: 100%;">
+			<input type="text" name="suggestion_page" value="" style="height: 20%; width: 95%;" />
+			<textarea placeholder="{lang=admin_menu_suggestions_add}" name="suggestion" style="height: 50%; width: 95%;"></textarea>
+		</form>
+	</div>
+	<div class="container-main">
+
+
+
+	<div class="admin-menu">
+		<div class="title_caption">
+			<span class="caption">Menu</span>
+		</div>
+		<div id="updates-number" style="text-align: center; display: block; width: auto;">
+		{if="$av_updates > 0"}<span class="nice-number">{lang=admin_menu_updates} : {$av_updates}</span>{/if}
+		</div>
+		
+		<a href="admin.php" class="button {if="$admin_route == 'null'"} button-selected{/if}"><i class="fa fa-desktop"></i>Pulpit</a>
+		
+		{$admin_menu}
+		
+		<div class="support-buttons">
+			<ul>
+				<li class="contact-form">
+					<a target="_blank" title="Kontakt" href="http://www.iprosoft.pl/firma/">
+						<span>Support IPROSOFT</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	 </div> 
+
+		
+		
+		
+	{if="Config::get('updates_disabled') != 'true'"}
+		<div id="popup_admin_cover" style="display:none;">
+			<div id="popup_admin">
+				<h5 id="popup_admin_title">{lang=admin_menu_updates}</h5>
+				<div id="popup_admin_content">
+					<div id="popup_message">
+						{lang=admin_menu_updates_error}
+					</div>
+					<br />
+					<div id="popup_panel">
+						<a class="simple-blue-button" href="route-update">{lang=admin_menu_updates_install}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
+	<div id="ips-confirm-system" style="display:none">
+		<p>Wykonać akcję : <strong></strong>?</p>
+	</div>
+	
+	<div id="users_delete_confirm" style="display:none" title="{lang=confirm_info}">
+		<p>{lang=users_delete_info_alert}</p>
+	</div>

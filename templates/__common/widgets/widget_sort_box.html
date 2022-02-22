@@ -1,0 +1,43 @@
+<div class="widget-file-filter bottom_menu_box fancy_head_title">
+	<div class="box-max">
+		
+		<div class="dropdown-box">
+			<span>{lang=widget_filter} <i class="i-icon i-menu"></i></span>
+			<ul class="dropdown-box-list">
+				{loop="show_files"}
+				<li>
+					<a href="/ajax/show/?type={$value.type}" class="{if="$value.active"}active{/if}">{$value.text}</a>
+				</li>
+				{/loop}
+				<li class="display_none reload">
+					<a href="#">{lang=save_changes}</a>
+				</li>
+			</ul>
+		</div>
+		
+		{if="Config::get( 'apps_fanpage_default' )"}
+		<div class="social-items">
+			<ul>
+				{if="Config::get( 'apps_fanpage_default' )"}
+				<li>
+					<span class="facebook">{function="SocialButtons::like( Config::get('apps_fanpage_default') )"}</span>
+				</li>
+				{/if}
+				{if="Config::get( 'apps_twitter_app', 'username' )"}
+				<li>
+					<span class="twitter">{function="SocialButtons::twitterFollow( Config::get('apps_twitter_app', 'username' ) )"}</span>
+				</li>
+				{/if}
+				{if="Config::get( 'apps_google_app', 'profile_url' )"}
+				<li>
+					<span class="google">{function="SocialButtons::googleButton( Config::get('apps_google_app', 'profile_url' ), 'medium' )"}</span>
+				</li>
+				{/if}
+			</ul>
+		</div>
+		{/if}
+		<span class="clear_columns"></span>
+	</div>
+</div>
+
+

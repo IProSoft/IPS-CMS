@@ -1,0 +1,105 @@
+<div class="add-new-file">
+	<form id="upload_form" name="upload_form" action="/upload/animation" method="post" enctype="multipart/form-data">
+		
+		<div class="input-wrap">
+			<label for="title">{lang=add_title}<b>(*)</b></label>
+			<input id="title" name="title" type="text" maxlength="255" value="{$post_title}" class="up-verify" data-alert="{lang=err_title}" />
+		</div>
+
+		{if="$edit_id !== 'false'"}	
+		
+		<div class="input-wrap">
+			<label for="gif_fps">{lang=add_animated_frames} (fps):</label>
+			<select id="gif_fps" name="gif_fps">
+				{loop="fps_array"}
+				<option value="{$value}"> {$value} </option>
+				{/loop}
+			</select>
+		</div>	
+		
+		<div id="animation-main" class="input-wrap">
+			<label>{lang=add_animated_files} </label>
+			<div class="add-file-input">
+				
+				<button class="change_input" value="file">{lang=add_file_normal}</button>
+				<button class="change_input" value="link">{lang=add_file_url}</button>
+				
+				<div class="input-link-container" >
+					<input id="animation_image" class="full_width" type="text" name="animation_image" title="{lang=add_http_url}" placeholder="{lang=add_http_url}" />
+					<button class="button-link">{lang=common_add}</button>
+				</div>
+				
+				<div class="multi_upload input-file-container display_none">
+					<input id="multi" type="file" name="file_upload" />
+				</div>
+			</div>
+			
+			
+			<div id="animation-add" class="display_none">
+				<div class="animation-add-main">{$post_plik}</div>
+				<a id="delete_gif" href="/up/animation/delete">{lang=common_delete}</a>
+			</div>
+
+		</div>
+		{/if}
+			
+		{if="USER_ADMIN"}
+			{include="up_add_thumb.html"}		
+		{/if}
+
+		{if="Config::get('upload_tags')"}
+			{include="up_tags.html"}		
+		{/if}
+		
+		{if="Config::get('add_source')"}
+			{include="up_source.html"}	
+		{/if}
+			
+		{if="Config::get('categories_option') == 1"}
+			{include="up_pick_category.html"}
+		{/if}
+		
+		{if="$add_extra_description"}	
+			{include="up_extra_description.html"}	
+		{/if}
+		
+		{if="Config::get('add_captcha') == 2 || ( Config::get('add_captcha') == 1 && !USER_LOGGED ) "}
+			{include="up_captcha.html"}
+		{/if}
+		
+		<input type="hidden" name="animation_image_all" id="animation_image_all"  value="" />	
+		<input type="hidden" name="animation" id="animation" value="" />
+		<input type="hidden" name="fps" id="fps"  value="5" />
+		<input type="hidden" name="MAX_FILE_SIZE" value="{$max_file_size}" />
+		<input type="hidden" name="edit_id" value="{$edit_id}" />
+		<input type="hidden" name="_token" value="{$edit_id|csrf_token}" />
+		
+		<div class="add-actions-bottom">
+			{if="Config::get('add_private_files')"}
+				{include="up_is_private.html"}	
+			{/if}
+		
+			{if="Config::get('add_is_adult_field')"}
+				{include="up_is_adult.html"}
+			{/if}
+			
+			{if="Config::get('add_require_rules')"}
+				{include="up_require_rules.html"}
+			{/if}
+			
+			<a class="submit button-link cancel" href="/">{lang=add_cancel}</a>
+			
+			{if="$edit_id !== 'false'"}
+			<button id="generate_animation" class="submit">{lang=add_animated_merge}</button>
+			<button id="add-form-submit" class="submit" disabled="disabled">{lang=common_add}</button>
+			{else}
+			<button class="submit" id="add-form-submit">{lang=common_add}</button>
+			{/if}
+			
+		</div>
+		
+		
+	</form>
+</div>
+
+

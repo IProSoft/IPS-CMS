@@ -1,0 +1,72 @@
+<form class="register-form validate-form" method="post">
+	
+	<div class="inputs-wrap simple-page">
+		<ul id="user-options-start">
+			<li>
+				<a href="/login/" class="li-login-register li-login {if="IPS_ACTION == 'login'"}li-current{/if}"><span>{lang=common_login}</span></a>
+			</li>
+			<li>
+				<a href="/register/" class="li-login-register li-register {if="IPS_ACTION == 'register'"}li-current{/if}"><span>{lang=common_register}</span></a>
+			</li>
+		</ul>
+		<div class="login-content">
+		
+		{if="Config::get('apps_login_enabled', 'facebook')"}
+			<a href="/connect/facebook/" class="large-button facebook-button"><i></i>{lang=connect_facebook}</a>
+		{/if}
+		
+		{if="Config::get('apps_login_enabled', 'nk')"}
+			<a href="/connect/nk/" class="large-button nk-button"><i></i>{lang=connect_nk}</a>
+		{/if}
+		
+		{if="Config::get('apps_login_enabled', 'twitter')"}
+			<a href="/connect/twitter/" class="large-button twitter-button"><i></i>{lang=connect_twitter}</a>
+		{/if}
+			
+		<div class="register-email">
+			{lang=user_register_by_email}
+		</div>
+			<div class="register-email-container {if="empty($login)"}display_none{/if}">
+				<p>
+					<label for="login">{lang=user_set_username}</label>
+					<input class="text-input" type="text" title="{lang=user_set_username}" value="{$login}" name="login" id="login" />
+					<span class="error-msg">{lang=error_alfanum}</span>
+				</p>
+				<p>
+					<label for="password">{lang=user_register_password}</label>
+					<input class="text-input" type="password" title="{lang=user_register_password}"  name="password" id="password" />
+					<span class="error-msg">{lang=error_alfanum}</span>
+				</p>
+				<p>
+					<label for="password_p">{lang=user_register_password_rep}</label>
+					<input class="text-input" type="password" title="{lang=user_register_password_rep}" name="password_p" id="password_p" />
+					<span class="error-msg">{lang=user_password_diffrent}</span>
+				</p>
+				<p>
+					<label for="email">{lang=user_set_email}</label>
+					<input class="text-input" type="text" title="{lang=user_set_email}" name="email" id="email" value="{$email}" />
+					<span class="error-msg">{lang=user_wrong_email}</span>
+				</p>
+				<p>
+					<label for="accept_rules">{$user_register_rules_url}</label>
+					<input class="text-input"style="margin-top: 5px;" type="checkbox" name="accept_rules" value="accept_rules" />
+					<span class="error-msg">{lang=user_register_error_rules}</span>
+				</p>
+				<p>	
+					<label for="birth_date">{lang=edit_profile_birth_date}</label>
+					<input id="birth_date" class="text-input"  style="width: 130px;" type="text" name="birth_date" value="" /><br />
+				</p>
+					
+				{if="Config::get('user_account', 'register_captcha')"}	
+					<p>
+						{include="js_recaptcha.html"}
+						
+					</p>
+				{/if}
+				
+				<input type="submit" class="large-button"  value="{lang=user_register}" /><br />
+			</div>
+		</div>
+	</div>
+	
+</form>

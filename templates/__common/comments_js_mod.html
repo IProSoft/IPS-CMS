@@ -1,0 +1,16 @@
+<form id="comment_moderate">
+	
+	<textarea></textarea>
+	<input name="comment_id" type="hidden" value="{$comment_id}"/>
+	
+	<br />
+	
+	<button class="ips-change-comment">
+		{lang=common_add}
+	</button> 
+	<button onclick="modCommentClose(); return false;">
+		{lang=comments_answer_reject}
+	</button>
+	
+	<label>{lang=comment_moderate_info}<input class="comment_modified_input" type="checkbox" name="comment_modified" checked="checked" /></label>
+</form>

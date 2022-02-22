@@ -1,0 +1,30 @@
+<form id="user_change_email" method="post" class="inline-input simple-form">
+	<ul class="form-ul modal-padding">
+		<li class="form-box box-full">
+			<h3>
+				Twój aktualny adres e-mail to {$current_user.email}
+			</h3>
+		</li>
+		<li class="form-box">
+			<h3>
+				Nowy adres e-mail
+			</h3>
+			
+			<input id="user_email" name="user_email" type="text" />
+			<p class="input-error-message">{lang=user_wrong_email}</p>
+		</li>	
+	</ul>
+
+	<div class="upload-form-footer">    
+		<button type="button" data-dismiss="modal">
+			<span>{lang=pinit_cancel}</span>
+		</button>
+		
+		<button type="submit" class="button-red ips-modal-submit float_right" data-href="/ajax/pinit/user_email_change">
+			<span>Aktualizuj</span>
+		</button>
+		
+	</div>
+
+</form>
+

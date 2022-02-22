@@ -1,0 +1,32 @@
+<div id="widget-idle-popup" class="user-idle-container">
+	<div class="idle-popup-container">
+		<section class="user-idle">
+				<h2>{lang=widget_user_idle_wake_up}</h2>
+				<p>{$msg}</p>
+				<div class="content {$class}">
+					{if="$options.ad"}
+					<div class="ad">
+						{$options.ad_content}
+					</div>
+					{/if}
+					{if=" $options.files && !empty( $idle_files ) "}
+					<div class="files">
+						<h3>{lang=widget_user_idle_recomended}</h3>
+						<ul>
+							{loop="idle_files"}
+							<li>
+								<a target="_blank" href="{$value.seo_link}">
+									<div class="img_small ips-scale">
+										<img src="{$value.img_small}">
+									</div>
+									<div class="files-title"><h3>{$value.title}</h3></div>
+								</a>
+							</li>
+							{/loop}
+						</ul>
+					</div>
+					{/if}
+				</div>
+		</section>
+	</div>
+</div>

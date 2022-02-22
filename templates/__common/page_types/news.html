@@ -1,0 +1,22 @@
+<div class="ips-post-list">
+	<div class="ips-post">
+		<div class="ips-post-title">{$post.post_title}</div>
+		<div class="ips-post-content">
+			{$post.post_content}
+		</div>
+	</div>
+	<div class="clear_columns"></div>
+</div>
+<div class="ips-post-other-posts">
+	{loop="data"}
+	<div class="ips-post">
+		<div class="ips-post-title"><a href="{*ABS_URL*}post/{$value.post_permalink}">{$value.post_title}</a></div>
+		<div class="ips-post-content">	
+			{function="cutWords( $value.post_content, 300, true )"}
+		</div>
+		<div class="button-cnt">
+			<a href="{*ABS_URL*}news/{$value.post_permalink}" class="button-link">{lang=page_read_more}</a>
+		</div>
+	</div>
+	{/loop}
+</div>

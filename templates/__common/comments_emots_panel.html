@@ -1,0 +1,19 @@
+{if="Config::getArray( 'comments_options', 'emots' )"}
+<div class="emots_panel toolbar emots_type_{function="Config::getArray( 'comments_options', 'emots_type' )"}">
+	<span class="bbcode bold" title="{lang=bbcode_bold}" onclick="doTag('[b]','[/b]')"></span>
+	<span class="bbcode italic" title="{lang=bbcode_italic}" onclick="doTag('[i]','[/i]')"></span>
+	<span class="bbcode underline" title="{lang=bbcode_underline}" onclick="doTag('[u]','[/u]')"></span>
+	<span class="bbcode center" title="{lang=bbcode_center}" onclick="doTag('[center]','[/center]')"></span>	
+	<span class="bbcode quote" title="{lang=bbcode_quote}" onclick="doTag('[quote]','[/quote]')"></span>
+	<span class="bbcode videobb" title="{lang=bbcode_video_url}" onclick="alertVideo()"></span>
+	<span class="images_bbcode bbcode_smiled" title="{lang=bbcode_smiled}" onclick="makeEmot(' :-) ')"></span>
+	<span class="images_bbcode bbcode_sad" title="{lang=bbcode_sad}" onclick="makeEmot(' :-( ')"></span>
+	<span class="images_bbcode bbcode_kiss" title="{lang=bbcode_kiss}" onclick="makeEmot(' :-* ')"></span>
+	<span class="images_bbcode bbcode_tongue" title="{lang=bbcode_tongue}" onclick="makeEmot(' :-P ')"></span>
+	<span class="images_bbcode bbcode_threatens" title="{lang=bbcode_threatens}" onclick="makeEmot(' :-@ ')"></span>
+	<span class="images_bbcode bbcode_lol" title="{lang=bbcode_lol}" onclick="makeEmot(' :-O ')"></span>
+	<span class="images_bbcode bbcode_eyelet" title="{lang=bbcode_eyelet}" onclick="makeEmot(' ;-) ')"></span>
+	<span class="images_bbcode bbcode_happy" title="{lang=bbcode_happy}" onclick="makeEmot(' :-D ')"></span>
+</div>
+{/if}
+

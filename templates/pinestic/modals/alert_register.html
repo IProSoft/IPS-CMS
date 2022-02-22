@@ -1,0 +1,20 @@
+<div class="modal-alert-user">
+	<a href="{#ABS_URL#}">
+		<img src="{#ABS_URL#}images/logo-pinestic.png">
+	</a>
+	<div class="line-hr"></div>
+	
+	<button type="button" class="button-red" data-redirect="{#ABS_URL#}register/">
+		<span>{lang=user_register}</span>
+	</button>
+	
+	{lang=top_lub}
+	
+	<button type="button" class="button" data-redirect="{#ABS_URL#}login/">
+		<span>{lang=user_log_in}</span>
+	</button>
+	
+	<div class="line-hr" style="margin-top:10px;"></div>
+	
+	{function="SocialButtons::facepile('iframe')"}
+</div>

@@ -1,0 +1,75 @@
+ul.pagination-simple {
+	display: table;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	height: 1.8em;
+	width: auto;
+	margin-bottom: 1.8em;
+}
+
+ul.pagination-simple li {
+	display: table-cell;
+	padding-right: 4px;
+	color: #666;
+	list-style: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+ul.pagination-simple li a.currentPage, ul.pagination-simple li a.currentPage li a:hover {
+	border-color: #3c4f62 !important;
+	color: #3c4f62;
+	width: 1.5em;
+	line-height: 100%;
+	font-size: 1.1em;
+}
+
+ul.pagination-simple li a.currentPage, ul.pagination-simple li a.currentPage li a:hover span {
+	font-weight: bold;
+	border-color: #3c4f62 !important;
+	color: #3c4f62;
+}
+
+ul.pagination-simple li a:hover {
+	border-color: #3c4f62 !important;
+	color: #3c4f62;
+}
+
+ul.pagination-simple li a,
+ul.pagination-simple li div {
+	display: block;
+	width: 1.8em;
+	font-size: 1em;
+	color: #666;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	outline: none;
+	border: 1px solid #ccc;
+}
+
+ul.pagination-simple li div {
+	cursor: normal;
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+ul.pagination-simple li a span,
+ul.pagination-simple li div span {
+	display: block;
+	border: 1px solid #fff;
+	background: #fff url(/images/gradient.gif) repeat-x 0 -20px;
+}
+
+ul.pagination-simple li a {
+	cursor: pointer;
+}
+
+ul.pagination-simple li .next-page span,
+ul.pagination-simple li .previous-page span,
+ul.pagination-simple li .first-page span,
+ul.pagination-simple li .last-page span {
+	font-weight: bold !important;
+}

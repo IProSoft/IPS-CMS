@@ -1,0 +1,12 @@
+<div class="embed-images bxslider {$css_class}">
+{loop="embed"}
+	<li>
+		<a class="embed-images-link" href="{$value.url}" target="_blank">
+			<img title="{$value.title}" class="embed-images-img" src="{$value.image}" />
+			{if="$captions"}
+			<div class="bx-caption"><span>{$value.title}</span></div>
+			{/if}
+		</a>
+	</li>
+{/loop}
+</div>

@@ -1,0 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function () {
+	head.load('js/widgets/widget_popup.js', function(){
+		head.load('css/popups/widget_popup_{$widget_popup_options.theme}.css');
+		$('body').popupIPS({
+			timeout: {$widget_popup_options.timeout},
+			delay: {$widget_popup_options.delay},
+			close: {$widget_popup_options.close},
+			close_timer: {$widget_popup_options.close_timer},
+			url: "{$apps_fanpage_default}",
+			box: {$widget_popup_options.box_like}
+		});
+	});
+});
+</script>

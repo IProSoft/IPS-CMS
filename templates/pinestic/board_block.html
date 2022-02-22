@@ -1,0 +1,52 @@
+<div class="item small-item-layout middle-block pin-small-block" id="board-block-{$board_id}" data-sort="{$board_id}">
+
+		<a href="{$board_url}">
+
+			<div class="middle-block-header">
+				<div class="image-container pin-user-avatar">
+					<img src="{$author_image}" alt="{lang=pinit_user_image} {$full_name}" />
+				</div>
+				<h4 class="small-h4">{$board_title}</h4>
+				<h5 class="small-h5">{$full_name}</h5>             
+			</div>
+			<div class="middle-block-cover">
+				<span class="item-block-overflow">
+				{if="$user_follow_board === 'is_author'"}
+				<button type="button" class="ips-edit-cover button" data-id="{$board_id}">
+					<span class="button-text">{lang=pinit_board_change_cover}</span>
+				</button>
+				{/if}
+				</span>
+				<img src="{$board_cover}" />
+				<span class="middle-block-pins">
+					{$board_pins}
+				</span>
+			</div>
+			<div>
+				<ul class="middle-block-ul">
+				
+					{loop="board_thumbs"}
+					<li>
+						<span class="item-block-overflow"></span>
+						<img src="{$value}" class="thumb" />
+					</li>
+					{/loop}
+					
+				</ul>
+			</div>
+		</a>
+		
+		{if="$user_follow_board === 'is_author'"}
+		<button type="button" class="ips-edit-board big-button button" data-id="{$board_id}">
+			<span class="button-text">{lang=pinit_board_edit}</span>
+		</button>
+		{elseif="$user_follow_board"}
+		<button type="button" data-change-text="{lang=pinit_board_follow}" class="ips-board-unfollow big-button button" data-id="{$board_id}">
+			<span class="button-text">{lang=pinit_board_unfollow}</span>
+		</button>
+		{else}
+		<button type="button" data-change-text="{lang=pinit_board_unfollow}" class="ips-board-follow big-button button" data-id="{$board_id}">
+			<span class="button-text">{lang=pinit_board_follow}</span>
+		</button>
+		{/if}
+</div>

@@ -1,0 +1,8 @@
+RewriteEngine On
+
+FileETag INode MTime Size
+FileETag -INode
+FileETag MTime Size
+FileETag All
+
+

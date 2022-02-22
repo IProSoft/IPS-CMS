@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kreator kodu Embed dla witryny</title>
+    <!-- Bootstrap -->
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="/libs/wizard/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/libs/wizard/jquery.bootstrap.wizard.js"></script>
+	<script src="/libs/wizard/bootstrap.min.js"></script>
+	<script src="/libs/wizard/prettify.js"></script>
+	<link href="/libs/wizard/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/libs/wizard/prettify.css" rel="stylesheet">
+	<script type="text/javascript" src="/libs/wizard/spin/js/bootstrap-spinedit.js"></script>
+	<link rel="stylesheet" type="text/css" href="/libs/wizard/spin/css/bootstrap-spinedit.css" />
+  </head>
+  <body>
+    <div class='container'>
+		
+		<div class="span12">
+			<section id="wizard">
+			  <div class="page-header">
+	            <h1>Kreator kodu Embed dla witryny</h1>
+	          </div>
+	
+				<div id="rootwizard">
+					<div class="navbar">
+					  <div class="navbar-inner">
+					    <div class="container">
+					<ul>
+					  	<li><a href="#tab1" data-toggle="tab">Rozmiar miniatur</a></li>
+						<li><a href="#tab2" data-toggle="tab">Pobieranie</a></li>
+						<li style="display: none;"><a href="#tab3" data-toggle="tab">Kategoria</a></li>
+						<li><a href="#tab4" data-toggle="tab">Sortowanie</a></li>
+						<li><a href="#tab5" data-toggle="tab">Limit</a></li>
+						<li><a href="#tab6" data-toggle="tab">Orientacja</a></li>
+						<li><a href="#tab7" data-toggle="tab">Szablon</a></li>
+						<li><a href="#tab8" data-toggle="tab">Tytuł</a></li>
+						<li><a href="#tab9" data-toggle="tab">Pobierz kod</a></li>
+					</ul>
+					 </div>
+					  </div>
+					</div>
+					<form class="form-horizontal">
+					<fieldset>	
+						<div class="tab-content">
+							<div class="tab-pane" id="tab1">
+								<div class="control-group">
+								  <label class="control-label" for="img_size">Wybierz</label>
+								  <div class="controls">
+									<input id="img_size" name="img_size" class="input-xlarge" type="text">
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab2">
+								<div class="control-group">
+								  <label class="control-label" for="source">Wybierz</label>
+								  <div class="controls">
+									<select id="source" name="source" class="input-xlarge">
+									  <option value="wait">poczekalnia</option>
+									  <option value="main">głowna</option>
+									  <option value="category">wybrana kategoria</option>
+									  <option value="all">wszystkie</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							
+							<div class="tab-pane" id="tab3">
+								<div class="control-group">
+								      <div class="alert">
+										<button type="button" class="close" data-dismiss="alert">&times;</button>
+										<strong>Wybierz tylko jeśli w kroku 3 wybrano opcje "wybrana kategoria"</strong>
+										</div>
+								  
+								  <label class="control-label" for="category_id">Wybierz</label>
+								  <div class="controls">
+									<select id="category_id" name="category_id" class="input-xlarge">
+										{$categories}
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab4">
+								<div class="control-group">
+								  <label class="control-label" for="source_order">Wybierz</label>
+								  <div class="controls">
+									<select id="source_order" name="source_order" class="input-xlarge">
+									  <option value="date_add">daty</option>
+									  <option value="votes_opinion">ocena</option>
+									  <option value="shares">udostępnienia</option>
+									  <option value="rand">losowo</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab5">
+								<div class="control-group">
+								  <label class="control-label" for="limit">Wybierz</label>
+								  <div class="controls">
+									<select id="limit" name="limit" class="input-xlarge">
+									  <option value="date_add">5</option>
+									  <option value="votes_opinion">10</option>
+									  <option value="shares">15</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab6">
+								<div class="control-group">
+								  <label class="control-label" for="mode">Wybierz</label>
+								  <div class="controls">
+									<select id="mode" name="mode" class="input-xlarge">
+									  <option value="horizontal">pozimo</option>
+									  <option value="vertical">pionowo</option>
+									  <option value="fade">pojedyńczy slajd</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab7">
+								<div class="control-group">
+								  <label class="control-label" for="template">Wybierz</label>
+								  <div class="controls">
+									<select id="template" name="template" class="input-xlarge">
+									  <option value="white">biały</option>
+									  <option value="black">czarny</option>
+									  <option value="none">przeźroczysty</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab8">
+								<div class="control-group">
+								  <label class="control-label" for="captions">Wybierz</label>
+								  <div class="controls">
+									<select id="captions" name="captions" class="input-xlarge">
+									  <option value="false">wyłączone</option>
+									  <option value="true">włączone</option>
+									</select>
+								  </div>
+								</div>
+							</div>
+							<div class="tab-pane" id="tab9">
+								<pre id="prettyprint" class="prettyprint linenums">{$code}</pre>
+							</div>
+							<ul class="pager wizard">
+								<li class="previous first" style="display:none;"><a href="#">Pierwszy</a></li>
+								<li class="previous"><a href="#">Wstecz</a></li>
+								<li class="next last" style="display:none;"><a href="#">Ostatni</a></li>
+								<li class="next"><a href="#">Dalej</a></li>
+							</ul>
+							
+						</div>	
+					</fieldset>	
+					</form>
+				</div>
+			
+
+
+				
+			</section>
+ 		</div>
+	</div>
+	
+    
+	<script>
+
+	$(document).ready(function() {
+		
+		$('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+			if( index == 8 )
+			{
+				if( typeof template_html == 'undefined' )
+				{
+					template_html = $('#prettyprint').html();
+				}
+				
+				var html = template_html;
+				
+				$('#rootwizard select,#rootwizard input').each(function(){
+					var name =  $(this).attr('id');
+					html = html.replace('{</span><span class="pln">'+name+'</span><span class="pun">}', $(this).val() );
+					html = html.replace('{'+name+'}', $(this).val() );
+				});
+				console.log(html);
+				$('#prettyprint').html( html );
+			}
+		}});
+		$('#source').on('change', function() {
+			if( $(this).val() == 'category' )
+			{
+				$('#rootwizard').bootstrapWizard('display', 2 );
+			}
+			else
+			{
+				$('#rootwizard').bootstrapWizard('hide', 2 );
+			}
+		});
+		window.prettyPrint && prettyPrint();
+		$('#img_size').spinedit({
+			minimum: 50,
+			maximum: {$max_size},
+			step: 10,
+			value: 100,
+			numberOfDecimals: 0
+		});
+    });
+	</script>
+  </body>
+</html>

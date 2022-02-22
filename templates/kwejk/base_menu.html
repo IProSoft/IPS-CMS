@@ -1,0 +1,106 @@
+
+{$additional_css}
+
+{if="Config::get('rss_off') == 1"}
+	<div class="rss">
+		<img src="images/rss.png" alt="rss" width="28" height="28" />
+		<div class="rss2">
+			<a href="{#ABS_URL#}main.xml" title="{lang=menu_rss_main}">{lang=common_main}</a><br>
+			<a href="{#ABS_URL#}waiting.xml" title="{lang=menu_rss_waiting}">{lang=common_waiting}</a>
+		</div>
+	</div>
+{/if}
+
+<div id="top" class="base-header">
+	<div id="top-container" class="base-top">
+	
+		<a href="{#ABS_URL#}" class="img_logo">
+			<img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-kwejk.png" />
+		</a>
+		
+		<div class="base-like-wrapper">
+		<!-- Like button -->
+			{$fanpage}
+		<!-- Like button -->
+		</div>
+		
+		
+		
+		
+		
+		<div class="base-user responsive-ui">	
+			<a href="#" class="responsive-icon">Menu</a> 
+			<ul class="responsive-slide base-user-ui">
+				{if="!USER_LOGGED"}
+					<li>
+						<a title="{lang=user_log_in_long}" href="#" onclick="userAuth('login');return false;">{lang=user_log_in}</a> 
+					</li>
+					<li>
+						<a href="#" onclick="userAuth('register');return false;" title="{lang=user_register}">{lang=user_register}</a>
+					</li>
+					{if="$user.facebook_btn"}
+					<li>
+						{function="SocialButtons::getConnectButtonFB('url')"}
+					</li>
+					{/if}
+					{if="$user.nk_btn"}
+					<li>
+						{function="SocialButtons::getConnectButtonNK('url')"}
+					</li>
+					{/if}
+				{else}
+					<li>
+						<a href="{#ABS_URL#}profile/{#USER_LOGIN#}" title="{lang=user_profile_self}" id="login">{#USER_LOGIN#}</a>
+					</li>
+					<li>
+						<a href="{#ABS_URL#}edit_profile" title="{lang=edit_profile}">{lang=edit_profile}</a>
+					</li>
+					<li>
+						<a href="{#ABS_URL#}user/{#USER_LOGIN#}/">{lang=user_files}</a>
+					</li>
+					<li>
+						<a href="{#ABS_URL#}messages/" title="{lang=user_messages_long}">{lang=user_messages}</a>
+					</li>
+					<li>
+						<a href="{#ABS_URL#}login/user_logout" title="{lang=user_log_out}">{lang=user_log_out}</a>
+					</li>
+					{if="USER_ADMIN"}
+					<li>
+						<a class="user-admin" href="{#IPS_ADMIN_URL#}" title="{lang=user_admin_panel}">{lang=user_admin_panel}</a>
+					</li>
+					{/if}
+					{if="USER_MOD"}
+					<li>
+						<a class="user-moderator" href="{#ABS_URL#}moderator" title="{lang=user_mod_panel}">{lang=user_mod_panel}</a>
+					</li>
+					{/if}
+					{if="$user.facebook_btn"}
+					<li>
+						{function="SocialButtons::getConnectButtonFB('url')"}
+					</li>
+					{/if}
+					{if="$user.nk_btn"}
+					<li>
+						{function="SocialButtons::getConnectButtonNK('url')"}
+					</li>
+					{/if}
+					{if="$contest_url"}
+					<li><a href="{#ABS_URL#}contest">{lang=menu_contest_menu}</a></li>
+					{/if}
+				{/if}
+			</ul>
+		</div>
+		
+		<div class="responsive-wrap responsive-ui">
+			<div class="responsive-icon large"><i>Menu</i></div>
+			
+			<ul class="right-float responsive-menu responsive-slide">
+				{$menu_list}
+			</ul>	
+		</div>
+		
+	
+	</div>	
+</div>
+
+{$widgets}

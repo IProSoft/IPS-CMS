@@ -1,0 +1,103 @@
+
+{$additional_css}
+
+{if="Config::get('rss_off') == 1"}
+	<div class="rss">
+		<img src="images/rss.png" alt="rss" width="28" height="28" />
+		<div class="rss2">
+			<a href="{#ABS_URL#}main.xml" title="{lang=menu_rss_main}">{lang=common_main}</a><br>
+			<a href="{#ABS_URL#}waiting.xml" title="{lang=menu_rss_waiting}">{lang=common_waiting}</a>
+		</div>
+	</div>
+{/if}
+
+<div id="top" class="base-header">
+	
+	<div id="top-container" class="base-top">
+
+		<a href="{#ABS_URL#}" class="img_logo">
+			<img alt="{lang=menu_main}" src="{#ABS_URL#}images/logo-demotywator.png" />
+		</a>
+		
+		<div class="nav-top">		
+			
+			<div class="responsive-wrap responsive-ui">
+				<div class="responsive-icon large "><i>Menu</i></div>
+				
+				<ul class="responsive-menu responsive-slide">
+					{$menu_list}
+				</ul>
+			</div>	
+			
+			<ul class="right-float">
+				{if="!empty( $widgets )"}
+				<li id="search-widget" class="visible">
+					{$widgets}
+				</li>
+				{/if}
+				
+				<li class="visible">
+					<ul class="base-user responsive-ui">
+					{if="USER_LOGGED"}
+						<li class="responsive-icon">
+							<div class="user-info"><img title="{#USER_LOGIN#}" width="28px" height="28px" src="{$user.avatar_link}" /></div>
+						</li>
+						<li>
+							<ul class="user-menu responsive-slide fancy-menu">
+								<li><a class="user-profile-url" href="{#ABS_URL#}profile/{#USER_LOGIN#}" id="login">{lang=user_profile_self}</a></li>
+								<li><a class="user-edit-profile" href="{#ABS_URL#}edit_profile">{lang=edit_profile}</a></li>
+								<li><a class="user-default" href="{#ABS_URL#}user/{#USER_LOGIN#}/">{lang=user_files}</a></li>
+								<li><a class="user-pw" href="{#ABS_URL#}messages/">{lang=user_messages}</a></li>
+								<li><a class="user-logout" href="{#ABS_URL#}login/user_logout">{lang=user_log_out}</a></li>
+								{if="USER_ADMIN"}
+								<li><a class="user-admin" href="{#IPS_ADMIN_URL#}" title="{lang=user_admin_panel}">{lang=user_admin_panel}</a></li>
+								{/if}
+								{if="USER_MOD"}
+								<li><a class="user-moderator" href="{#ABS_URL#}moderator" title="{lang=user_mod_panel}">{lang=user_mod_panel}</a></li>
+								{/if}
+								{if="$user.facebook_btn"}
+								<li>{function="SocialButtons::getConnectButtonFB('url')"}</li>
+								{/if}
+								{if="$user.nk_btn"}
+								<li>{function="SocialButtons::getConnectButtonNK('url')"}</li>
+								{/if}
+							</ul>
+						</li>
+					{else}
+						<li class="responsive-icon">
+							<div class="user-info"><img src="/images/demotywator/profile-icon.png" /></div>
+						</li>
+						<li>
+							<ul class="responsive-slide fancy-menu">
+								<li>
+									<a href="#" onclick="userAuth('login');return false;">{lang=user_log_in}</a> 
+								</li>
+								<li>
+									<a href="#" onclick="userAuth('register');return false;">{lang=user_register}</a>
+								</li>
+								{if="$user.facebook_btn"}
+								<li>
+									{function="SocialButtons::getConnectButtonFB('url')"}
+								</li>
+								{/if}
+								{if="$user.nk_btn"}
+								<li>
+									{function="SocialButtons::getConnectButtonNK('url')"}
+								</li>
+								{/if}
+							</ul>
+						</li>
+						
+					{/if}
+					</ul>
+					
+				</li>
+				
+				<li class="text"><a href="{#ABS_URL#}contest">{lang=menu_contest_menu}</a></li>	
+				<li class="text"><a href="{#ABS_URL#}contact.html">{lang=bottom_contact}</a></li>
+			</ul>
+			
+		</div>		
+	</div>	
+</div>	
+

@@ -1,0 +1,48 @@
+<form id="edit_cover_upload" method="post" class="simple-form">
+	<script type="text/javascript">
+		var covers = {$json_images};
+		head.load( "/js/cropp-img.js" );
+	</script>
+
+	<div id="cropp-img"> 
+		
+		<span class="nav cropp-prev">&nbsp;</span>
+		
+		<div class="guillotine-wrapper" style="opacity: 0">
+			<div class="guillotine-frame">
+				<div class="guillotine-mask">
+					<span style="top: 0px; left: 0px; right: 0px; height: 17%;"></span>
+					<span style="right: 0px; left: 63.5%; top: 17%; height: 66%;"></span>
+					<span style="left: 0px; right: 0px; bottom: 0px; top: 83%;"></span>
+					<span style="left: 0px; width: 36.45%; top: 17%; height: 66%;"></span>
+				</div>
+				<img src="{$current_image}">
+			</div>
+		</div>
+		
+		<span class="nav cropp-next">&nbsp;</span>
+		
+		<div id="guillotine_controls">
+		  <span data-action="rotateLeft"  title="Rotate left"><i class="fa fa-rotate-left"></i></span>
+		  <span data-action="zoomOut"     title="Zoom out"><i class="fa fa-search-minus"></i></span>
+		  <span data-action="fit"         title="Fit image"><i class="fa fa-arrows-alt"></i></span>
+		  <span data-action="zoomIn"      title="Zoom in"><i class="fa fa-search-plus"></i></span>
+		  <span data-action="rotateRight" title="Rotate right"><i class="fa fa-rotate-right"></i></span>
+		</div>
+	</div>
+	
+	<div class="upload-form-footer">    
+		<button type="button" data-dismiss="modal">
+			<span>{lang=pinit_cancel}</span>
+		</button>
+		
+		<button type="submit" class="button-red ips-modal-submit float_right" data-href="/ajax/pinit/edit_cover_upload">
+			<span>Aktualizuj</span>
+		</button>
+		
+	</div>
+	
+	<input type="hidden" name="image_cropp" />
+	<input type="hidden" name="upload_image" />
+	<input type="hidden" name="board_id" value="{$board_id}" />
+</form>

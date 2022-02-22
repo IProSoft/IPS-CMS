@@ -1,0 +1,130 @@
+<form action="" method="post" enctype="multipart/form-data">
+	<div class="features-table-actions-div">
+		{if=" !empty( $contest_thumb ) "}
+			
+				<img class="img-konkurs" src="{$contest_thumb}">
+			
+		{/if}
+		<div class="option-cnt">
+			<span>Wersja:</span>
+			<div class="option-inputs">
+				<select name="contest_type">
+					{if=" IPS_VERSION !== 'pinestic' "}
+					<option value="demotywator" {if=" $contest_type == 'demotywator' "} selected="selected{/if}>Podpis zdjęcia</option>
+					{/if}
+					<option value="share" {if=" $contest_type == 'share' "}selected="selected"{/if}>Ilość udostępnień</option>
+					<option value="normal" {if=" $contest_type == 'normal' "}selected="selected"{/if}>Tylko opis</option>
+					<option value="votes_opinion" {if=" $contest_type == 'votes_opinion' "}selected="selected"{/if}>Ocena</option>
+					<option value="comments" {if=" $contest_type == 'comments' "}selected="selected"{/if}>Ilość komentarzy</option>
+				</select>
+			</div>
+		</div>
+		<div class="option-cnt">
+			<span>Tytuł konkursu</span>
+			<div class="option-inputs">
+				<input type="text" name="contest_title" value="{$contest_title}"/>
+			</div>
+		</div>
+		
+		<div class="option-cnt">
+			<span>Miniatura konkursu</span>
+			<div class="option-inputs">
+				<input id="file" type="file"  name="file" />
+			</div>
+		</div>
+		
+		<div class="option-cnt ">		
+			<span>Treść konkursu</span>
+			<div class="option-inputs">
+				<textarea cols="86" rows="6" name="contest_description">{$contest_description}</textarea>
+			</div>
+		</div>
+		{if=" !empty( $id ) "}
+		<div class="option-cnt">	
+			<span>Zwycięzca konkursu:</span>
+			<div class="option-inputs">
+				<input type="text" name="contest_winner" value="{$contest_winner}"/>
+			</div>
+		</div>
+		{/if}
+		
+		<div class="option-cnt">		
+		{if=" empty( $contest_start ) || empty( $id ) "}
+			
+			<link rel="stylesheet" href="css/smoothness/datepicker.css" type="text/css" />
+			<script src="js/jquery.ui.datepicker-pl.js" type="text/javascript"></script>
+			<script src="js/jquery.ui.datepicker-godziny.js" type="text/javascript"></script>
+			<script type="text/javascript">
+			
+			
+			$(function() {
+				$.datepicker.setDefaults( $.datepicker.regional[ "pl" ] );
+				$( "#contest_start" ).datetimepicker({
+					minDate: 0,
+					dateFormat: "yy-mm-dd",
+					onSelect: function( selectedDate ) {
+						$( "#contest_expire" ).datetimepicker( "option", "minDate", selectedDate );
+					}
+				});
+				$( "#contest_expire" ).datetimepicker({
+					minDate: 0,
+					dateFormat: "yy-mm-dd",
+					onSelect: function( selectedDate ) {
+						$( "#contest_start" ).datetimepicker( "option", "maxDate", selectedDate );
+					}
+				});
+			});
+			</script>
+			<span>Start:</span>
+			<div class="option-inputs">
+				<input id="contest_start" type="text" name="contest_start" value="" />
+			</div>
+			<span>Koniec:</span>
+			<div class="option-inputs">
+				<input id="contest_expire" type="text" name="contest_expire" value="" />
+			</div>
+		{else}
+			
+			<span>Start konkursu:  <strong>{$contest_start}</strong></span>
+			
+			<span>Koniec:  <strong>{$contest_expire}</strong></span>
+			
+		{/if}
+		</div>
+		<div class="option-cnt">
+			{if=" Config::get('categories_option') == 1 "}
+			
+				<span>Kategoria której bedzie dotyczył konkurs (brak dla wszystkich materiałów ):</span>
+				<div class="option-inputs">
+					<select id="contest_category" name="contest_category">
+						{$category_list}
+					</select>
+				</div>
+			{/if}
+		</div>
+		<div class="option-cnt radio_inside">		
+			
+			<span>Aktywny</span>
+			
+			
+			<div class="option-inputs">
+				<label for="contest_activ_on" class="label_radio">
+					<input type="radio" value="1" id="contest_activ_on" name="contest_activ" {if=" $contest_activ == 1 "}checked="checked"{/if}>Tak
+				</label>
+				<label for="contest_activ_off" class="label_radio">
+					<input type="radio" value="0" id="contest_activ_off" name="contest_activ" {if=" $contest_activ == 0 "}checked="checked"{/if}>Nie
+				</label>
+			</div>
+
+			
+		</div>
+		
+		{if=" !empty( $id ) "}
+			<input type="hidden" name="contest_id" value="{$id}" />
+		{else}	
+			<input type="hidden" name="create_contest" value="true" />
+		{/if}
+		<input type="hidden" name="contest_thumb" value="{$contest_thumb}" />
+	</div>
+	<input type="submit" class="button" value=" {lang=save} " />
+</form>

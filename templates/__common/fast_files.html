@@ -1,0 +1,30 @@
+<li id="{$id}">
+	<div class="fast-load-hidden" id="fast-load_{$id}">
+		<span class="load-buttons">
+		{$buttons}
+		</span>
+		<span class="fast-load-title">
+			<div class="fast-top">
+				<a href="/{$id}/{$seo_link}" class="file-title">
+					{$title}
+				</a>
+			</div>
+			<div id="fast-normalny">
+				<a href="/{$id}/{$seo_link}">{lang=fast_normal_view}</a>
+			</div>
+		</span>
+	</div>
+	{if="isset( $dimensions.width )"}
+		
+		<div class="item-adult" style="width: {$dimensions.width}px; height: {$dimensions.height}px">
+			<span>{lang=only_adult_image}<br />
+				<span class="item-adult-btn">{lang=only_adult_show}</span>
+			</span>
+		</div>
+	
+	{else}
+		
+		{$file}
+		
+	{/if}
+</li>

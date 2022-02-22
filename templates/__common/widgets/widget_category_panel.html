@@ -1,0 +1,12 @@
+<div class="category-panel nice-message-block box-max">
+	{if="Config::get( 'widget_category_panel_view_header' )"}
+	<h3 class="header-text">{lang=category_list}</h3>
+	{/if}
+	{loop="categories"}
+		{if="$image_view"}
+			<a href="/category/{$value.id_category},{$value.category_link}"><img alt="{$value.category_name}" src="upload/category_images/{$value.category_image}" /></a>
+		{else}
+			<span><a class="category-panel-link" href="/category/{$value.id_category},{$value.category_link}">{function="strip_tags( $value.category_name )"}</a></span>
+		{/if}
+	{/loop}
+</div>

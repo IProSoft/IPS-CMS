@@ -1,0 +1,321 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style type="text/css">
+#msg-body-wrapper {
+	padding: 20px 20px 40px;
+}
+
+#msg-body-logo {
+	padding: 20px 0 40px;
+}
+
+#msg-body-logo a {
+	border: none;
+}
+
+#msg-body-logo a img {
+	vertical-align: top;
+	outline: none;
+	border: none;
+}
+
+#msg-body-content-wrapper {
+	background-color: #FFFFFF;
+	padding: 0px;
+	border-top: 1px solid #eae9e9;
+	border-bottom: 1px solid #b2b1b1;
+	border-left: 1px solid #d4d2d3;
+	border-right: 1px solid #d4d2d3;
+}
+
+.msg-body-content-text p {
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	font-size: 14px;
+	color: #211922;
+	line-height: 20px;
+	margin: 0;
+	padding: 5px 0 5px 15px;
+}
+
+.msg-body-content-text p a {
+	color: #211922;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.msg-body-large-button {
+	padding: 20px;
+}
+
+.msg-body-large-button table td.button {
+	background-repeat: repeat-x;
+	background-position: top left;
+	background-color: #d43638;
+	border: 1px solid #910101;
+	white-space: nowrap;
+	height: 34px;
+}
+
+.msg-body-large-button table td.button a {
+	color: #fcf9f9;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: baseline;
+}
+
+.msg-body-large-button table td.button a span {
+	padding: 9px 15px;
+	color: #fcf9f9;
+	text-decoration: none;
+	color: #fcf9f9;
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 18px;
+	white-space: nowrap;
+}
+
+#msg-pins {
+	padding: 25px 0 10px;
+}
+
+.msg-pins-column {
+	vertical-align: top;
+}
+
+.msg-pin {
+	padding: 6px 0;
+}
+
+.msg-pin td {
+	border-top: 1px solid #eae9e9;
+	border-right: 1px solid #d4d2d3;
+	border-bottom: 1px solid #b2b1b1;
+	border-left: 1px solid #d4d2d3;
+}
+
+.msg-pin td img {
+	background-color: #FFFFFF;
+	padding: 8px;
+	vertical-align: top;
+	outline: none;
+	border: none;
+}
+
+.msg-body-footer p {
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	font-size: 10px;
+	color: #999999;
+	line-height: 1.35em;
+	margin: 0;
+	padding: 0;
+}
+
+.msg-body-footer p a {
+	color: #999;
+	text-decoration: underline;
+}
+.msg-body-user-link img{
+	vertical-align: top; outline: none; border: none
+}
+.msg-body-intro{
+	background: url('{#ABS_URL#}images/email_template/email_line.jpg') repeat scroll 0% 0% rgb(247, 245, 245);
+}
+.msg-body-intro td{
+	background: url('{#ABS_URL#}images/email_template/email_bg_pinit.jpg') repeat scroll 0% 0% #f7f5f5;
+}
+body {
+	background: url('{#ABS_URL#}images/email_template/email_bg_pinit.png') repeat scroll 0% 0% rgb(247, 245, 245);
+	padding: 0px;
+	margin: 0px;
+	font-size: 14.4px;
+}
+
+h1 {
+	font-family: georgia, serif;
+	font-weight: normal;
+	font-size: 22px;
+	line-height: 21px;
+	color: #211922 !important;
+	margin: 0;
+	padding: 0 20px;
+}
+
+h2 {
+	font-family: georgia, serif;
+	font-weight: normal;
+	font-size: 21px;
+	color: #211922 !important;
+	margin: 0;
+	padding: 0 20px;
+}
+
+img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+a img {border:none;}
+table td {border-collapse: collapse;}
+table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+</style>
+</head>
+<body>
+
+    <div id="msg">
+        <div id="msg-body">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td id="msg-body-wrapper">
+                        <table align="center" border="0" cellpadding="0" cellspacing="0" id="msg-body-content" width="620">
+                            <tbody>
+                                <tr>
+                                    <td align="center" id="msg-body-logo">
+									<a href="{#ABS_URL#}" target="_blank">
+										<img alt="" height="52" src="{#ABS_URL#}images/logo-pinestic.png" width="200" />
+									</a>
+									</td>
+                                </tr>
+                                <tr>
+                                    <td class="msg-body-intro" align="center">
+										<table cellspacing="0" cellpadding="0" border="0" align="center">
+											<tbody>
+												<tr>
+													<td>
+														<h1>{$email_title}</h1>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding: 30px 0 30px 8px">
+                                        <table border="0" cellpadding="0"cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                   
+                                                    <td id="msg-body-content-wrapper">
+                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table border="0" cellpadding="0" cellspacing="0" width="617">
+                                                                            <tbody>
+																				<tr>
+																				{if=" isset( $email_content_user ) "}
+																					<td valign="top" width="80">
+																						<a href="  PROFIL        " target="_blank" title="" class="msg-body-user-link">
+																							<img alt="" height="80" src="http://passets-ec.pinestic.com/images/NoProfileImage.png" width="80" />
+																						</a>
+																					</td>
+
+																					<td class="msg-body-content-text" width="341">
+																						<p>
+																							Użytkownik Anna korzysta z pinestica, miejsca do odkrywania, kolekcjonowania oraz dzielenia się inspiracjami, i chce Cię zaprosić do przyłączenia się i <a href="{#ABS_URL#}" target="_blank">przypinania z innymi.</a>
+																						</p>
+																				   </td>
+
+                                                                                    <td align="right" class="msg-body-large-button" valign="" width="140">
+																						<table border="0" cellpadding="0" cellspacing="0" class="button">
+																							<tbody>
+																								<tr>
+																									<td align="center" class="button" height="34">
+																										<a href="{#ABS_URL#}" target="_blank" title="Zaakceptuj zaproszenie">
+																											<span>Zaakceptuj zaproszenie</span>
+																										</a>
+																									</td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+																				{else}
+																					<td class="msg-body-content-text">
+																						<p>
+																							{$email_content}
+																						</p>
+																				   </td>
+																				{/if}	
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+
+                                                    
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+								{if=" isset( $email_content_pins ) "}
+                                <tr>
+                                    <td align="center">
+                                        <table align="center" border="0"cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="background-color: #f7f5f5">
+														<h2>Zobacz Piny użytkownika Anna:</h2>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td id="msg-pins">
+                                        <table border="0" cellpadding="0"cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="msg-pins-column">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="msg-pin">
+																		<table border="0" cellpadding="0" cellspacing="0">
+																			<tbody>
+																				<tr>
+																					<td>
+																						<a href=" LINK do PIN " target="_blank">
+																							<img src="http://media-cache-ec0.pinimg.com/222x/9b/f2/36/9bf2369d4dd787ed3be218d9ed172b38.jpg" width="128" />
+																						</a>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+								{/if}	
+                                <tr class="msg-body-footer">
+                                    <td align="center">
+                                        <p>
+											{lang=email_footer}
+											<span>©</span>2013 pinestic, Inc. | Wszelkie prawa zastrzeżone<br />
+											<a href="{#ABS_URL#}post/{function="seoLink(false, 'regulamin')"}" target="_blank">{lang=bottom_rule}</a>
+										</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+		</div>
+    </div>
+</body>
+</html>

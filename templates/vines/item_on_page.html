@@ -1,0 +1,107 @@
+{$ads.above_file}
+<article class="item">
+	<div class="item-info">
+		{if="IPS_ACTION != 'file_page'"}
+			{if="Config::getArray('template_settings', 'item_title' )"}
+				<div class="file-title">
+					<a href="{$file_url}" title="{$title}">{$title}</a>
+				</div>
+			{/if}
+		{else}
+			<h1 class="file-title">{$title}</h1>
+		{/if}
+	</div>
+	
+	<div class="category_url">
+	{if="!empty( $file_category )"}
+		<a href="{#ABS_URL#}category/{$file_category.id_category},{$file_category.category_link}"><span>{$file_category.category_name}</span></a>
+	{/if}
+	</div>
+	
+	<div class="clear_both"></div>
+	
+	
+	<div class="file-container clear_both {$file_class_css}" data-target="{$file_url}">
+	{$file_container}
+	</div>
+	
+	{$nav.link}
+	{$nav.box}
+	
+	{$ads.under_image}
+	
+	{$upload_source}
+			
+
+	<div class="item-footer">
+		
+		<div class="file_info_block">
+			<div class="file_by">
+				<p>{lang=item_added_info} {lang=added_by}:<strong> <span class="item-source">{$user_login}</span> </strong></p>
+			</div>
+			<div class="two_half">
+				{$button_nk}
+				{$button_share}
+				{$button_google}
+				{$button_twitter}
+				{$button_like}
+				
+				<div id="float_social" class="hidden-opacity">	
+					{if="!empty($button_like_big)"}
+					<div class="social-button">
+						{$button_like_big}
+					</div>
+					{/if}
+					{if="!empty($button_twitter_big)"}
+					<div class="social-button">
+						{$button_twitter_big}
+					</div>
+					{/if}
+				</div>
+				
+			</div>
+			
+			<div class="views">
+				<strong>{$upload_views}</strong> {lang=view_count}
+			</div>
+			
+		</div>
+		<div class="bottom_div">
+			{if=" $widget_url_copy "}
+			<input class="widget-url-copy clear_both" title="{lang=widget_url_copy_action}" value="{$file_url}" type="text" />
+			{/if}
+		
+			{if=" Config::get('widget_smilar_url') == '1' && IPS_ACTION_LAYOUT == 'one' "}
+			<div class="smilar_files" title="{lang=find_smilar}">
+				<a href="/tag/{$id}/" class="button-link">{lang=button_smilar}</a>
+			</div>
+			{/if}
+			{if=" Config::get('favourites_add') "}
+			<span title="{lang=favourites_add}" class="ips-add-favourites add-favourites" data-id="{$id}">{lang=favourites_short}</span>
+			{/if}
+		</div>
+	</div>
+	<div class="clear_both"></div>
+	
+	{if="$upload_tags"}
+	<div class="tag_list">{lang=item_tags} {$upload_tags}</div>
+	{/if}
+	
+	<span class="file-actions">
+		{if=" $report_file "}
+		<a href="#" class="file-report" onclick="systemReport({$id}, 'file', '{lang=report_this}'); return false;">{lang=report_this}</a>
+		{/if}
+	</span>
+</article>
+
+{$mod_links}
+{$description_box}
+{$ads.under_file}
+
+{if="isset($img_social_share)"}
+	{include="/widgets/widget_social.html"}
+{/if}
+
+{if="isset($comments_options.header)"}
+	{include="comments.html"}
+{/if}

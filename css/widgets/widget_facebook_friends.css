@@ -1,0 +1,188 @@
+#IPS-app #user-friends ul.user-friends-list {
+    margin: 0;
+    padding: 0;
+}
+#IPS-app #user-friends ul.user-friends-list li {
+    display: inline;
+    margin: 4px;
+    overflow: hidden;
+	zoom: 1;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	
+}
+#IPS-app #user-friends img.user-avatar {
+    border: 1px solid #3F3F3F;
+    padding: 1px;
+}
+#IPS-app .add-friend {
+    opacity: 0.5;
+}
+#IPS-app #user-friends {
+    float: left;
+    width: 600px;
+}
+#IPS-app {
+    overflow: hidden;
+    padding: 5px;
+    text-align: left;
+	background: url("/images/content_top.png") repeat-x scroll center top #0C0C0C;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    height: auto;
+    margin: 10px auto;
+    width: 846px;
+	color: #fff
+}
+#IPS-app-container {
+    position: relative;
+}
+#IPS-app #account {
+    float: right;
+    height: 90px;
+    line-height: 13px;
+    padding: 0 10px 10px;
+    width: 210px;
+}
+#IPS-app #account h3, #IPS-app #user-friends h3 {
+    border-bottom: 1px solid #3F3F3F;
+    font-size: 12px;
+    margin: 0 0 6px;
+    padding: 0 0 6px;
+    width: 100%;
+}
+#IPS-app #account h3, #IPS-app #user-friends h3 {
+    border-bottom: 1px solid #3F3F3F;
+    font-size: 12px;
+    margin: 0 0 6px;
+    padding: 0 0 6px;
+    width: 100%;
+}
+#IPS-app #account #actions {
+    float: left;
+    font-size: 11px;
+    padding: 0 5px 5px;
+    width: 142px;
+}
+#IPS-app #account .login {
+    font-size: 11px;
+}
+#IPS-app #actions p {
+    padding: 0;
+}
+#IPS-app #account #user-image {
+    float: left;
+    height: 54px;
+    overflow: hidden;
+    width: 54px;
+}
+#IPS-app #account #user-image img {
+    border: 1px solid #3F3F3F;
+    padding: 1px;
+}
+#IPS-app #history {
+    float: left;
+    margin-top: 5px;
+    width: 100%;
+}
+#IPS-app #history, #IPS-app #history li, #IPS-app li a, #IPS-app #friends-activity li{
+	font-size: 11px;
+}
+#IPS-app #history ul {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#IPS-app #history ul li.activity-title {
+    border-bottom: 1px solid #4C4C4C;
+    float: left;
+    padding-bottom: 3px;
+    width: 100%;
+}
+#IPS-app li{
+	list-style: none outside none !important;
+	line-height: 1.4 !important;
+    padding: 3px 0 !important;
+}
+#IPS-app #history li.actions {
+    float: right;
+    text-align: right;
+    width: 100px;
+}
+#IPS-app #history li.title {
+    float: left;
+    width: 600px;
+}
+#IPS-app #history h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+#IPS-app #actions li {
+    line-height: 1.4;
+    padding: 3px 0;
+    list-style: none outside none;
+}
+#IPS-app #actions li label{
+	float: none;
+    margin: 0;
+    padding: 0;
+}
+#IPS-app a.user-activity-delete, #IPS-app li a {
+    color: #F6B100;
+    text-decoration: none;
+}
+#IPS-app .pubHistory, #IPS-app .inviteFriend {
+    float: right;
+    color: #F6B100;
+}
+#IPS-app #activity-off {
+    color: red;
+    font-size: 1.2em;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+    width: 600px;
+}
+#IPS-app #user-friends #friends-activity .friend {
+	width: 400px;
+	background: black;
+	border: 1px solid #666666;
+	padding: 10px;
+	position: absolute;
+	top: 65px;
+	z-index: 99999999;
+}
+#IPS-app #begin {
+    border-bottom: 1px solid #2C2C2C;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+#IPS-app #begin .about {
+    float: left;
+    font-size: 12px;
+    padding: 5px;
+    width: 490px;
+}
+#IPS-app #begin .about p {
+    margin: 0;
+    padding: 0;
+}
+#IPS-app #begin .login {
+    float: left;
+    padding: 7px;
+    text-align: center;
+    width: 224px;
+}
+#IPS-app #begin .about a {
+    color: #0081CC;
+    font-weight: bold;
+    text-decoration: none;
+}
+#IPS-app #begin .about a:hover {
+    text-decoration: underline;
+}
+#IPS-app #begin strong {
+    font-weight: bold;
+}

@@ -1,0 +1,23 @@
+<div class="widget-popular-posts small_posts">
+
+	<h2>{lang=widget_popular_posts}</h2>
+	
+	<img class="loader" src="/images/svg/spinner-grey.svg" />
+	
+	<ul class="display_none">
+		{loop="files_popular"}
+			<li>
+				{function="AdSystem::getInstance()->showAd('between_popular_posts', $key)"}
+				<a href="{$value.link}" class="widget-popular-posts-overflow">
+					<div class="mask" data-img="{$value.upload_image}" data-title="{$value.title}" data-width="300" data-height="120" style="width: 300px;height120px;"></div>
+					<span class="right_info">
+						<h3>{$value.title}</h3>
+						<p class="meta">
+							<span class="add-views">{lang=item_views} : <b>{$value.upload_views}</b> </span>
+						</p>
+					</span>
+				</a>
+			</li>
+		{/loop}
+	</ul>
+</div>

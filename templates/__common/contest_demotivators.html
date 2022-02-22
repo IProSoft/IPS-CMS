@@ -1,0 +1,93 @@
+<link href="/css/contests.css" rel="stylesheet" type="text/css">
+<script src="/js/contests.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	js_contest_wait = '{lang=contest_wait}';
+	js_contest_votes_blocked = '{lang=contest_votes_blocked}';
+	js_contest_already_finished = '{lang=contest_already_finished}';
+	js_contest_voted = '{lang=contest_voted}';
+	js_contest_voted_already = '{lang=contest_voted_already}';
+	js_contest_item_title_req = '{lang=contest_item_title_req}';
+	js_contest_caption_added = '{lang=contest_caption_added}';
+	js_contest_votes_empty = '{lang=contest_votes_empty}';
+	js_contest_no_captions = '{lang=contest_no_captions}';
+	participate_in = {$participate_in};
+	has_ended = {$has_ended};
+	contest_id = {$contest_id};
+</script>
+
+<div class="contest_main">
+
+	<div class="contest_body">	
+		<div class="contest_image_layer">
+				<img alt="" src="{$contest_thumb}" />
+			<div id="warstwa-img-podpis"></div>
+				<div class="button-previous"><a class="button-previous-link" href="#" onclick="nextprev('up');return false;"></a></div>
+				<div class="button-next"><a class="button-next-link" href="#" onclick="nextprev('down');return false;"></a></div>
+		</div>
+	</div>	
+						
+	<div id="contest_zawartosc_box">
+		{loop="contest_captions"}
+		<div id="contest_demotivator">	
+			<div class="contest_demotivator_opinion" id="opinion_value_{$value.id}">
+			<b>{$value.caption_opinion}</b>
+				<span>{lang=contest_votes}<b>{$value.caption_votes}</b></span>
+			</div>
+			<div class="contest_demotivator_main">
+				<div class="contest_demotivator_top">
+					<div class="contest_demotivator_title">{$value.caption_title}</div>
+					<div class="contest_demotivator_text">{$value.caption}</div>
+				</div>
+					<div class="contest_vote">
+						<div class="contest_vote_menu">
+						{if="USER_LOGGED"}	
+							<a class="contest_up" onclick="contestVote({$value.id}, 'votes_up'); return false" href="#">{lang=contest_votes_up}</a> | 
+							<a class="contest_down" onclick="contestVote({$value.id}, 'votes_down'); return false" href="#">{lang=contest_votes_down}</a>
+						{/if}	
+						</div>
+					</div>
+					{if="USER_MOD"}	
+						<div class="contest_delete"><a href="#" onclick="deleteContestCaption( {$value.id} );return false;">Usuń podpis z konkursu</a></div>
+					{/if}
+			</div>
+		</div>	
+		{/loop}	
+		<div id="contest_demotivator_last"></div>	
+	</div>
+	{if="USER_LOGGED"}
+		<form id="contest_demotivator_form" name="contest_demotivator_form">
+			<h2>{lang=contest_add_caption}</h2>
+			
+			<div class="input-wrap">
+				<label>{lang=contest_item_title}</label>
+				<input type="text" id="contests_title" name="contests_title" value="" /><br />
+			</div>	
+			
+			<div class="input-wrap">
+				<label>{lang=contest_item_caption}</label>
+				<textarea name="contests_text" id="contests_text" style="height: 100px;"></textarea><br />
+			</div>	
+			
+			<div class="input-wrap">
+				<button onclick="contests({$contest_id}); return false;" class="button-link">{lang=contest_add_captions}</button>
+			</div>	
+		</form>
+		
+		<div class="center float_contest_panel_box float_contest_panel">
+			{lang=contest_votes_left}
+			<div class="green" id="contest_vote_up">
+				<div class="contest_votes_left_text">
+					plus:
+				</div>
+				<div class="contest_votes_left">{$vote_points.votes_up}</div>
+			</div>
+			<div class="red" id="contest_vote_down">
+				<div class="contest_votes_left_text">
+					minus:
+				</div>
+				<div class="contest_votes_left">{$vote_points.votes_down}</div>
+			</div>
+		</div>
+	{/if}			
+</div>

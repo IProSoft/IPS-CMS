@@ -1,0 +1,47 @@
+<div class="messages_block message_view">			
+	<div class="message_view_content">
+		<table>
+			<tbody>
+			
+				<tr>
+					<td>{lang=pw_message_subject}</td>
+					<td style="text-align: left;">{$message_title}</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<a href="/profile/{$from_user_login}">{$from_user_login}</a>
+					</td>	
+					<td></td>
+					<td>	
+						{$created}	| <span class="pm_rep_{$id}"> <a href="#"  title="{lang=report_warning}" onclick="systemReport({$id}, 'message'); return false;" id="msg_message_{$id}">{lang=user_report_item}</a> | </span> 
+					</td>
+				</tr>
+				
+				<tr>
+					<td rowspan="3"><img src="{$avatar}" width="64px" height="64px"/></td>
+				</tr>
+				
+				<tr>
+					<td class="text_messages" style="text-align: left; padding: 5px;">{$message}</td>
+				</tr>
+				
+			</tbody>
+		</table>	
+	</div>
+	
+	<div style="clear: both;"></div>
+
+	<div class="messages_option_buttons">
+		<button class="messages_answer">{lang=pw_reply}</button>
+		<button data-id="{$id}" class="messages_move">{lang=common_delete}</button>
+	</div>
+	
+	<div style="clear: both;"></div>
+	
+	<form>
+		<input type="hidden" name="reply_from" value="{$from_user_login}" />
+		<input type="hidden" name="reply_subject" value="Re:{$message_title}" />
+		<input type="hidden" name="reply_message" value=">{$message}" />
+	</form>
+</div>

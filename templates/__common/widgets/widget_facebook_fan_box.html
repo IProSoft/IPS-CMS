@@ -1,0 +1,13 @@
+{if="$template == 'side'"}
+<div class="panel-social nice-message-block">
+		
+	<h3>{lang=right_panel_social}</h3>
+	
+	<div class="panel-social-box">
+		{function="SocialButtons::likeBox( Config::get('apps_fanpage_default'), 280, 180, 'false', 'light', 'false' )"}
+	</div>
+	
+</div>
+{else}
+<div class="widget-fanbox">{function="SocialButtons::likeBox( Config::get('apps_fanpage_default'), 720, 210 )"}<br /><a href="{$fanpage}">{$url}</a> - Facebook</div>
+{/if}

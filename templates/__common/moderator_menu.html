@@ -1,0 +1,27 @@
+<ul class="fancy-list">
+	<li class="regular"><a href="/moderator/main/1">{lang=common_main}</a></li>
+	<li class="regular"><a href="/moderator/waiting/1">{lang=common_waiting}</a></li>
+	<li class="regular"><a href="/moderator/archive/1">{lang=common_archive}</a></li>
+	<li class="regular"><a href="/moderator/comments/1/">{lang=common_comments}</a></li>
+</ul>
+
+{if="$mod_action != 'comments'"}
+
+	
+	<ul class="fancy-list">
+		<li class="regular"><a href="/moderator/{$mod_action}/date_add/1">{lang=user_mod_date}</a></li>
+		<li class="regular"><a href="/moderator/{$mod_action}/votes_opinion/1">{lang=user_mod_opinion}</a></li>
+		<li class="regular"><a href="/moderator/{$mod_action}/votes_count/1">{lang=user_mod_votes}</a></li>
+		<li class="regular"><a href="/moderator/{$mod_action}/comments/1">{lang=common_comments_num}</a></li>
+		<li class="regular"><a href="/moderator/{$mod_action}/share/1">{lang=user_mod_shares}</a></li>
+	</ul>
+
+{else}
+
+	<ul class="fancy-list" style="width:90%">
+		<li class="regular"><a href="/moderator/comments/date_add/1">{lang=user_mod_date}</a></li>
+		<li class="regular"><a href="/moderator/comments/comment_opinion/1">{lang=user_mod_opinion}</a></li>
+		<li class="regular"><a href="/moderator/comments/comment_votes/1">{lang=user_mod_votes}</a></li>
+	</ul>
+	
+{/if}

@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	ips_config.widget_best_files = {
+		intrval: {$interval},
+		timer: {$timer}
+	}
+</script>
+<div id="best-files" class="widget-best-files box-max">
+	<span class="widget-best-files-close"></span>
+	<h4>{lang=widget_best_files_title_block}</h4>
+	<div class="widget-best-files-container">
+		<div class="best-files-list">
+			{loop="best_files"}
+				<div style="display: none;" class="best-files-item">
+				<a href="{$value.link}" class="best-files-title"> {function="cutWords($value.title, 40)"}</a>
+				<div class="best-files-overflow">
+					<a href="{$value.link}" class="best-files-url ips-img-cache" title="{$value.title}" data-img="{$value.upload_image}" data-title="{$value.title}" data-width="176" data-height="88"></a>
+				</div>
+				<div class="best-files-buttons">
+					{$value.button_share}
+				</div>    
+				</div>
+			{/loop}	 
+		</div>
+    <ul class="best-files-control"></ul>
+	</div>
+</div>

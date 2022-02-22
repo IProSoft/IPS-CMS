@@ -1,0 +1,19 @@
+<script type="text/javascript" src="/libs/galleries/simple/lib/jquery.jcarousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/libs/galleries/simple/skins/tango/skin.css" />
+<div class="gallery_intro">
+	<p>{$intro_text}</p>
+	<div id="gallery_images" class="pirobox">
+		<ul id="mycarousel" class="jcarousel-skin-tango" style="display:none;">
+		{loop="$gallery_images"}
+		<li>
+			<a href="{$value.src}" class="simple_gallery_link">
+				<img src="{$value.src}" width="75" height="75" />
+			</a>
+		</li>
+		{/loop}
+		</ul>
+	</div>
+	<div class="simple_gallery_container">
+		<img src="{$image_start}" />
+	</div>
+</div>

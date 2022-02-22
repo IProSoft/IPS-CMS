@@ -1,0 +1,161 @@
+html, body, #all_page, #content{
+	height: 100%;
+}
+.ver-demotywator #fast-logo{
+	float:none
+}
+.ver-demotywator .fast-top-div .fast-top h2.file-title, 
+.ver-demotywator .fast-top-div .fast-top a.file-title{
+	padding: 0;
+	margin: 10px 0;
+}
+
+.ver-demotywator  #fast-normalny {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#fast-top {
+    background-color: #181818;
+    height: 110px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+#fast-logo {
+    display: block;
+    float: left;
+}
+#fast-logo img {
+    height: 55px;
+}
+
+#fast-top-text {
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    width: 900px;
+}
+#fast-top-text .fast-top {
+    border: medium none;
+    margin: 0 auto;
+    text-align: center;
+    width: 750px;
+}
+#fast-top-text .fast-top-div .fast-top h2.file-title, .fast-top-div .fast-top a.file-title {
+    display: inline-block;
+    float: none;
+}
+.fast-top-div .fast-top h2.file-title, .fast-top-div .fast-top a.file-title {
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px;
+    padding-left: 34px;
+    position: relative;
+    text-decoration: none;
+}
+#fast-top-container {
+    background: url("/images/fast/fast-top-bg.png") repeat-x scroll left top transparent;
+    height: 50px;
+	text-align: center;
+}
+
+#footer_fast {
+    background-color: #000000;
+    bottom: 0;
+    left: 0;
+    padding-top: 10px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 10000;
+}
+#footer_fast span {
+    background: url("/images/fast/fast-tip.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Tahoma;
+    font-size: 12px;
+    height: 42px;
+    line-height: 42px;
+    margin-right: 400px;
+    text-indent: 25px;
+}
+.fast-overflow-container {
+    clear: both;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+    width: 100%;
+}
+#fast-slider {
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+}
+#fast-slider img{
+    border:none;
+}
+#fast-slider ul, #fast-slider li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#fast-slider li {
+    display: block;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    width: auto;
+    margin: 0px auto;
+	text-align: center;
+}
+#fast-slider li.show{
+	z-index:500;
+	height: auto;
+	padding-bottom: 5em;
+	clear:both;
+}
+.fast-load-hidden {
+    display: none;
+}
+.fast-slider-nav {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+}
+#go-next {
+    margin-right: -520px;
+    right: 50%;
+}
+#go-prev {
+    background-position: right top;
+    left: 50%;
+    margin-left: -520px;
+}
+.fast-slider-nav {
+    background: url("/images/fast/fast-navi.png") repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 52px;
+    position: fixed;
+    top: 50%;
+    width: 55px;
+}
+#fast-normalny {
+    float: right;
+}
+.content-while-fast .ads_right{
+	right: -700px;
+}
+.content-while-fast .ads_left{
+	left: -700px;
+}

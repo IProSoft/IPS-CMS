@@ -1,0 +1,108 @@
+#ips-popup{
+	background-color:#fff;
+	display:none;
+	position:fixed;
+	top:200px;
+	_position:absolute; /* hack for IE 6*/
+	max-width:450px;
+	border:10px solid #6F6F6F;
+	z-index:20000;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	margin:0pt;
+	padding:0pt;
+	color:#333333;
+	text-align:left;
+	font-family:arial,sans-serif;
+	font-size:13px;
+	width: 100%;
+}
+
+#ips-popup body{
+	background:#fff none repeat scroll 0%;
+	line-height:1;
+	margin:0pt;
+	height:100%
+}
+
+.ips-save-like{
+	cursor: pointer;
+	font-size:11px !important;
+	color:#FFF !important;
+	text-decoration:none !important;
+	border:0 !important;
+}
+
+#ips-popup-wrapper{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#ddd; 
+	z-index:10000;
+}
+
+#ips-popup #ips-popup-close{
+	float:right;
+	margin:7px 15px 0 0;
+}
+
+#ips-popup h1{ 
+	background:#6D84B4 none repeat scroll 0 0;
+	border-top:1px solid #3B5998;
+	border-left:1px solid #3B5998;
+	border-right:1px solid #3B5998;
+	color:#FFFFFF !important;
+	font-size:14px !important;
+	font-weight:normal !important;
+	padding:5px !important;
+	margin:0 !important;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
+}
+
+#ips-popup #actionHolder{
+	min-height: 30px;
+	overflow: hidden;
+}
+
+#ips-popup #buttonArea{
+	background:#F2F2F2;
+	border-top:1px solid #CCCCCC;
+	padding:10px;
+	min-height:50px;
+}
+
+#ips-popup #buttonArea a{
+	color:#999999 !important;
+	text-decoration:none !important;
+	border:0 !important;
+	font-size:10px !important;
+}
+
+#ips-popup #buttonArea a:hover{
+	color:#333 !important;
+	text-decoration:none !important;
+	border:0 !important;
+}
+
+#ips-popup #ips-popup-container-body{
+	font-size:12px !important;
+	font-weight:normal !important;
+	line-height:22px;
+	padding:8px;
+	background:#fff !important;
+	color: #000
+}
+
+#ips-popup #ips-popup-timer-count{
+	float:right;
+	font-size:11px !important;
+	font-weight:normal !important;
+	margin:5px 0 0 0;
+	text-align:right;
+	line-height:16px;
+	color: #888
+}

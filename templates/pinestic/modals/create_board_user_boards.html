@@ -1,0 +1,32 @@
+<div class="user-board-list" id="user-board-list">
+
+	<div class="user-board-list-main">
+
+		{$create_board_simple}
+		
+		<div class="user-board-list-boards">
+            <ul>
+				{loop="user_boards"}
+					<li class="user-board-list-item" data-id="{$value.board_id}" data-privacy="{$value.board_privacy}">
+						{if="$value.board_privacy == 'private'"}
+							<div class="user-board-item-icon icon-private">
+								<span></span>
+							</div>
+						{/if}
+						<span class="user-board-item-title">{$value.board_title}</span>
+					</li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+    
+	<div class="user-board-item-selected">
+        <div class="user-board-item-current" data-id="" data-privacy="">
+			<div class="user-board-item-icon">
+				<span></span>
+			</div>
+            <span class="user-board-item-current-title"></span>
+        </div>
+    </div>
+	
+</div>

@@ -1,0 +1,37 @@
+<div class="add-new-file">
+	<form id="upload_form" name="upload_form" action="/upload/ranking" method="post" enctype="multipart/form-data">
+		
+		<div class="ranking-up-limit">{$ranking_max_add_count_text}</div>
+		
+		<div id="up_image_file" class="input-wrap up_image">
+			{function="Upload_Helper::dropzone('image', true)"}
+			<input type="hidden" value="{$post_upload_url}" />
+		</div>
+	
+		{if="Config::get('add_captcha') == 2 || ( Config::get('add_captcha') == 1 && !USER_LOGGED ) "}
+			{include="/upload/up_captcha.html"}
+		{/if}
+		
+		{if="Config::get('add_require_rules')"}
+			{include="/upload/up_require_rules.html"}
+		{/if}
+		
+		<input type="hidden" name="long_text" value="true" />
+		<input type="hidden" name="title" value="true" />
+		<input type="hidden" name="upload_id" value="{$upload_id}" />
+		<input type="hidden" name="upload_images" id="upload_images"  value="{$upload_images}" />	
+		<input type="hidden" name="update_ranking" value="true" />
+		
+		<input type="hidden" name="MAX_FILE_SIZE" value="{$max_file_size}" />
+		<input type="hidden" name="edit_id" value="{$edit_id}" />
+		<input type="hidden" name="_token" value="{$edit_id|csrf_token}" />
+		
+		<div class="add-actions-bottom">
+			
+			<a class="submit button-link cancel" href="/">{lang=add_cancel}</a>
+			
+			<button class="submit" id="add-form-submit">{lang=common_add}</button>
+			
+		</div>
+	</form>
+</div>

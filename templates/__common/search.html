@@ -1,0 +1,86 @@
+<form id="searchform" name="form" action="/search/" method="post">
+	<fieldset class="search-fields">
+		
+		<input id="input_q" type="text" value="{$search_phrase}" name="search_phrase" />
+		
+		<div>
+			
+			
+			
+
+			<span>
+				<label for="box_1" class="search_chbx">{lang=common_type_image}</label>
+				<input id="box_1" name="search_files[image]" type="checkbox" class="chbx display_none" />
+			</span>
+			
+			<span>
+				<label for="box_2" class="search_chbx">{lang=common_type_video}</label>
+				<input id="box_2" name="search_files[video]" type="checkbox" class="chbx display_none" />
+			</span>
+			
+			<span>
+				<label for="box_3" class="search_chbx">{lang=common_type_text}</label>
+				<input id="box_3" name="search_files[text]" type="checkbox" class="chbx display_none" />
+			</span>
+			
+			<span>
+				<label for="box_4" class="search_chbx">{lang=common_type_article}</label>
+				<input id="box_4" name="search_files[article]" type="checkbox" class="chbx display_none" />
+			</span>
+			
+			<span>
+				<label for="box_5" class="search_chbx">{lang=common_type_gallery}</label>
+				<input id="box_5" name="search_files[gallery]" type="checkbox" class="chbx display_none" />
+			</span>
+			
+			<span>
+				<label for="box_6" class="search_chbx">{lang=common_type_ranking}</label>
+				<input id="box_6" name="search_files[ranking]" type="checkbox" class="chbx display_none" />
+			</span>
+
+		</div>
+
+		<div class="select-cnt">
+			<span>
+				<label>{lang=search_where}</label>
+				<select name="search_place" class="select">
+					<option value="main">{lang=search_on_main}</option>
+					<option value="wait" >{lang=common_waiting}</option>
+					<option value="all" selected="selected">{lang=common_all}</option>
+
+				</select>
+			</span>
+			
+			<span>
+				<label>{lang=search_sorting}</label>
+				<select name="search_sorting" class="select">
+					<option value="none" selected="selected" >{lang=search_sorting_accuracy}</option>
+					<option value="date_add-asc" >{lang=search_date_asc}</option>
+					<option value="date_add-desc" >{lang=search_date_desc}</option>
+					<option value="opinion_asc" >{lang=search_vote_asc}</option>
+					<option value="opinion_desc" >{lang=search_vote_desc}</option>
+
+				</select>
+			</span>
+
+			<span>
+				<label>{lang=search_view}</label>
+				<select id="ro" name="search_display" class="select">
+					<option value="normal" selected="selected" >{lang=search_view_normal}</option>
+					<option value="small" >{lang=search_view_thumbs}</option>
+
+				</select>
+			</span>
+			
+		</div>	
+		<button type="submit">{lang=common_search}</button>
+	</fieldset>
+</form>
+
+{if=" !empty( $search_phrase )"}
+	{if=" !empty( $search_results_count ) "}
+		<div class="ips-message msg-normal"><span>{$search_results_count}</span></div>
+	{else}
+		<div class="ips-message msg-alert"><span>{lang=search_fill_field}</span></div>
+	{/if}
+{/if}

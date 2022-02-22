@@ -1,0 +1,141 @@
+<script type="text/javascript" src="/js/ips_steps.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#ui-steps-wrapper").IPSsteps();
+});
+</script>
+
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+
+#ui-steps {
+    margin: 0 auto;
+    max-width: 920px;
+    position: relative;
+    text-align: center;
+}
+
+#ui-steps div.ui-step-wrapper {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    max-width: 860px;
+    padding: 20px 30px;
+    position: absolute;
+    width: 100%;
+	box-sizing: border-box;
+}
+
+#ui-steps div.ui-step-wrapper:not(:first-of-type) {
+	display: none;
+}
+
+#ui-progressbar {
+    counter-reset: step;
+    overflow: hidden;
+    width: auto;
+}
+#ui-progressbar li {
+	list-style-type: none;
+	color: #111;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: auto;
+	float: left;
+	position: relative;
+	margin-right: 10px;
+}
+#ui-progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+	text-align: center;
+}
+#ui-progressbar li:after {
+    background: none repeat scroll 0 0 #000000;
+    content: "";
+    height: 2px;
+    left: -45%;
+    position: absolute;
+    top: 9px;
+    width: 85%;
+}
+#ui-progressbar li:first-child:after {
+	content: none; 
+}
+#ui-progressbar li.active:before,  #ui-progressbar li.active:after{
+	-webkit-font-smoothing: antialiased;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3262e), color-stop(100%, #ab171e));
+    background-image: -webkit-linear-gradient(#e3262e,#ab171e);
+    background-image: -moz-linear-gradient(#e3262e,#ab171e);
+    background-image: -o-linear-gradient(#e3262e,#ab171e);
+    background-image: linear-gradient(#e3262e,#ab171e);
+ 	-webkit-box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);
+ 	-moz-box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);
+    background-color: #ab171e;
+	color: white;
+}
+.ui-guide h4{
+	margin :10px auto 10px 0px
+}
+.ui-guide {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 10px;
+}
+.ui-guide .ui-action-buttons{
+    margin: 0px auto;
+    text-align:right !important;
+}
+.ui-guide .ui-action-buttons button{
+    display: inline;
+}
+.ui-guide .ui-action-buttons button.ui-hide{
+	 display: none;
+}
+</style>
+<div id="ui-steps-wrapper">	
+	<div class="ui-guide">
+			
+		<h2>Witaj w Pintereście, Adam!</h2>
+		<h4>Pomożemy Ci sprawnie zacząć przy pomocy naszego krótkiego przewodnika...</h3>
+		
+		<ul id="ui-progressbar">
+			<li data-step="1" class="active">Account Setup</li>
+			<li data-step="2">Social Profiles</li>
+			<li data-step="3">Personal Details</li>
+		</ul>
+		<div class="ui-action-buttons">
+			<button class="ui-progress-scroller ui-previous ui-hide button-red">Wstecz</button>
+			<button class="ui-progress-scroller ui-next button-red">Dalej</button>
+			<button class="ui-progress-scroller ui-end ui-hide button-red">Zakończ</button>
+		</div>
+		
+	</div>
+	<div id="ui-steps">
+
+		<div class="ui-step-wrapper" data-step="1">
+			1
+			<button name="next" data-step="1" class="ui-next-step button-red">Dalej</button>
+		</div>
+		<div class="ui-step-wrapper" data-step="2">
+			2
+			<button name="next" data-step="2" class="ui-next-step button-red">Dalej</button>
+		</div>
+		<div class="ui-step-wrapper" data-step="3">
+			3
+			<button name="next" data-step="3" class="ui-next-step button-red">Dalej</button>
+		</div>
+	</div>
+</div>

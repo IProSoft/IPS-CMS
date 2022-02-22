@@ -1,0 +1,93 @@
+div#banner
+{
+ display: inline-block\9
+}
+div#banner a
+{
+ text-decoration: none\9
+}
+div.main_menu_like_wrapper
+{
+ display: inline\9;
+ height:38px\9;
+}
+div.menu_glowne_bg {
+  display:block\9;
+  text-align:center\9;
+}
+
+div#menu_glowne li
+{
+ display: inline\9;
+ margin:0px\9
+}
+div#menu_glowne {
+  display:block\9;
+}
+ div.lewe{
+	margin:0\9;
+	width:200px\9;
+
+ }
+ div#menu_glowne ul
+{
+ display: inline\9;
+ margin:0\9;
+}
+body{
+overflow:scroll\9;
+
+}
+
+ span.counter{
+ display: none\9;
+ }
+ 
+ 
+ 
+ 
+ 
+:root #banner
+{
+ display: inline-block \0/
+}
+:root #banner a
+{
+ text-decoration: none \0/
+}
+:root .main_menu_like_wrapper
+{
+ display: inline \0/;
+ height:38px \0/;
+}
+:root .menu_glowne_bg {
+  display:block \0/;
+  text-align:center \0/;
+}
+
+:root #menu_glowne li
+{
+ display: inline \0/;
+ margin:0px \0/
+}
+:root #menu_glowne {
+  display:block \0/;
+}
+:root  .lewe{
+	margin:0 \0/;
+	width:200px \0/;
+
+ }
+:root  #menu_glowne ul
+{
+ display: inline \0/;
+ margin:0 \0/;
+}
+body{
+overflow:scroll \0/;
+display: none  \0/;
+}
+
+* + html span.counter{
+display: none\0/;
+ }

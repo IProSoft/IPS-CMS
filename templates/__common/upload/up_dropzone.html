@@ -1,0 +1,49 @@
+{if=" $up_type =='video' "}
+<div class="up_video_cover input-wrap display_none">
+	<label>{lang=add_file_cover}</label>
+	<div class="add-file-input">
+		<button class="change_input" value="file">{lang=add_file_normal}</button>
+		<button class="change_input" value="link">{lang=add_file_url}</button>
+		<input name="upload_cover_file" type="file" class="full_width display_none" />		
+		<input name="upload_cover_url" type="text" class="full_width" title="{lang=add_http_url}" placeholder="{lang=add_http_url}" />
+	</div>
+</div>
+{/if}
+
+<div class="dropzone button">
+	<div class="progress-line absolute-100 display_none"></div>
+	<div class="dz-message">
+		
+		<span class="up-message">{lang=up_dropzone_drop}</span>
+		<div class="progress striped display_none"></div>
+		<div class="error display_none" data-message="{lang=up_dropzone_error}"></div>
+	
+	</div>
+</div>
+
+<div class="dropzone-url button">
+	
+	<div class="url-actions">
+		<span class="url-label">{$url_text}</span>
+		
+		<div class="url-input display_none">
+			<input type="text" title="{lang=add_http_url}" placeholder="{lang=add_http_url}" name="drop-url" />
+			<span class="dropzone-url-button button">{lang=common_add}</span>
+		</div>
+	</div>
+	
+	<div class="url-loader display_none">
+		<img width="48" height="48" src="/images/svg/spinner.svg">
+	</div>
+	
+</div>
+
+{if="$up_preview"}
+<div class="dropzone-preview display_none">
+	<div class="loader">
+		<img width="48" height="48" src="/images/svg/spinner.svg">
+	</div>
+</div>
+{/if}
+
+

@@ -1,0 +1,16 @@
+<div class="ips-lock autopost {$class}">
+	<div class="ips-lock-text">
+		{$autopost_blocked}
+	</div>
+</div>
+<style>
+.ips-lock{
+	width: {$size.width}px;
+	height: {$size.height}px;
+}
+{if="$image"}
+.ips-lock.display-img {
+    background: url("{$image}") repeat scroll 0 0 transparent;
+}
+{/if}
+</style>

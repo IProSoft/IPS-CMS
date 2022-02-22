@@ -1,0 +1,70 @@
+.guillotine-frame {
+    cursor: move;
+    margin: 0 auto;
+    z-index: 50;
+}
+.guillotine-frame img {
+    z-index: 9;
+}
+.guillotine-wrapper {
+    overflow: hidden;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    position: relative;
+}
+.guillotine-mask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.6);
+	bottom: 40px;
+}
+.guillotine-mask > span {
+    background: none repeat scroll 0 0 #fcf9f9;
+    display: block;
+    opacity: 0.9;
+    position: absolute;
+    z-index: 10;
+}
+#guillotine_controls {
+    background-color: #1b1b1b;
+    text-align: center;
+}
+#guillotine_controls span {
+    color: #888;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 5%;
+}
+.guillotine-window {
+  display: block;
+  position: relative;
+}
+
+.guillotine-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.guillotine-canvas > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}

@@ -1,0 +1,45 @@
+{loop="items"}
+<div id="mod_{$value.id}" class="table-block">
+	
+	<div class="table-menu font_bolder">
+		<div>{lang=common_opinion}<span>{$value.votes_opinion}</span></div>
+		<div>{lang=votes_up}<span>{$value.votes_up}</span></div>
+		<div>{lang=votes_down}<span>{$value.votes_down}</span></div>
+		<div>{lang=archive_votes}<span>{$value.votes_count}</span></div>
+		<div>{lang=number_of_facebook_shares}<span>{$value.share}</span></div>
+		<div>{lang=common_comments_num}<span>{$value.comments}</span></div>
+		<div>{lang=archive_author}<span>{$value.user_login}</span></div>
+		<div>{lang=item_added_info}<span>{$value.date_add}</span></div>
+	</div>
+
+	<div class="table-menu moderation-panel">
+	
+		{if="$value.upload_status == 'public'"}
+			
+			{if="$value.upload_activ == 0"}
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="main">{lang=common_main}</a>
+			{else}
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="waiting">{lang=common_waiting}</a>
+			{/if}
+		
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="archive">{lang=common_archive}</a>
+
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="delete">{lang=common_delete}</a>
+		
+		{else}
+		
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="archive-wait">{lang=common_waiting}</a>
+
+			<a class="button-link" href="#" data-id="{$value.id}" data-action="delete">{lang=common_delete}</a>
+		
+		{/if}
+			<a class="button-link" href="/{$value.id}/{$value.seo_link}" target="_blank">{lang=common_see}</a>
+	</div>
+	
+	<div class="table-content">
+		<img src="{$value.upload_image}" style="cursor: pointer;" width="200px;" onclick="$(this).width(600);"/>
+	</div>
+	
+</div>
+{/loop}
+

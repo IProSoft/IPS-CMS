@@ -1,0 +1,45 @@
+<link href="/css/widgets/widget_facebook_friends.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/widgets/widget_facebook_friends.js"></script>
+<div id="IPS-app-container">
+	<div id="IPS-app">
+		<div id="logged-user" style="display: none;">
+			<div id="user-friends">
+				<h3>{lang=widget_friends_1}<a href="#" class="inviteFriend">{lang=widget_friends_2}</a></h3>
+				<span class="preload" style="display: none;">{lang=widget_friends_3}</span>
+				<ul class="user-friends-list"></ul>
+				<div id="friends-activity"></div>
+			</div>
+
+			<div id="activity-off" style="display: none;">{lang=widget_friends_4}</div>
+			<div id="account">
+				
+				<h3>{lang=widget_friends_5}<a href="#" class="pubHistory">{lang=widget_friends_6}</a></h3>
+				<div id="user-image"></div>
+				<div id="actions">
+					<span class="login"></span>
+					<ul>
+						<li>
+							<input checked="checked" id="activityPublishCheck" name="activityPublishCheck" type="checkbox" value="yes" />
+							<label title="Włacz publikowanie aktywności na Facebook" for="activityPublishCheck">{lang=widget_friends_7}</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="history" style="display: none;">
+				<h3>{lang=widget_friends_8}</h3>
+				<ul></ul>
+			</div>
+		</div>
+		<div id="not-logged-user">
+			<div id="begin">
+				<div class="login">
+					{function="SocialButtons::getConnectButtonFB( 'force' )"}
+				</div>
+				<div class="about">
+					<p>{lang=widget_friends_9}</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
